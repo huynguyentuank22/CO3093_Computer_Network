@@ -50,7 +50,7 @@ class TCPserver(Thread):
                     self.conn, self.addr = self.server_socket.accept()
                     self.SOCKET_LIST.append(self.conn)
                     print('Client (%s, %s) connected' % self.addr)
-                    print(self.conn.recv(1024).decode())
+                    # print(self.conn.recv(1024).decode())
                     central = CentralServer(self.conn, self.addr) 
                     central.start()
     
@@ -76,6 +76,7 @@ class CentralServer(Thread):
             try:
                 request =  self.conn.recv(1024).decode()
                 print('Client request to Server:', request)
+                self.conn.send('OK'.encode())
                 # Registration service
                 if request == 'register':
                     print('register service') 
@@ -140,24 +141,24 @@ class CentralServer(Thread):
         print('Init database')
         self.connector = sqlite3.connect('accounts.db')
         self.cursor = self.connector.cursor()
-        # self.cursor.execute('''CREATE TABLE users
-        #                     (username TEXT NOT NULL UNIQUE,
-        #                     password TEXT NOT NULL,
-        #                     ip TEXT,
-        #                     port INTEGER,
-        #                     status INTEGER)''')
-        # self.connector.commit()
+        self.cursor.execute('''CREATE TABLE IF NOT EXISTS users
+                            (username TEXT NOT NULL UNIQUE,
+                            password TEXT NOT NULL,
+                            ip TEXT,
+                            port INTEGER,
+                            status INTEGER)''')
+        self.connector.commit()
 
     def closeDatabaseConn(self):
         self.cursor.close()
 
     def getAccountByUsername(self, user):
-        self.cursor.execute(f"""SELECT * FROM users WHERE username = {user}""")
+        self.cursor.execute(f"""SELECT * FROM users WHERE username = ?""", (user,))
         records = self.cursor.fetchall()
         return records
     
     def getAccountByUsernameAndPassword(self, user, passwd):
-        self.cursor.execute(f"""SELECT * FROM users WHERE username = {user} AND password = {passwd}""")
+        self.cursor.execute(f"""SELECT * FROM users WHERE username = ? AND password = ?""", (user, passwd))
         records = self.cursor.fetchall()
         return records
     
@@ -167,16 +168,16 @@ class CentralServer(Thread):
         return records
     
     def getAddressByUsername(self, user):
-        self.cursor.execute(f"""SELECT ip, port FROM users WHERE username = {user} AND status = 1""")
+        self.cursor.execute(f"""SELECT ip, port FROM users WHERE username = ? AND status = 1""", (user,))
         records = self.cursor.fetchall()
         return records
     
     def insertUser(self, user, passwd):
-        self.cursor.execute(f"""INSERT INTO users (username, password, status) VALUES ({user}, {passwd}, 0)""")
+        self.cursor.execute(f"""INSERT INTO users (username, password, status) VALUES (?, ?, 0)""", (user, passwd))
         self.connector.commit()
 
     def updateUser(self, user, ip, port):
-        self.cursor.execute(f"""UPDATE user SET status = 1, ip = {ip}, port = {port} WHERE username = {user}""")
+        self.cursor.execute(f"""UPDATE user SET status = 1, ip = ?, port = ? WHERE username = ?""", (ip, port, user))
         self.connector.commit()
 
 if __name__ == '__main__':
