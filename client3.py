@@ -1,4 +1,4 @@
-from threading import Thread
+import threading
 import socket, select
 # from protocol import Encode
 
@@ -63,53 +63,53 @@ class PeerCentral():
         self.central_client_socket.close()
 
 
-# class PeerServer(Thread):
-#     ClientList = [] # List of online client
-#     peerIP = None
-#     peerPort = None
-#     def __init__(self, peerName, peerIP):
-#         Thread.__init__(self)
-#         self.ClientList = []
-#         self.peerName = peerName
-#         self.peerIP = peerIP
-#         self.listenPort = 80
+class PeerServer(threading.Thread):
+    ClientList = [] # List of online client
+    peerIP = None
+    peerPort = None
+    def __init__(self, peerName, peerIP):
+        threading.Thread.__init__(self)
+        self.ClientList = []
+        self.peerName = peerName
+        self.peerIP = peerIP
+        self.listenPort = 80
 
-#         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#         self.server.bind((self.peerIP, int(self.listenPort)))
+        self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.server.bind((self.peerIP, int(self.listenPort)))
 
-#     def run(self):
-#         self.server.listen(100)
-#         print('Start listening on port', self.listenPort)
-#         inputs = [self.server]
+    def run(self):
+        self.server.listen(100)
+        print('Start listening on port', self.listenPort)
+        inputs = [self.server]
 
-#         while 1:
-#             try:
-#                 read_to_read, _, _ = select.select(inputs, [], [], 0)
-#                 for s in read_to_read:
-#                     if s == self.server:
-#                         conn, addr = s.accept()
-#                         conn.send('OK'.encode(FORMAT))
+        while 1:
+            try:
+                read_to_read, _, _ = select.select(inputs, [], [], 0)
+                for s in read_to_read:
+                    if s == self.server:
+                        conn, addr = s.accept()
+                        conn.send('OK'.encode(FORMAT))
 
-#                         self.ClientList.append(conn)
-#                     else:
-#                         print('Hihi')
-#             except Exception as e:
-#                 print(e)
+                        self.ClientList.append(conn)
+                    else:
+                        print('Hihi')
+            except Exception as e:
+                print(e)
                 
 
-# class PeerClient(Thread):
-#     def __init__(self, name, conn, ip, port, opponent_name):
-#         Thread.__init__(self)
-#         self.name = name
-#         self.conn = conn
-#         self.ip = ip
-#         self.port = port
-#         self.opponent_name = opponent_name
-#         self.Encoder = Encode(ip, port)
-#         self.running = 1
+class PeerClient(threading.Thread):
+    def __init__(self, name, conn, ip, port, opponent_name):
+        threading.Thread.__init__(self)
+        self.name = name
+        self.conn = conn
+        self.ip = ip
+        self.port = port
+        self.opponent_name = opponent_name
+        # self.Encoder = Encode(ip, port)
+        self.running = 1
 
-#     def run(self):
-#         return
+    def run(self):
+        return
         
 if __name__ == '__main__':
     central = PeerCentral()

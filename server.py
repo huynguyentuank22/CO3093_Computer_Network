@@ -1,8 +1,11 @@
 import socket, select
 import sqlite3
-from threading import Thread
+import threading
 import time
 import traceback
+
+FORMAT = 'utf-8'
+SIZE = 1024
 
 hostname = socket.gethostname()
 local_IP = socket.gethostbyname(hostname)
@@ -14,15 +17,15 @@ HOST = local_IP
 
 def sendMsg(conn, msg):
     try:
-        conn.send(msg.encode())
+        conn.send(msg.encode(FORMAT))
     except:
         conn.close()
     
-class TCPserver(Thread):
+class TCPserver(threading.Thread):
     SOCKET_LIST = []
 
     def __init__(self):
-        Thread.__init__(self)
+        threading.Thread.__init__(self)
         self.HOST = HOST
         self.PORT = 3000
         self.server_socket = None
@@ -50,7 +53,7 @@ class TCPserver(Thread):
                     self.conn, self.addr = self.server_socket.accept()
                     self.SOCKET_LIST.append(self.conn)
                     print('Client (%s, %s) connected' % self.addr)
-                    # print(self.conn.recv(1024).decode())
+                    # print(self.conn.recv(SIZE).decode(FORMAT)
                     central = CentralServer(self.conn, self.addr) 
                     central.start()
     
@@ -60,9 +63,9 @@ class TCPserver(Thread):
 
 
 # Central Server
-class CentralServer(Thread):
+class CentralServer(threading.Thread):
     def __init__ (self, conn, addr) -> None:
-        Thread.__init__(self)
+        threading.Thread.__init__(self)
         self.ClientList = [] # list of online client
         self.conn = conn
         self.addr = addr
@@ -74,9 +77,9 @@ class CentralServer(Thread):
         print('Server start listening on', self.addr)
         while self.running:
             try:
-                request =  self.conn.recv(1024).decode()
+                request = self.conn.recv(SIZE).decode(FORMAT)
                 print('Client request to Server:', request)
-                self.conn.send('OK'.encode())
+                # self.conn.send('OK'.encode(FORMAT))
                 # Registration service
                 if request == 'register':
                     print('register service') 
@@ -89,15 +92,18 @@ class CentralServer(Thread):
                 elif request == 'search':
                     print('search service')
                     self.searchService()
-                else:
+                elif not request:
                     print('Invalid request')
+                    break
+                else:
+                    print('something')
             except:
                 print(f'Client {self.addr} is not online or having connection errors!')
                 break
 
     # implement service
     def registerService(self):
-        user, passwd = self.conn.recv(1024).decode().split(',')
+        user, passwd = self.conn.recv(SIZE).decode(FORMAT).split(',')
         print(user, passwd)
         record = self.getAccountByUsername(user)
         if record != []:
@@ -110,21 +116,20 @@ class CentralServer(Thread):
                 sendMsg(self.conn, 'Error. Try again...')
                 
     def loginService(self):
-        user, passwd, ip, port = self.conn.recv(1024).decode().split(',')
+        user, passwd, ip, port = self.conn.recv(SIZE).decode(FORMAT).split(',')
         record = self.getAccountByUsernameAndPassword(user, passwd)
         if record == []:
             sendMsg(self.conn, 'The account or password does not exist')
         else:
             try:
-                self.updateUser(user, passwd, ip, port)
-                sendMsg(self.conn, 'Connected successfully')
-                sendMsg(self.conn, user)
+                self.updateUser(user, ip, port)
+                sendMsg(self.conn, f'Connected successfully {user}' )
             except Exception as e:
                 sendMsg(self.conn, 'Query erorr. Retrying...')
                 # traceback.print_exc()
     
     def searchService(self):
-        user = self.conn.recv(1024).decode()
+        user = self.conn.recv(SIZE).decode(FORMAT)
         record = self.getAddressByUsername(user)
         if not record:
             sendMsg(self.conn, 'The account is either offline or does not exist')
@@ -177,10 +182,64 @@ class CentralServer(Thread):
         self.connector.commit()
 
     def updateUser(self, user, ip, port):
-        self.cursor.execute(f"""UPDATE user SET status = 1, ip = ?, port = ? WHERE username = ?""", (ip, port, user))
+        self.cursor.execute(f"""UPDATE users SET status = 1, ip = ?, port = ? WHERE username = ?""", (ip, port, user))
         self.connector.commit()
+
+class UDPServer(threading.Thread):
+    def __init__(self) -> None:
+        threading.Thread.__init__(self)
+        self.HOST = HOST
+        self.PORT = 3004
+        self.server_socket = None
+        self.running = 1
+        self.ONLINE_LIST = {}
+
+    def run(self):
+        self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.server_socket.bind((self.HOST, 3004))
+        print('UDP server started on port', self.PORT)
+
+        while self.running == 1:
+            try:
+                userNameDataAndAddr = self.server_socket.recvfrom(SIZE)
+                userNameData = userNameDataAndAddr[0].decode(FORMAT)
+
+                userName, data = str(userNameData).split(",")
+                #print(userNameData)
+                if data == "Hello":
+                    # save the current time
+                    current = time.time()
+                    self.ONLINE_LIST[userName] = current
+                    # send a list of friends to the listening client
+                    self.server_socket.sendto(str([friend[0] for friend in self.ONLINE_LIST]).encode(),userNameDataAndAddr[1])
+                else:
+                    print("Wrong UDP data format \n")
+            except:
+                print("UDP port error \n")
+
+    def peerStatusCheck(self):
+        while udpThread.running == 1:
+            for name in self.ONLINE_LIST.copy().keys(): # create a copy to prevent edit-on-iterate error
+                elapsedTime = int(time.time() - self.ONLINE_LIST[name])
+                if elapsedTime > 5:  # no response for more than 5 secs
+                    print("Peer is offline -> '" + str(name) + "'\n") # print to server console
+                    try:
+                        self.ONLINE_LIST.pop(name)
+                    except:
+                        print("Online list update error")
+                    # update database
+                    self.updatePeerStatus(name)
+    
+    def updatePeerStatus(self, userName):
+        self.connector = sqlite3.connect('accounts.db')
+        self.cursor = self.connector.cursor()  
+        self.cursor.execute(f"""UPDATE users SET status = 0 WHERE username = ?""", (userName,))
+        self.connector.commit()
+        self.connector.close()
 
 if __name__ == '__main__':
     tcpThread = TCPserver()
+    udpThread = UDPServer()
     tcpThread.start()
+    udpThread.start()
 
