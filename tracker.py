@@ -30,7 +30,7 @@ class TrackerServer:
                                 ip TEXT,
                                 port INTEGER,
                                 status INTEGER
-                              )''')
+                                )''')
             self.conn.commit()
 
     def handle_peer(self, client_socket, addr):
@@ -47,6 +47,8 @@ class TrackerServer:
                 print(f"Received message from {addr}: {info['type']}")
                 if info['type'] == REGISTER:
                     self.register_service(client_socket, info)
+                elif info['type'] == LOGIN:
+                    self.login_service(client_socket, info)
                 # ... handle other message types ...
             except Exception as e:
                 print(f"Error handling peer {addr}: {e}")
@@ -74,8 +76,23 @@ class TrackerServer:
             self.sendMsg(client_socket, {'type': REGISTER_FAILED, 'message': 'Internal server error'})
             
     def login_service(self, client_socket, info):
-        
-        pass
+        user, passwd, ip, port = info['username'], info['password'], info['ip'], info['port']
+        print(f"Logging in user: {user}")
+        try:
+            record = self.getAccountByUsername(user)
+            if record:
+                if record[2] == passwd:
+                    peer_id = self.getPeerId(user)
+                    self.sendMsg(client_socket, {'type': LOGIN_SUCCESSFUL, 'message': 'Login successful', 'peer_id': peer_id})
+                    self.updateUserStatus(user, 1)
+                else:
+                    self.sendMsg(client_socket, {'type': LOGIN_FAILED, 'message': 'Incorrect password'})
+            else:
+                self.sendMsg(client_socket, {'type': LOGIN_FAILED, 'message': 'Account does not exist'})
+        except Exception as e:
+            print(f"Error in login_service: {e}")
+            traceback.print_exc()
+            self.sendMsg(client_socket, {'type': LOGIN_FAILED, 'message': 'Internal server error'})
 
     def sendMsg(self, client_socket, msg):
         try:
@@ -93,11 +110,21 @@ class TrackerServer:
         self.cursor.execute("SELECT * FROM users WHERE username = ?", (user,))
         return self.cursor.fetchone()
 
+    def updateUserStatus(self, user, status):
+        with self.lock:
+            self.cursor.execute("UPDATE users SET status = ? WHERE username = ?", (status, user))
+            self.conn.commit()
+
     def insertUser(self, user, passwd, ip, port):
         with self.lock:
             self.cursor.execute("INSERT INTO users (username, password, ip, port, status) VALUES (?, ?, ?, ?, 0)", 
                                 (user, passwd, ip, port))
             self.conn.commit()
+            
+    def getUserOnline(self):
+        with self.lock:
+            self.cursor.execute("SELECT * FROM users WHERE status = 1")
+        return self.cursor.fetchall()
 
     
     def run(self):

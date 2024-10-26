@@ -3,13 +3,15 @@ import threading
 import sqlite3
 import time
 import json
+import os
 import hashlib
 import maskpass
 import pickle
 from parameter import *
 from helper import *
 
-SERVER = "192.168.88.125" # default ip of tracker for test
+SERVER_NAME = socket.gethostname()
+SERVER = socket.gethostbyname(SERVER_NAME) # default ip of tracker for test
 PORT = 5050
 
 
@@ -51,13 +53,6 @@ class PeerClient:
         self.peer_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.peer_socket.connect((SERVER, PORT))
     
-    # def connect_to_tracker(self):
-    #     try:
-    #         self.peer_socket.connect((self.tracker_ip, self.tracker_port))
-    #         print(f"Connected to tracker at {self.tracker_ip}:{self.tracker_port}")
-    #     except Exception as e:
-    #         print(f"Failed to connect to tracker: {e}")
-    #         exit(1)
             
     def connect_to_tracker(self):
         max_retries = 5
@@ -75,6 +70,7 @@ class PeerClient:
                 else:
                     print("Failed to connect to tracker after multiple attempts.")
                     raise
+                
     def register_account_with_tracker(self):
         user_name = input("Enter your username to register: ")
         pwd = get_password()
@@ -116,18 +112,38 @@ class PeerClient:
         try:
             print('Sending login request ...')
             message = pickle.dumps({'type': LOGIN, 'username': user_name, 'password': pwd, 'ip': self.ip, 'port': self.port})
-            self.peer_socket.sendall(struct.pack('>I', len(message) + message))
+            self.peer_socket.sendall(struct.pack('>I', len(message)) + message)
             print("Login request sent. Waiting for response...")
             response_data = recv_msg(self.peer_socket)
             
             if response_data is None:
-                
+                raise ConnectionError("Connection closed while receiving data")
             
+            print(f"Received {len(response_data)} bytes of data")
+            response = pickle.loads(response_data)
             
-            
-        except:
-            
+            if response['type'] == LOGIN_SUCCESSFUL:
+                print(f"Login successful for user {user_name}")
+                return response['peer_id']
+            else:
+                print(f"Login failed for user {user_name}")
+                print(response['message'])
+                if response['type'] == LOGIN_WRONG_PASSWORD:
+                    print("Wrong password")
+                    print("Please try again.")
+                    self.login_account_with_tracker()
+                    return None
+                elif response['type'] == LOGIN_ACC_NOT_EXIST:
+                    print("Account does not exist. You need to register first.")
+                    self.register_account_with_tracker()
+                    return None
+                else:
+                    print("Internal server error")
+                    return None
+        except Exception as e:
+            print(f"An error occurred during login: {e}")
         pass
+    
     
     def register_file_with_tracker(self):
         pass
@@ -154,18 +170,21 @@ if __name__ == '__main__':
     local_ip = socket.gethostbyname(hostname)
 
     peer_port = int(input("Enter peer port: "))
+    while True:
+        try:
+            peer = PeerClient(local_ip, peer_port)
+            peer_id = peer.login_account_with_tracker()
+            if peer_id:
+                print(f"Login with peer_id: {peer_id}")
+            else:
+                print("Login failed.")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+        except KeyboardInterrupt:
+            print("Exiting program.")
+            break
+    # finally:
+        # if peer.peer_socket:
+        #     peer.peer_socket.close()
 
-    try:
-        peer = PeerClient(local_ip, peer_port)
-        peer_id = peer.register_account_with_tracker()
-        if peer_id:
-            print(f"Registered with peer_id: {peer_id}")
-        else:
-            print("Registration failed.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-    finally:
-        if peer.peer_socket:
-            peer.peer_socket.close()
-
-    input("Press Enter to exit...")
+    # input("Press Enter to exit...")
