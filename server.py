@@ -3,6 +3,8 @@ import sqlite3
 from threading import Thread
 import time
 import traceback
+import json
+import hashlib
 
 hostname = socket.gethostname()
 local_IP = socket.gethostbyname(hostname)

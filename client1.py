@@ -1,5 +1,7 @@
 import socket
 import time
+import json
+import hashlib
 hostname = socket.gethostname()
 local_IP = socket.gethostbyname(hostname)
 
