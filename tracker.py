@@ -3,8 +3,11 @@ import threading
 import sqlite3
 import pickle
 import traceback
+import os
 from parameter import *
 from helper import *
+from torrent import *
+
 
 HOST_NAME = socket.gethostname()
 HOST = socket.gethostbyname(HOST_NAME)
@@ -20,6 +23,8 @@ class TrackerServer:
         self.tracker_socket.bind((HOST, PORT))
         self.tracker_socket.listen(QUEUE_SIZE)
         self.create_tables()
+        self.files: set[str] = set()
+        self.peers_with_file: Dict[str, List[int]] = {}
 
     def create_tables(self):
         with self.lock:
@@ -49,6 +54,14 @@ class TrackerServer:
                     self.register_service(client_socket, info)
                 elif info['type'] == LOGIN:
                     self.login_service(client_socket, info)
+                elif info['type'] == REGISTER_FILE:
+                    peer_id = info['peer_id']
+                    self.register_file_service(client_socket, info, peer_id)
+                elif info['type'] == LOGOUT:
+                    self.logout_service(client_socket, info)
+                elif info['type'] == GET_LIST_FILES_TO_DOWNLOAD:
+                    self.show_available_files(client_socket)
+                
                 # ... handle other message types ...
             except Exception as e:
                 print(f"Error handling peer {addr}: {e}")
@@ -74,7 +87,8 @@ class TrackerServer:
             print(f"Error in register_service: {e}")
             traceback.print_exc()
             self.sendMsg(client_socket, {'type': REGISTER_FAILED, 'message': 'Internal server error'})
-            
+        
+        
     def login_service(self, client_socket, info):
         user, passwd, ip, port = info['username'], info['password'], info['ip'], info['port']
         print(f"Logging in user: {user}")
@@ -93,7 +107,52 @@ class TrackerServer:
             print(f"Error in login_service: {e}")
             traceback.print_exc()
             self.sendMsg(client_socket, {'type': LOGIN_FAILED, 'message': 'Internal server error'})
+            
+    def register_file_service(self, client_socket, info, peer_id):
+        metainfo = info['metainfo']
+        print(f"Registering file: {metainfo['file_name']}")
+        self.files.add(metainfo['file_name'])
+        file_name = metainfo['file_name']
+         # Initialize the list for this file if it doesn't exist
+        if file_name not in self.peers_with_file:
+            self.peers_with_file[file_name] = []
+        # Create magnet link
+        magnet_link = self.create_magnet_link(metainfo)
+        
+        # save torrent file to repo_tracker
+        if not os.path.exists('repo_tracker'+metainfo['file_name']+'.torrent'):
+            with open(os.path.join('repo_tracker', f"{metainfo['file_name']}.torrent"), 'wb') as f:
+                pickle.dump(metainfo, f)
+        # Send response back to client
+        self.sendMsg(client_socket, {
+            'type': REGISTER_FILE_SUCCESSFUL,
+            'message': 'File registered successfully',
+            'magnet_link': magnet_link
+        })
+        
+    def logout_service(self, client_socket, info):
+        peer_id = info['peer_id']
+        self.updateUserStatus(peer_id, 0)
+        self.sendMsg(client_socket, {'type': LOGOUT_SUCCESSFUL, 'message': 'Logout successful'})
+        
+    def show_available_files(self, client_socket):
+        self.sendMsg(client_socket, {'type': GET_LIST_FILES_TO_DOWNLOAD, 'files': list(self.files)})
+        
 
+    def create_magnet_link(self, metainfo):
+        info_hash = bencodepy.encode(metainfo).hex()
+        file_name = metainfo['file_name']
+        file_size = metainfo['file_size']
+        
+        
+        magnet_link = f"magnet:?xt=urn:btih:{info_hash}&dn={file_name}&xl={file_size}"
+        
+        # Add tracker URL to the magnet link
+        tracker_url = f"http://{HOST}:{PORT}/announce"
+        magnet_link += f"&tr={tracker_url}" 
+        
+        return magnet_link
+    
     def sendMsg(self, client_socket, msg):
         try:
             send_msg(client_socket, msg)
@@ -138,6 +197,9 @@ class TrackerServer:
             except Exception as e:
                 print(f"Error accepting connection: {e}")
                 traceback.print_exc()
+            except KeyboardInterrupt:
+                print("Program interrupted by user.")
+                break
 
 
 if __name__ == '__main__':

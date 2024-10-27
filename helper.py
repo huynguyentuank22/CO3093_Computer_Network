@@ -22,3 +22,12 @@ def recvall(sock, n):
 def send_msg(sock, msg):
     msg = pickle.dumps(msg)
     sock.sendall(struct.pack('>I', len(msg)) + msg)
+    
+def command_line_interface():
+    print("Welcome to the command line interface")
+    while True:
+        command = input(">>> ")
+        if command == "exit":
+            break
+        else:
+            print(f"Unknown command: {command}")

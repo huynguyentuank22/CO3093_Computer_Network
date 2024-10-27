@@ -9,6 +9,7 @@ import maskpass
 import pickle
 from parameter import *
 from helper import *
+from torrent import *
 
 SERVER_NAME = socket.gethostname()
 SERVER = socket.gethostbyname(SERVER_NAME) # default ip of tracker for test
@@ -52,8 +53,13 @@ class PeerClient:
         self.port = port
         self.peer_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.peer_socket.connect((SERVER, PORT))
-    
-            
+        self.user_name = None
+        self.peer_id = None
+        self.files: Dict[str, MetaInfoFile] = {} # key: file name, value: MetaInfoFile
+        self.pieces: Dict[str, Dict[int, bytes]] = {} # key: file name, value: dict of piece index and piece data
+        self.magnet_links: Dict[str, str] = {} # key: file name, value: magnet link
+        
+        
     def connect_to_tracker(self):
         max_retries = 5
         for attempt in range(max_retries):
@@ -92,6 +98,10 @@ class PeerClient:
             if response['type'] == REGISTER_SUCCESSFUL:
                 print(f"Account {user_name} registered successfully")
                 peer_id = response['peer_id']
+                if not os.path.exists(f"repo_{user_name}"):
+                    os.makedirs(f"repo_{user_name}")
+                    print(f"Created directory for user {user_name}. All files will be stored in this directory.")
+                self.user_name = user_name
                 return peer_id
             else:
                 print(f"Account {user_name} registration failed")
@@ -107,7 +117,7 @@ class PeerClient:
     def login_account_with_tracker(self):
         user_name = input("Enter your username to login: ")
         pwd = get_password()
-        
+        self.user_name = user_name
         message = {'type': LOGIN, 'username': user_name, 'password': pwd, 'ip': self.ip, 'port': self.port}
         try:
             print('Sending login request ...')
@@ -144,13 +154,96 @@ class PeerClient:
             print(f"An error occurred during login: {e}")
         pass
     
+    def create_torrent(self, file_path: str):
+        print("Creating torrent...")
+        if not os.path.exists(file_path):
+            print(f"File {file_path} does not exist.")
+            return
+
+        file_name = os.path.basename(file_path)
+        file_size = os.path.getsize(file_path)
+        info_hash = hashlib.sha1(file_name.encode()).hexdigest()
+        pieces = split_file_into_piece(file_path, PIECE_SIZE)
+        tracker_address = f"http://{SERVER}:{PORT}"
+        metainfo = {
+            'file_name': file_name,
+            'file_size': file_size,
+            'piece_length': PIECE_SIZE,
+            'pieces_count': len(pieces),
+            'announce': tracker_address
+        }
+        self.files[file_name] = metainfo
+        self.pieces[file_name] = {i: piece for i, piece in enumerate(pieces)}
+        # metainfo_path = os.path.join(f"repo_{self.user_name}", f"{file_name}.torrent")
+        # with open(metainfo_path, 'wb') as f:
+        #     pickle.dump(metainfo, f)
+        return metainfo
     
     def register_file_with_tracker(self):
-        pass
-    
-    
+        if self.peer_id is None:
+            print("You need to login first.")
+            return
+        file_path = str(input("Enter file name you want to register: "))
+        file_path = 'repo_' + self.user_name + '/' + file_path
+        metainfo = self.create_torrent(file_path)
+        # print(metainfo.encode())
+        try:
+            print("Sending register file request...")
+            
+            message = pickle.dumps({'type': REGISTER_FILE, 'metainfo': metainfo, 'peer_id': self.peer_id})
+            self.peer_socket.sendall(struct.pack('>I', len(message)) + message)
+            
+            print("Register file request sent. Waiting for response...")
+            response_data = recv_msg(self.peer_socket)
+            if response_data is None:
+                raise ConnectionError("Connection closed while receiving data")
+            print(f"Received {len(response_data)} bytes of data")
+            response = pickle.loads(response_data)
+            if response['type'] == REGISTER_FILE_SUCCESSFUL:
+                print(f"File {file_path} registered successfully")
+                magnet_link = response['magnet_link']
+                print(f"Magnet link: {magnet_link}")
+                with open(os.path.join(f"repo_{self.user_name}", f"{metainfo['file_name']}_magnet"), 'wb') as f:
+                    f.write(magnet_link.encode())
+            else:
+                print(f"File {file_path} registration failed")
+                print(response['message'])
+        except Exception as e:
+            print(f"An error occurred during register file: {e}")
+        
+        
+    def logout_account_with_tracker(self):
+        message = pickle.dumps({'type': LOGOUT, 'peer_id': self.peer_id})
+        self.peer_socket.sendall(struct.pack('>I', len(message)) + message)
+        print("Logout request sent. Waiting for response...")
+        response_data = recv_msg(self.peer_socket)
+        if response_data is None:
+            raise ConnectionError("Connection closed while receiving data")
+        response = pickle.loads(response_data)
+        if response['type'] == LOGOUT_SUCCESSFUL:
+            print("Logout successful")
+        else:
+            print("Logout failed")
+            print(response['message'])
+            
     def listen(self):
         pass
+    def get_list_files_to_download(self):
+        if not self.peer_id:
+            print("You need to login first.")
+            return
+        message = pickle.dumps({'type': GET_LIST_FILES_TO_DOWNLOAD})
+        self.peer_socket.sendall(struct.pack('>I', len(message)) + message)
+        response_data = recv_msg(self.peer_socket)
+        if response_data is None:
+            raise ConnectionError("Connection closed while receiving data")
+        response = pickle.loads(response_data)
+        if response['type'] == GET_LIST_FILES_TO_DOWNLOAD and response['files']:
+            print("Available files:")
+            for file in response['files']:
+                print(file)
+        else:
+            print("No available files")
     
     def handle_connection(self):
         pass
@@ -158,11 +251,41 @@ class PeerClient:
     def request_file(self):
         pass
     
-    def download_from_peer(self):
-        pass
+    def download_file(self):
+        self.get_list_files_to_download()
     
     def handle_magnet_link(self):
         pass
+    
+    def command_line_interface(self):
+        while True:
+            print("\n--- Peer Client Menu ---")
+            print("1. Register a new account")
+            print("2. Login")
+            print("3. Register a file")
+            print("4. Download a file")
+            print("5. List registered files")
+            print("6. Exit")
+            
+            choice = input("Enter your choice (1-6): ")
+            
+            if choice == '1':
+                self.register_account_with_tracker()
+            elif choice == '2':
+                self.peer_id = self.login_account_with_tracker()
+            elif choice == '3':
+                self.register_file_with_tracker()
+            elif choice == '4':
+                self.download_file()
+            # elif choice == '5':
+            #     self.list_registered_files()
+            elif choice == '6':
+                if self.peer_socket:
+                    self.peer_socket.close()
+                print("Exiting...")
+                break
+            else:
+                print("Invalid choice. Please try again.")
     
     
 if __name__ == '__main__':
@@ -170,21 +293,17 @@ if __name__ == '__main__':
     local_ip = socket.gethostbyname(hostname)
 
     peer_port = int(input("Enter peer port: "))
-    while True:
-        try:
-            peer = PeerClient(local_ip, peer_port)
-            peer_id = peer.login_account_with_tracker()
-            if peer_id:
-                print(f"Login with peer_id: {peer_id}")
-            else:
-                print("Login failed.")
-        except Exception as e:
-            print(f"An error occurred: {e}")
-        except KeyboardInterrupt:
-            print("Exiting program.")
-            break
-    # finally:
-        # if peer.peer_socket:
-        #     peer.peer_socket.close()
-
-    # input("Press Enter to exit...")
+    peer = None
+    try:
+        peer = PeerClient(local_ip, peer_port)
+        peer.connect_to_tracker()
+        peer.command_line_interface()
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    except KeyboardInterrupt:
+        print("Program interrupted by user.")
+    finally:
+        if peer and peer.peer_socket:
+            peer.peer_socket.close()
+        print("Closing connection and exiting program.")
+        input("Press Enter to exit...")
