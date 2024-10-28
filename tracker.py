@@ -9,6 +9,7 @@ from helper import *
 from torrent import *
 
 
+
 HOST_NAME = socket.gethostname()
 HOST = socket.gethostbyname(HOST_NAME)
 PORT = 5050
@@ -23,8 +24,8 @@ class TrackerServer:
         self.tracker_socket.bind((HOST, PORT))
         self.tracker_socket.listen(QUEUE_SIZE)
         self.create_tables()
-        self.files: set[str] = set()
-        self.peers_with_file: Dict[str, List[int]] = {}
+        self.files: Set[str] = set()
+        self.peers_with_file: Dict[str, Set[int]] = {}
 
     def create_tables(self):
         with self.lock:
@@ -61,6 +62,8 @@ class TrackerServer:
                     self.logout_service(client_socket, info)
                 elif info['type'] == GET_LIST_FILES_TO_DOWNLOAD:
                     self.show_available_files(client_socket)
+                elif info['type'] == REQUEST_FILE:
+                    self.show_peer_hold_file_service(client_socket, info['file_name'])
                 
                 # ... handle other message types ...
             except Exception as e:
@@ -82,6 +85,7 @@ class TrackerServer:
                 self.insertUser(user, passwd, ip, port)
                 peer_id = self.getPeerId(user)
                 print(f"User {user} registered successfully with peer_id {peer_id}")
+                    
                 self.sendMsg(client_socket, {'type': REGISTER_SUCCESSFUL, 'message': 'Account created successfully', 'peer_id': peer_id})
         except Exception as e:
             print(f"Error in register_service: {e}")
@@ -98,7 +102,7 @@ class TrackerServer:
                 if record[2] == passwd:
                     peer_id = self.getPeerId(user)
                     self.sendMsg(client_socket, {'type': LOGIN_SUCCESSFUL, 'message': 'Login successful', 'peer_id': peer_id})
-                    self.updateUserStatus(user, 1)
+                    self.updateLogin(user, ip, port)
                 else:
                     self.sendMsg(client_socket, {'type': LOGIN_FAILED, 'message': 'Incorrect password'})
             else:
@@ -115,43 +119,78 @@ class TrackerServer:
         file_name = metainfo['file_name']
          # Initialize the list for this file if it doesn't exist
         if file_name not in self.peers_with_file:
-            self.peers_with_file[file_name] = []
+            self.peers_with_file[file_name] = set()
+        
+        self.peers_with_file[file_name].add(peer_id)
         # Create magnet link
-        magnet_link = self.create_magnet_link(metainfo)
+        magnet_link = create_magnet_link(metainfo, HOST, PORT)
         
         # save torrent file to repo_tracker
         if not os.path.exists('repo_tracker'+metainfo['file_name']+'.torrent'):
             with open(os.path.join('repo_tracker', f"{metainfo['file_name']}.torrent"), 'wb') as f:
                 pickle.dump(metainfo, f)
         # Send response back to client
+        print('All files been registered:')
+        for file in self.files:
+            print(file)
+                
+        print('File name with peer_id:')
+        for file in self.peers_with_file:
+            print(file, self.peers_with_file[file])
+                
         self.sendMsg(client_socket, {
             'type': REGISTER_FILE_SUCCESSFUL,
             'message': 'File registered successfully',
             'magnet_link': magnet_link
         })
+    
+    def show_peer_hold_file_service(self, client_socket, file_name: str):
+        list_peers = self.peers_with_file[file_name]
+        ip_port_list = [] 
+        for peer_id in list_peers:
+            record = self.getIpandPortByPeerID(peer_id)
+            if record:
+                ip_port_list.append(record)
+        
+        if not len(ip_port_list):
+            self.sendMsg(client_socket, {'type': SHOW_PEER_HOLD_FILE_FAILED, 'message': 'No peer holds this file is online'})
+            return
+        
+        
+        with open(os.path.join('repo_tracker', f"{file_name}.torrent"), 'rb') as f:
+            metainfo = pickle.load(f)
+        
+        self.sendMsg(client_socket, {'type': SHOW_PEER_HOLD_FILE, 
+                                     'metainfo': metainfo, 
+                                    'ip_port_list': ip_port_list})
+        
         
     def logout_service(self, client_socket, info):
         peer_id = info['peer_id']
         self.updateUserStatus(peer_id, 0)
+        record = self.getUserOnline()
+        print('Online users:')
+        for user in record:
+            print(user[1])
         self.sendMsg(client_socket, {'type': LOGOUT_SUCCESSFUL, 'message': 'Logout successful'})
         
     def show_available_files(self, client_socket):
         self.sendMsg(client_socket, {'type': GET_LIST_FILES_TO_DOWNLOAD, 'files': list(self.files)})
         
 
-    def create_magnet_link(self, metainfo):
-        info_hash = bencodepy.encode(metainfo).hex()
-        file_name = metainfo['file_name']
-        file_size = metainfo['file_size']
+    # def create_magnet_link(self, metainfo):
+    #     info_hash = bencodepy.encode(metainfo).hex()
+    #     file_name = metainfo['file_name']
+    #     file_size = metainfo['file_size']
         
         
-        magnet_link = f"magnet:?xt=urn:btih:{info_hash}&dn={file_name}&xl={file_size}"
+    #     magnet_link = f"magnet:?xt=urn:btih:{info_hash}&dn={file_name}&xl={file_size}"
         
-        # Add tracker URL to the magnet link
-        tracker_url = f"http://{HOST}:{PORT}/announce"
-        magnet_link += f"&tr={tracker_url}" 
+    #     # Add tracker URL to the magnet link
+    #     tracker_url = f"http://{HOST}:{PORT}/announce"
+    #     magnet_link += f"&tr={tracker_url}" 
         
-        return magnet_link
+    #     return magnet_link
     
     def sendMsg(self, client_socket, msg):
         try:
@@ -169,9 +208,18 @@ class TrackerServer:
         self.cursor.execute("SELECT * FROM users WHERE username = ?", (user,))
         return self.cursor.fetchone()
 
-    def updateUserStatus(self, user, status):
+    def getIpandPortByPeerID(self, peer_id):
+        self.cursor.execute("SELECT ip, port FROM users WHERE id = ? AND status = 1", (peer_id,))
+        return self.cursor.fetchone()
+    
+    def updateLogin(self, user, ip, port):
         with self.lock:
-            self.cursor.execute("UPDATE users SET status = ? WHERE username = ?", (status, user))
+            self.cursor.execute("UPDATE users SET  ip = ?, port = ?, status = 1 WHERE username = ?", (ip, port, user))
+            self.conn.commit()
+    
+    def updateUserStatus(self, peer_id, status):
+        with self.lock:
+            self.cursor.execute("UPDATE users SET status = ? WHERE id = ?", (status, peer_id))
             self.conn.commit()
 
     def insertUser(self, user, passwd, ip, port):

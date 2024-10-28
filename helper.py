@@ -1,5 +1,6 @@
 import struct
 import pickle
+import bencodepy
 def recv_msg(sock):
     # Receive the size of the message first
     raw_msglen = recvall(sock, 4)
@@ -31,3 +32,17 @@ def command_line_interface():
             break
         else:
             print(f"Unknown command: {command}")
+
+def create_magnet_link(metainfo, HOST, PORT):
+        info_hash = bencodepy.encode(metainfo).hex()
+        file_name = metainfo['file_name']
+        file_size = metainfo['file_size']
+        
+        
+        magnet_link = f"magnet:?xt=urn:btih:{info_hash}&dn={file_name}&xl={file_size}"
+        
+        # Add tracker URL to the magnet link
+        tracker_url = f"http://{HOST}:{PORT}/announce"
+        magnet_link += f"&tr={tracker_url}" 
+        
+        return magnet_link

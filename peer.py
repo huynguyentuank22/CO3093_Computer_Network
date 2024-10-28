@@ -52,7 +52,15 @@ class PeerClient:
         self.ip = ip
         self.port = port
         self.peer_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.peer_socket.connect((SERVER, PORT))
+        self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # this socket is used to listen to another peer
+        """
+        peer_socket is used to connect to tracker
+        server_socket is used to listen to another peer
+        when we connect to tracker, we will use peer_socket
+        when we listen to another peer, we will use server_socket because peer_socket is already connected to tracker, 
+        it can't be used to send message to tracker but not to listen to another peer
+        """
+        # self.peer_socket.connect((SERVER, PORT))
         self.user_name = None
         self.peer_id = None
         self.files: Dict[str, MetaInfoFile] = {} # key: file name, value: MetaInfoFile
@@ -64,7 +72,7 @@ class PeerClient:
         max_retries = 5
         for attempt in range(max_retries):
             try:
-                self.peer_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                # self.peer_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 self.peer_socket.connect((SERVER, PORT))
                 print(f"Connected to tracker at {SERVER}:{PORT}")
                 return
@@ -76,6 +84,7 @@ class PeerClient:
                 else:
                     print("Failed to connect to tracker after multiple attempts.")
                     raise
+                
                 
     def register_account_with_tracker(self):
         user_name = input("Enter your username to register: ")
@@ -213,6 +222,9 @@ class PeerClient:
         
         
     def logout_account_with_tracker(self):
+        if not self.peer_id:
+            print("You need to login first.")
+            return
         message = pickle.dumps({'type': LOGOUT, 'peer_id': self.peer_id})
         self.peer_socket.sendall(struct.pack('>I', len(message)) + message)
         print("Logout request sent. Waiting for response...")
@@ -226,8 +238,20 @@ class PeerClient:
             print("Logout failed")
             print(response['message'])
             
-    def listen(self):
-        pass
+    def listen_to_another_peer(self):
+        while True:
+            try:
+                another_peer_socket, addr = self.server_socket.accept()
+                print(f"New connection from {addr}")
+                client_thread = threading.Thread(target=self.handle_peer, 
+                                                 args=(another_peer_socket, addr))
+                client_thread.daemon = True
+                client_thread.start()
+            except Exception as e:
+                print(f"Error accepting connection: {e}")
+                traceback.print_exc()
+    
+    
     def get_list_files_to_download(self):
         if not self.peer_id:
             print("You need to login first.")
@@ -239,49 +263,190 @@ class PeerClient:
             raise ConnectionError("Connection closed while receiving data")
         response = pickle.loads(response_data)
         if response['type'] == GET_LIST_FILES_TO_DOWNLOAD and response['files']:
-            print("Available files:")
-            for file in response['files']:
-                print(file)
+            return response['files']
         else:
             print("No available files")
     
-    def handle_connection(self):
-        pass
+    def handle_peer(self, another_peer_socket, addr):
+        print(f"Handling connection from {addr}")
+        while True:
+            try:
+                print(f"Waiting for data from {addr}")
+                data = recv_msg(another_peer_socket)
+                if data is None:
+                    print(f"Client {addr} disconnected")
+                    break
+                print(f"Received {len(data)} bytes from {addr}")
+                info = pickle.loads(data)
+                print(f"Received message from {addr}: {info['type']}")
+                if info['type'] == VERIFY_MAGNET_LINK:
+                    self.listen_verify_magnet_link_response(another_peer_socket, info)
+                elif info['type'] == REQUEST_PIECE:
+                    self.listen_request_file_response(another_peer_socket, info)
+                
+                # ... handle other message types ...
+            except Exception as e:
+                print(f"Error handling peer {addr}: {e}")
+                traceback.print_exc()
+                break
+        another_peer_socket.close()
+        print(f"Connection closed for {addr}")
     
-    def request_file(self):
+    def listen_request_piece_response(self, another_peer_socket, info):
+        
         pass
     
     def download_file(self):
-        self.get_list_files_to_download()
+        files = self.get_list_files_to_download()
+        if not files or (len(files) == 1 and os.path.exists(f"repo_{self.user_name}/{files[0]}")):
+            print('No available files')
+            return
+        else:
+            print('All available files:')
+            for file in files:
+                if not os.path.exists(f"repo_{self.user_name}/{file}"):
+                    print(file)
+                    
+        file_name = input("Enter file name you want to download: ")
+        
+        if file_name not in files:
+            print("File not found")
+            return
+        if os.path.exists(f"repo_{self.user_name}/{file_name}"):
+            print("File already exists")
+            return
+        
+        msg = pickle.dumps({'type': REQUEST_FILE, 'file_name': file_name})
+        self.peer_socket.sendall(struct.pack('>I', len(msg)) + msg)
+        response_data = recv_msg(self.peer_socket)
+        if response_data is None:
+            raise ConnectionError("Connection closed while receiving data")
+        response = pickle.loads(response_data)
+        if response['type'] == SHOW_PEER_HOLD_FILE:
+            # print(response['metainfo'])
+            # print(response['ip_port_list'])
+            metainfo = response['metainfo']
+            ip_port_list = response['ip_port_list']
+            print(f'Found {len(ip_port_list)} peers')
+            verify_result = []
+            for ip, port in ip_port_list:
+                res = self.send_verify_magnet_link(magnet_link = bencodepy.encode(metainfo), ip = ip, port = port, file_name = file_name)
+                if res: verify_result.append((ip, port))
+                
+            if verify_result:
+                piece_per_peer = len(metainfo['pieces']) // len(verify_result)
+                for ip, port in verify_result:
+                    self.send_request_piece(another_peer_socket = another_peer_socket, 
+                                           ip = ip, port = port, 
+                                           file_name = file_name, 
+                                           piece_index = piece_index, 
+                                           piece_count = piece_per_peer)
+                print("Verified magnet link for all peers")
+            else:
+                print("Failed to verify magnet link for some peers")
+        elif response['type'] == SHOW_PEER_HOLD_FILE_FAILED:        
+            print(response['message'])
+        else:
+            print("Internal server error")
+
+    # def handle_magnet_link(self, metainfo, ip, port, ip_port_list):
+    #     magnet_link = create_magnet_link(metainfo, ip, port)
+    #     print(magnet_link)
+    #     threads = []
+    #     verify_result: Dict[(str, int), bool] = {}
+    #     for ip, port in ip_port_list:
+    #         print(f"Sending verify request to http://{ip}:{port}")
+    #         thread = threading.Thread(target=self.send_verify_magnet_link, args=(magnet_link, ip, port, metainfo['file_name']))
+    #         threads.append(thread)
+    #         result = thread.start()
+    #         verify_result[(ip, port)] = result
+        
+    #     for thread in threads:
+    #         thread.join()
+        
+    #     return verify_result
+
     
-    def handle_magnet_link(self):
-        pass
+    def send_verify_magnet_link(self, magnet_link, ip, port, file_name):
+        # Create a new temporary socket for this specific peer connection
+        temp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        try:
+            # Connect to the target peer's server_socket
+            temp_socket.connect((ip, port))
+            
+            # Send the verify magnet link request
+            message = pickle.dumps({'type': VERIFY_MAGNET_LINK, 'magnet_link': magnet_link, 'file_name': file_name})
+            send_msg(temp_socket, message)
+            
+            # Receive the response
+            response_data = recv_msg(temp_socket)
+            if response_data is None:
+                raise ConnectionError("Connection closed while receiving data")
+            
+            response = pickle.loads(response_data)
+            return response['type'] == VERIFY_MAGNET_LINK_SUCCESSFUL
+        except Exception as e:
+            print(f"Error verifying magnet link with peer {ip}:{port}: {e}")
+            return False
+        finally:
+            temp_socket.close()  # Always close the temporary socket
+
+    def listen_verify_magnet_link_response(self, another_peer_socket):
+        try:
+            # Receive the verification request
+            message = recv_msg(another_peer_socket)
+            if message is None:
+                raise ConnectionError("Connection closed while receiving data")
+            
+            request = pickle.loads(message)
+            magnet_link = request['magnet_link']
+            file_name = request['file_name']
+            
+            # Verify the magnet link
+            with open(f"repo_{self.user_name}/{file_name}_magnet", 'rb') as f:
+                magnet_link_to_verify = f.read()
+            
+            if magnet_link == magnet_link_to_verify:
+                print(f"Verified magnet link for {file_name}")
+                response = pickle.dumps({'type': VERIFY_MAGNET_LINK_SUCCESSFUL})
+            else:
+                print(f"Failed to verify magnet link for {file_name}")
+                response = pickle.dumps({'type': VERIFY_MAGNET_LINK_FAILED})
+            
+            # Send the verification response
+            send_msg(another_peer_socket, response)
+        except Exception as e:
+            print(f"Error handling magnet link verification: {e}")
+            error_response = pickle.dumps({'type': 'ERROR', 'message': str(e)})
+            send_msg(another_peer_socket, error_response)
     
-    def command_line_interface(self):
+
+    def peer_service(self):
+        self.server_socket.bind((self.ip, self.port))
+        self.server_socket.listen(5) # assume that we only listen from 5 peers at the same time
+        print(f"Listening for incoming connections on {self.ip}:{self.port}")
+        # Start listener thread
+        self.listen_thread = threading.Thread(target=self.listen_for_peers)
+        self.listen_thread.daemon = True  # Thread will close when main program exits
+        self.listen_thread.start()
         while True:
             print("\n--- Peer Client Menu ---")
-            print("1. Register a new account")
-            print("2. Login")
-            print("3. Register a file")
-            print("4. Download a file")
-            print("5. List registered files")
-            print("6. Exit")
+            print("1. Register a file")
+            print("2. Download a file")
+            print("3. Exit")
             
-            choice = input("Enter your choice (1-6): ")
+            choice = input("Enter your choice (1-3): ")
             
             if choice == '1':
-                self.register_account_with_tracker()
-            elif choice == '2':
-                self.peer_id = self.login_account_with_tracker()
-            elif choice == '3':
                 self.register_file_with_tracker()
-            elif choice == '4':
+            elif choice == '2':
                 self.download_file()
-            # elif choice == '5':
-            #     self.list_registered_files()
-            elif choice == '6':
+            elif choice == '3':
+                self.logout_account_with_tracker()
                 if self.peer_socket:
                     self.peer_socket.close()
+                if self.server_socket:
+                    self.server_socket.close()
                 print("Exiting...")
                 break
             else:
@@ -297,7 +462,20 @@ if __name__ == '__main__':
     try:
         peer = PeerClient(local_ip, peer_port)
         peer.connect_to_tracker()
-        peer.command_line_interface()
+        print('\nYou can register a new account or login to your account')
+        print('1. Register a new account')
+        print('2. Login to your account')
+        while True:
+            choice = int(input('Enter your choice: '))
+            if choice == 1:
+                peer.register_account_with_tracker()
+                break
+            elif choice == 2:
+                peer.login_account_with_tracker()
+                break
+            else:
+                print('Invalid choice')
+        peer.peer_service()
     except Exception as e:
         print(f"An error occurred: {e}")
     except KeyboardInterrupt:
