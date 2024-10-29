@@ -1,6 +1,8 @@
 import struct
 import pickle
 import bencodepy
+import maskpass
+import hashlib
 def recv_msg(sock):
     # Receive the size of the message first
     raw_msglen = recvall(sock, 4)
@@ -46,3 +48,47 @@ def create_magnet_link(metainfo, HOST, PORT):
         magnet_link += f"&tr={tracker_url}" 
         
         return magnet_link
+
+# function to ensure pwd hidden
+def get_password():
+    while True:
+        password = maskpass.askpass(prompt="Enter your password: ", mask="*")
+        confirm_password = maskpass.askpass(prompt="Confirm your password: ", mask="*")
+
+        if password == confirm_password:
+            print("Password confirmed.")
+            return password
+        else:
+            print("Password does not match. Try again.")
+
+# hash function to hash piece of file into hexa code
+def sha1_hash(data):
+    sha1 = hashlib.sha1()
+    sha1.update(data)
+    return sha1.hexdigest()
+
+# split function to split file into equal piece and return list of their hash code
+def split_file_into_piece(path,piece_size):
+    pieces = []
+    with open(path, 'rb') as f:
+        while True:
+            piece = f.read(piece_size)
+            if not piece:
+                break
+            pieces.append(sha1_hash(piece))
+            
+    return pieces
+
+def split_file_into_piece_to_send(path, piece_size, index):
+    pieces = []
+    with open(path, 'rb') as f:
+        idx = 0
+        while True:
+            piece = f.read(piece_size)
+            if not piece:
+                break
+            temp = {'piece': piece, 'id': idx}
+            pieces.append(temp)
+            idx += 1
+    pieces = [piece for piece in pieces if piece['id'] in index]
+    return pieces

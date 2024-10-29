@@ -16,56 +16,14 @@ SERVER = socket.gethostbyname(SERVER_NAME) # default ip of tracker for test
 PORT = 5050
 
 
-# function to ensure pwd hidden
-def get_password():
-    while True:
-        password = maskpass.askpass(prompt="Enter your password: ", mask="*")
-        confirm_password = maskpass.askpass(prompt="Confirm your password: ", mask="*")
 
-        if password == confirm_password:
-            print("Password confirmed.")
-            return password
-        else:
-            print("Password does not match. Try again.")
-
-# hash function to hash piece of file into hexa code
-def sha1_hash(data):
-    sha1 = hashlib.sha1()
-    sha1.update(data)
-    return sha1.hexdigest()
-
-# split function to split file into equal piece and return list of their hash code
-def split_file_into_piece(path,piece_size):
-    pieces = []
-    with open(path, 'rb') as f:
-        while True:
-            piece = f.read(piece_size)
-            if not piece:
-                break
-            pieces.append(sha1_hash(piece))
-            
-    return pieces
-
-def split_file_into_piece_to_send(path, piece_size, index):
-    pieces = []
-    with open(path, 'rb') as f:
-        idx = 0
-        while True:
-            piece = f.read(piece_size)
-            if not piece:
-                break
-            temp = {'piece': piece, 'id': idx}
-            pieces.append(temp)
-            idx += 1
-    pieces = [piece for piece in pieces if piece['id'] in index]
-    return pieces
 
 class PeerClient:
     def __init__(self, ip, port):
         self.ip = ip
         self.port = port
-        self.peer_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # this socket is used to listen to another peer
+        self.peer_socket = None
+        self.server_socket = None # this socket is used to listen to another peer
         """
         peer_socket is used to connect to tracker
         server_socket is used to listen to another peer
@@ -85,7 +43,7 @@ class PeerClient:
         max_retries = 5
         for attempt in range(max_retries):
             try:
-                # self.peer_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                self.peer_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 self.peer_socket.connect((SERVER, PORT))
                 print(f"Connected to tracker at {SERVER}:{PORT}")
                 return
@@ -256,6 +214,9 @@ class PeerClient:
     def listen_to_another_peer(self):
         while True:
             try:
+                if not self.server_socket:
+                    print("Server socket is not initialized")
+                    break
                 another_peer_socket, addr = self.server_socket.accept()
                 print(f"New connection from {addr}")
                 client_thread = threading.Thread(target=self.handle_peer, 
@@ -263,8 +224,10 @@ class PeerClient:
                 client_thread.daemon = True
                 client_thread.start()
             except Exception as e:
+                if isinstance(e, OSError) and e.winerror == 10038:
+                    print("Server socket was closed")
+                    break
                 print(f"Error accepting connection: {e}")
-                traceback.print_exc()
     
     
     def get_list_files_to_download(self):
@@ -324,7 +287,7 @@ class PeerClient:
         if response_data is None:
             raise ConnectionError("Connection closed while receiving data")
         response = pickle.loads(response_data)
-        return response
+        return response['pieces']
     
     def download_file(self):
         files = self.get_list_files_to_download()
@@ -353,7 +316,7 @@ class PeerClient:
             raise ConnectionError("Connection closed while receiving data")
         response = pickle.loads(response_data)
         if response['type'] == SHOW_PEER_HOLD_FILE:
-            # print(response['metainfo'])
+            print(response['metainfo'])
             # print(response['ip_port_list'])
             metainfo = response['metainfo']
             ip_port_list = response['ip_port_list']
@@ -369,34 +332,38 @@ class PeerClient:
                 print(f'{ip}:{port}')
                 
             if verify_result:
-                piece_per_peer = len(metainfo['pieces']) // len(verify_result)
+                piece_per_peer = metainfo['pieces_count'] // len(verify_result)
                 # handle the case that the number of pieces is not divisible by the number of peers
-                remaining_pieces = len(metainfo['pieces']) % len(verify_result)
+                remaining_pieces = metainfo['pieces_count'] % len(verify_result)
                 
-                num_of_peer_to_download = len(verify_result)
+                num_of_peer_to_download = len(verify_result) # verify_result is list of tuple of ip and port
                 file_name = metainfo['file_name']
                 peer_and_piece_index: Dict[Tuple[str, int], List[int]] = {}
                 for j in range(piece_per_peer):
-                    peer_and_piece_index[(verify_result[j][0], verify_result[j][1])] = []
                     for i in range(num_of_peer_to_download):
+                        if len(peer_and_piece_index[(verify_result[i][0], verify_result[i][1])]) == 0:
+                            peer_and_piece_index[(verify_result[i][0], verify_result[i][1])] = []
                         peer_and_piece_index[(verify_result[i][0], verify_result[i][1])].append(j * num_of_peer_to_download + i)
                 
                 # handle remaining pieces
                 for i in range(remaining_pieces):
                     peer_and_piece_index[(verify_result[i][0], verify_result[i][1])].append(piece_per_peer * num_of_peer_to_download + i)
-                    
+                
+                for ip, port in peer_and_piece_index:
+                    print(f'Address: {ip}:{port} need to provide these pieces: {peer_and_piece_index[(ip, port)]}')
+                     
                 piece_received = []
                 total_piece = 0
                 for ip, port in peer_and_piece_index:
                     list_piece_index = peer_and_piece_index[(ip, port)]
                     message = {'file_name': file_name, 'piece_index': list_piece_index}
                     response = self.send_request_piece(ip, port, message)
-                    piece_received.append(response)
+                    # print(response)
                     print(f"Received {len(response)} pieces from {ip}:{port}")
                     total_piece += len(response)
                 
-                if total_piece != len(metainfo['pieces']):
-                    print(f"Received {total_piece} pieces, but expected {len(metainfo['pieces'])} pieces")
+                if total_piece != metainfo['pieces_count']:
+                    print(f"Received {total_piece} pieces, but expected {metainfo['pieces_count']} pieces")
                     return
                 
                 piece_received.sort(key = lambda x: x['piece_index'])
@@ -478,37 +445,54 @@ class PeerClient:
             error_response = pickle.dumps({'type': 'ERROR', 'message': str(e)})
             send_msg(another_peer_socket, error_response)
     
-
+    def ininitialize_server_socket(self):
+        try:
+            self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.server_socket.bind((self.ip, self.port))
+            self.server_socket.listen(5) # assume that we only listen from 5 peers at the same time
+            print(f"Listening for incoming connections on {self.ip}:{self.port}")
+        except Exception as e:
+            print(f"Error initializing server socket: {e}")
+            traceback.print_exc()
+    def clean_up(self):
+        try:
+            if self.peer_socket:
+                self.peer_socket.close()
+            if self.server_socket:
+                self.server_socket.close()
+        except Exception as e:
+            print(f"Error cleaning up: {e}")
+            traceback.print_exc()
+            
     def peer_service(self):
-        self.server_socket.bind((self.ip, self.port))
-        self.server_socket.listen(5) # assume that we only listen from 5 peers at the same time
-        print(f"Listening for incoming connections on {self.ip}:{self.port}")
+        try:
         # Start listener thread
-        self.listen_thread = threading.Thread(target=self.listen_to_another_peer)
-        self.listen_thread.daemon = True  # Thread will close when main program exits
-        self.listen_thread.start()
-        while True:
-            print("\n--- Peer Client Menu ---")
-            print("1. Register a file")
-            print("2. Download a file")
-            print("3. Exit")
-            
-            choice = input("Enter your choice (1-3): ")
-            
-            if choice == '1':
-                self.register_file_with_tracker()
-            elif choice == '2':
-                self.download_file()
-            elif choice == '3':
-                self.logout_account_with_tracker()
-                if self.peer_socket:
-                    self.peer_socket.close()
-                if self.server_socket:
-                    self.server_socket.close()
-                print("Exiting...")
-                break
-            else:
-                print("Invalid choice. Please try again.")
+            self.ininitialize_server_socket()
+            self.listen_thread = threading.Thread(target=self.listen_to_another_peer)
+            self.listen_thread.daemon = True
+            self.listen_thread.start()
+            while True:
+                print("\n--- Peer Client Menu ---")
+                print("1. Register a file")
+                print("2. Download a file")
+                print("3. Exit")
+                
+                choice = input("Enter your choice (1-3): ")
+                
+                if choice == '1':
+                    self.register_file_with_tracker()
+                elif choice == '2':
+                    self.download_file()
+                elif choice == '3':
+                    self.logout_account_with_tracker()
+                    self.clean_up()
+                    print("Exiting...")
+                    break
+                else:
+                    print("Invalid choice. Please try again.")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            traceback.print_exc()
     
     
 if __name__ == '__main__':
