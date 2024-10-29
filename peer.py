@@ -341,9 +341,10 @@ class PeerClient:
                 peer_and_piece_index: Dict[Tuple[str, int], List[int]] = {}
                 for j in range(piece_per_peer):
                     for i in range(num_of_peer_to_download):
-                        if len(peer_and_piece_index[(verify_result[i][0], verify_result[i][1])]) == 0:
-                            peer_and_piece_index[(verify_result[i][0], verify_result[i][1])] = []
-                        peer_and_piece_index[(verify_result[i][0], verify_result[i][1])].append(j * num_of_peer_to_download + i)
+                        key = (verify_result[i][0], verify_result[i][1])
+                        if key not in peer_and_piece_index:
+                            peer_and_piece_index[key] = []
+                        peer_and_piece_index[key].append(j * num_of_peer_to_download + i)
                 
                 # handle remaining pieces
                 for i in range(remaining_pieces):
@@ -513,7 +514,6 @@ if __name__ == '__main__':
                 peer_id = peer.register_account_with_tracker()
                 if peer_id:
                     print(f'Your peer id is {peer_id}')
-                    break
             elif choice == 2:
                 peer_id = peer.login_account_with_tracker()
                 if peer_id:
