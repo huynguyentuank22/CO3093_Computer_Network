@@ -212,7 +212,7 @@ class TrackerServer:
     def getIpandPortByPeerID(self, peer_id):
         self.cursor.execute("SELECT ip, port FROM users WHERE id = ? AND status = 1", (peer_id,))
         return self.cursor.fetchone()
-    
+    # dung de cap nhat dnhap nhe
     def updateLogin(self, user, ip, port):
         with self.lock:
             self.cursor.execute("UPDATE users SET  ip = ?, port = ?, status = 1 WHERE username = ?", (ip, port, user))
