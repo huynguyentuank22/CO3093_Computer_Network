@@ -46,6 +46,19 @@ def split_file_into_piece(path,piece_size):
             
     return pieces
 
+def split_file_into_piece_to_send(path, piece_size, index):
+    pieces = []
+    with open(path, 'rb') as f:
+        idx = 0
+        while True:
+            piece = f.read(piece_size)
+            if not piece:
+                break
+            temp = {'piece': piece, 'id': idx}
+            pieces.append(temp)
+            idx += 1
+    pieces = [piece for piece in pieces if piece['id'] in index]
+    return pieces
 
 class PeerClient:
     def __init__(self, ip, port):
@@ -143,7 +156,8 @@ class PeerClient:
             
             if response['type'] == LOGIN_SUCCESSFUL:
                 print(f"Login successful for user {user_name}")
-                return response['peer_id']
+                self.peer_id = response['peer_id']
+                return self.peer_id
             else:
                 print(f"Login failed for user {user_name}")
                 print(response['message'])
@@ -192,6 +206,7 @@ class PeerClient:
         if self.peer_id is None:
             print("You need to login first.")
             return
+        
         file_path = str(input("Enter file name you want to register: "))
         file_path = 'repo_' + self.user_name + '/' + file_path
         metainfo = self.create_torrent(file_path)
@@ -282,9 +297,8 @@ class PeerClient:
                 if info['type'] == VERIFY_MAGNET_LINK:
                     self.listen_verify_magnet_link_response(another_peer_socket, info)
                 elif info['type'] == REQUEST_PIECE:
-                    self.listen_request_file_response(another_peer_socket, info)
-                
-                # ... handle other message types ...
+                    self.listen_request_piece_response(another_peer_socket, info)
+                    
             except Exception as e:
                 print(f"Error handling peer {addr}: {e}")
                 traceback.print_exc()
@@ -293,8 +307,24 @@ class PeerClient:
         print(f"Connection closed for {addr}")
     
     def listen_request_piece_response(self, another_peer_socket, info):
+        file_name = info['file_name']
+        piece_index = info['piece_index']
+        file_path = f"repo_{self.user_name}/{file_name}"
+        pieces = split_file_into_piece_to_send(file_path, PIECE_SIZE, piece_index)
+        send_msg(another_peer_socket, {'type': SEND_PIECE, 'pieces': pieces})
         
-        pass
+        
+    def send_request_piece(self, ip, port, info):
+        temp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        temp_socket.connect((ip, port))
+        message = {'type': REQUEST_PIECE, 'file_name': info['file_name'], 'piece_index': info['piece_index']}
+        send_msg(temp_socket, message)
+        response_data = recv_msg(temp_socket)
+        temp_socket.close()
+        if response_data is None:
+            raise ConnectionError("Connection closed while receiving data")
+        response = pickle.loads(response_data)
+        return response
     
     def download_file(self):
         files = self.get_list_files_to_download()
@@ -329,26 +359,57 @@ class PeerClient:
             ip_port_list = response['ip_port_list']
             print(f'Found {len(ip_port_list)} peers')
             verify_result = []
+            magnet_link = create_magnet_link(metainfo, SERVER, PORT)
             for ip, port in ip_port_list:
-                res = self.send_verify_magnet_link(magnet_link = bencodepy.encode(metainfo), ip = ip, port = port, file_name = file_name)
+                res = self.send_verify_magnet_link(magnet_link = magnet_link, ip = ip, port = port, file_name = file_name)
                 if res: verify_result.append((ip, port))
+            
+            print('List of peers that have the file:')
+            for ip, port in verify_result:
+                print(f'{ip}:{port}')
                 
             if verify_result:
                 piece_per_peer = len(metainfo['pieces']) // len(verify_result)
-                for ip, port in verify_result:
-                    self.send_request_piece(another_peer_socket = another_peer_socket, 
-                                           ip = ip, port = port, 
-                                           file_name = file_name, 
-                                           piece_index = piece_index, 
-                                           piece_count = piece_per_peer)
-                print("Verified magnet link for all peers")
+                # handle the case that the number of pieces is not divisible by the number of peers
+                remaining_pieces = len(metainfo['pieces']) % len(verify_result)
+                
+                num_of_peer_to_download = len(verify_result)
+                file_name = metainfo['file_name']
+                peer_and_piece_index: Dict[Tuple[str, int], List[int]] = {}
+                for j in range(piece_per_peer):
+                    peer_and_piece_index[(verify_result[j][0], verify_result[j][1])] = []
+                    for i in range(num_of_peer_to_download):
+                        peer_and_piece_index[(verify_result[i][0], verify_result[i][1])].append(j * num_of_peer_to_download + i)
+                
+                # handle remaining pieces
+                for i in range(remaining_pieces):
+                    peer_and_piece_index[(verify_result[i][0], verify_result[i][1])].append(piece_per_peer * num_of_peer_to_download + i)
+                    
+                piece_received = []
+                total_piece = 0
+                for ip, port in peer_and_piece_index:
+                    list_piece_index = peer_and_piece_index[(ip, port)]
+                    message = {'file_name': file_name, 'piece_index': list_piece_index}
+                    response = self.send_request_piece(ip, port, message)
+                    piece_received.append(response)
+                    print(f"Received {len(response)} pieces from {ip}:{port}")
+                    total_piece += len(response)
+                
+                if total_piece != len(metainfo['pieces']):
+                    print(f"Received {total_piece} pieces, but expected {len(metainfo['pieces'])} pieces")
+                    return
+                
+                piece_received.sort(key = lambda x: x['piece_index'])
+                with open(os.path.join(f"repo_{self.user_name}", file_name), 'wb') as f:
+                    for piece in piece_received:
+                        f.write(piece['piece'])
+                print(f"Downloaded file {file_name} successfully")
             else:
                 print("Failed to verify magnet link for some peers")
         elif response['type'] == SHOW_PEER_HOLD_FILE_FAILED:        
             print(response['message'])
         else:
             print("Internal server error")
-
     # def handle_magnet_link(self, metainfo, ip, port, ip_port_list):
     #     magnet_link = create_magnet_link(metainfo, ip, port)
     #     print(magnet_link)
@@ -375,7 +436,7 @@ class PeerClient:
             temp_socket.connect((ip, port))
             
             # Send the verify magnet link request
-            message = pickle.dumps({'type': VERIFY_MAGNET_LINK, 'magnet_link': magnet_link, 'file_name': file_name})
+            message = {'type': VERIFY_MAGNET_LINK, 'magnet_link': magnet_link, 'file_name': file_name}
             send_msg(temp_socket, message)
             
             # Receive the response
@@ -391,27 +452,24 @@ class PeerClient:
         finally:
             temp_socket.close()  # Always close the temporary socket
 
-    def listen_verify_magnet_link_response(self, another_peer_socket):
+    def listen_verify_magnet_link_response(self, another_peer_socket, info):
         try:
             # Receive the verification request
-            message = recv_msg(another_peer_socket)
-            if message is None:
-                raise ConnectionError("Connection closed while receiving data")
-            
-            request = pickle.loads(message)
-            magnet_link = request['magnet_link']
-            file_name = request['file_name']
-            
+            magnet_link = info['magnet_link']
+            file_name = info['file_name']
+            print(f'Received magnet link from {magnet_link}')
             # Verify the magnet link
             with open(f"repo_{self.user_name}/{file_name}_magnet", 'rb') as f:
-                magnet_link_to_verify = f.read()
+                magnet_link_to_verify = f.read().decode('utf-8')
+                
+            print(f'Magnet link to verify: {magnet_link_to_verify}')
             
             if magnet_link == magnet_link_to_verify:
                 print(f"Verified magnet link for {file_name}")
-                response = pickle.dumps({'type': VERIFY_MAGNET_LINK_SUCCESSFUL})
+                response = {'type': VERIFY_MAGNET_LINK_SUCCESSFUL}
             else:
                 print(f"Failed to verify magnet link for {file_name}")
-                response = pickle.dumps({'type': VERIFY_MAGNET_LINK_FAILED})
+                response = {'type': VERIFY_MAGNET_LINK_FAILED}
             
             # Send the verification response
             send_msg(another_peer_socket, response)
@@ -426,7 +484,7 @@ class PeerClient:
         self.server_socket.listen(5) # assume that we only listen from 5 peers at the same time
         print(f"Listening for incoming connections on {self.ip}:{self.port}")
         # Start listener thread
-        self.listen_thread = threading.Thread(target=self.listen_for_peers)
+        self.listen_thread = threading.Thread(target=self.listen_to_another_peer)
         self.listen_thread.daemon = True  # Thread will close when main program exits
         self.listen_thread.start()
         while True:
@@ -468,11 +526,15 @@ if __name__ == '__main__':
         while True:
             choice = int(input('Enter your choice: '))
             if choice == 1:
-                peer.register_account_with_tracker()
-                break
+                peer_id = peer.register_account_with_tracker()
+                if peer_id:
+                    print(f'Your peer id is {peer_id}')
+                    break
             elif choice == 2:
-                peer.login_account_with_tracker()
-                break
+                peer_id = peer.login_account_with_tracker()
+                if peer_id:
+                    print(f'Your peer id is {peer_id}')
+                    break
             else:
                 print('Invalid choice')
         peer.peer_service()

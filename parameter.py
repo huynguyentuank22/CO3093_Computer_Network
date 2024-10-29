@@ -1,4 +1,4 @@
-from typing import Dict, Set, List
+from typing import Dict, Set, List, Tuple
 import bencodepy
 import traceback
 import struct
@@ -33,4 +33,5 @@ VERIFY_MAGNET_LINK = 'verify_magnet_link'
 VERIFY_MAGNET_LINK_SUCCESSFUL = 'verify_magnet_link_successful'
 VERIFY_MAGNET_LINK_FAILED = 'verify_magnet_link_failed'
 REQUEST_PIECE = 'request_piece'
+SEND_PIECE = 'send_piece'
 
