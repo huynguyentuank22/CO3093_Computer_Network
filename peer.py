@@ -220,7 +220,7 @@ class PeerClient:
                 another_peer_socket, addr = self.server_socket.accept()
                 print(f"New connection from {addr}")
                 client_thread = threading.Thread(target=self.handle_peer, 
-                                                 args=(another_peer_socket, addr))
+                                                args=(another_peer_socket, addr))
                 client_thread.daemon = True
                 client_thread.start()
             except Exception as e:
@@ -352,7 +352,6 @@ class PeerClient:
                 
                 for ip, port in peer_and_piece_index:
                     print(f'Address: {ip}:{port} need to provide these pieces: {peer_and_piece_index[(ip, port)]}')
-                     
                 piece_received = []
                 total_piece = 0
                 for ip, port in peer_and_piece_index:

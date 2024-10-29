@@ -191,7 +191,8 @@ class TrackerServer:
     #     magnet_link += f"&tr={tracker_url}" 
         
     #     return magnet_link
-    
+    #     hieu de
+    #     sendMSg
     def sendMsg(self, client_socket, msg):
         try:
             send_msg(client_socket, msg)
@@ -211,7 +212,7 @@ class TrackerServer:
     def getIpandPortByPeerID(self, peer_id):
         self.cursor.execute("SELECT ip, port FROM users WHERE id = ? AND status = 1", (peer_id,))
         return self.cursor.fetchone()
-    
+    # dung de cap nhat dnhap nhe
     def updateLogin(self, user, ip, port):
         with self.lock:
             self.cursor.execute("UPDATE users SET  ip = ?, port = ?, status = 1 WHERE username = ?", (ip, port, user))
