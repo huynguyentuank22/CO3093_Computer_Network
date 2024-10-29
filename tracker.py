@@ -192,6 +192,7 @@ class TrackerServer:
         
     #     return magnet_link
     #     hieu de
+    #     sendMSg
     def sendMsg(self, client_socket, msg):
         try:
             send_msg(client_socket, msg)
