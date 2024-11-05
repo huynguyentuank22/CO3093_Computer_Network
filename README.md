@@ -28,7 +28,9 @@ Run pip to install dependencies.
 
 ## Running application
 Run tracker server by executing:
+
     python tracker.py
 
 For each peer, you need to open a new terminal and run:
+
     python peer.py
