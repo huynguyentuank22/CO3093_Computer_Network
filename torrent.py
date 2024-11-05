@@ -1,55 +1,56 @@
-# Update the existing file with these changes
-
-import hashlib
-from dataclasses import dataclass
-from typing import List, Dict
-import bencodepy
 from parameter import *
+from helper import *
 
-@dataclass
-class File:
-    name: str
-    size: int
-
-@dataclass
-class Piece:
-    index: int
-    hash: str
-
-class MetaInfoFile:
-    def __init__(self, info_hash: str, pieces: List[Piece], file: File, tracker_address: str):
-        self.info_hash = info_hash
-        self.pieces = pieces
-        self.file = file
-        self.tracker_address = tracker_address
-    def encode(self) -> bytes:
-        info = {
-            'file_name': self.file.name,
-            'file_size': self.file.size,
-            'piece length': PIECE_SIZE,
-            'pieces_count': len(self.pieces)
-        }
-        return bencodepy.encode({
-            'info': info,
-            'announce': self.tracker_address
-        })
-    def decode(self, metainfo: bytes) -> 'MetaInfoFile':
-        decoded = bencodepy.decode(metainfo)
-        return MetaInfoFile(info_hash=hashlib.sha1(decoded['info']).hexdigest(), 
-                            pieces=[Piece(index=i, hash=piece) for i, piece in enumerate(decoded['info']['pieces'])], 
-                            file=File(name=decoded['info']['file_name'], size=decoded['info']['file_size']), 
-                            tracker_address=decoded['announce'])
-
-class MagnetLink:
-    def __init__(self, info_hash: str, tracker_address: str):
-        self.info_hash = info_hash
-        self.tracker_address = tracker_address
-
-    def to_string(self) -> str:
-        return f"magnet:?xt=urn:btih:{self.info_hash}&tr={self.tracker_address}"
+class Torrent:
+    def __init__(self, file_path):
+        if not os.path.exists(file_path):
+            messagebox.showerror("Error", "File does not exist")
+            return
+        self.file_path = file_path
+        self.file_name = os.path.basename(file_path)
+        self.file_size = os.path.getsize(file_path)
+        self.pieces = self.split_file_into_pieces()
+        self.info_hash = self.calculate_file_hash()
     
-    def decode(self, magnet_string: str) -> 'MagnetLink':
-        parts = magnet_string.split('&')
-        info_hash = parts[0].split(':')[-1]
-        tracker_address = parts[1].split('=')[-1]
-        return MagnetLink(info_hash, tracker_address)
+    def split_file_into_pieces(self):
+        """Split file into pieces and calculate hash for each piece"""
+        pieces = []
+        with open(self.file_path, 'rb') as f:
+            while True:
+                piece = f.read(PIECE_SIZE)
+                if not piece:
+                    break
+                pieces.append(sha1_hash(piece))
+        return pieces
+
+    def calculate_file_hash(self):
+        """Calculate a unique hash for the entire file"""
+        sha1 = hashlib.sha1()
+        with open(self.file_path, 'rb') as f:
+            while True:
+                data = f.read(8192)
+                if not data:
+                    break
+                sha1.update(data)
+        return sha1.hexdigest()
+    
+    # def equals(self, other_torrent):
+    #     """Compare if two torrents are the same file"""
+    #     if not isinstance(other_torrent, Torrent):
+    #         return False
+        
+    #     # Compare file size first (quick check)
+    #     if self.file_size != other_torrent.file_size:
+    #         return False
+            
+    #     # Compare file hash
+    #     if self.file_hash != other_torrent.file_hash:
+    #         return False
+            
+    #     # Compare pieces for extra verification
+    #     if self.pieces != other_torrent.pieces:
+    #         return False
+            
+    #     return True
+
+

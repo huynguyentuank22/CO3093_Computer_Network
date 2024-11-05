@@ -1,532 +1,423 @@
-import socket
-import threading
-import sqlite3
-import time
-import json
-import os
-import hashlib
-import maskpass
-import pickle
 from parameter import *
 from helper import *
+from peer_UI import *
 from torrent import *
 
-SERVER_NAME = socket.gethostname()
-SERVER = socket.gethostbyname(SERVER_NAME) # default ip of tracker for test
-PORT = 5050
 
-
-
-
-class PeerClient:
+class Peer:
     def __init__(self, ip, port):
         self.ip = ip
-        self.port = port
-        self.peer_socket = None
-        self.server_socket = None # this socket is used to listen to another peer
-        """
-        peer_socket is used to connect to tracker
-        server_socket is used to listen to another peer
-        when we connect to tracker, we will use peer_socket
-        when we listen to another peer, we will use server_socket because peer_socket is already connected to tracker, 
-        it can't be used to send message to tracker but not to listen to another peer
-        """
-        # self.peer_socket.connect((SERVER, PORT))
-        self.user_name = None
+        self.tracker_port = port  # Port for connecting to tracker
+        self.listen_port = None   # Port for listening to peer connections
+        self.peer_socket = None   # Socket for tracker connection
+        self.listen_socket = None # Socket for peer connections
         self.peer_id = None
-        self.files: Dict[str, MetaInfoFile] = {} # key: file name, value: MetaInfoFile
-        self.pieces: Dict[str, Dict[int, bytes]] = {} # key: file name, value: dict of piece index and piece data
-        self.magnet_links: Dict[str, str] = {} # key: file name, value: magnet link
-        
-        
-    def connect_to_tracker(self):
-        max_retries = 5
-        for attempt in range(max_retries):
-            try:
-                self.peer_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                self.peer_socket.connect((SERVER, PORT))
-                print(f"Connected to tracker at {SERVER}:{PORT}")
-                return
-            except Exception as e:
-                print(f"Attempt {attempt + 1}/{max_retries} failed: {e}")
-                if attempt < max_retries - 1:
-                    print("Retrying in 5 seconds...")
-                    time.sleep(5)
-                else:
-                    print("Failed to connect to tracker after multiple attempts.")
-                    raise
-                
-                
-    def register_account_with_tracker(self):
-        user_name = input("Enter your username to register: ")
-        pwd = get_password()
-        
-        message = {'type': REGISTER, 'username': user_name, 'password': pwd, 'ip': self.ip, 'port': self.port}
+        self.username = None
+        self.torrents = []
+        self.available_files = []
+        self.ui = PeerUI(self)
+        self._shutdown = False
+
+    def handle_login(self):
         try:
-            print("Sending registration request...")
-            message = pickle.dumps({'type': REGISTER, 'username': user_name, 'password': pwd, 'ip': self.ip, 'port': self.port})
-            self.peer_socket.sendall(struct.pack('>I', len(message)) + message)
-            print("Registration request sent. Waiting for response...")
-            
-            response_data = recv_msg(self.peer_socket)
-            if response_data is None:
-                raise ConnectionError("Connection closed while receiving data")
-            
-            print(f"Received {len(response_data)} bytes of data")
-            response = pickle.loads(response_data)
-            
-            if response['type'] == REGISTER_SUCCESSFUL:
-                print(f"Account {user_name} registered successfully")
-                peer_id = response['peer_id']
-                if not os.path.exists(f"repo_{user_name}"):
-                    os.makedirs(f"repo_{user_name}")
-                    print(f"Created directory for user {user_name}. All files will be stored in this directory.")
-                self.user_name = user_name
-                return peer_id
-            else:
-                print(f"Account {user_name} registration failed")
-                print(response['message'])
-                return None
-        except ConnectionResetError:
-            print("Connection was reset by the tracker. The tracker might have closed unexpectedly.")
-            return None
-        except Exception as e:
-            print(f"An error occurred during registration: {e}")
-            return None
-        
-    def login_account_with_tracker(self):
-        user_name = input("Enter your username to login: ")
-        pwd = get_password()
-        self.user_name = user_name
-        message = {'type': LOGIN, 'username': user_name, 'password': pwd, 'ip': self.ip, 'port': self.port}
-        try:
-            print('Sending login request ...')
-            message = pickle.dumps({'type': LOGIN, 'username': user_name, 'password': pwd, 'ip': self.ip, 'port': self.port})
-            self.peer_socket.sendall(struct.pack('>I', len(message)) + message)
-            print("Login request sent. Waiting for response...")
-            response_data = recv_msg(self.peer_socket)
-            
-            if response_data is None:
-                raise ConnectionError("Connection closed while receiving data")
-            
-            print(f"Received {len(response_data)} bytes of data")
-            response = pickle.loads(response_data)
-            
-            if response['type'] == LOGIN_SUCCESSFUL:
-                print(f"Login successful for user {user_name}")
+            # Find an available port for listening
+            if not self.listen_port:
+                self.listen_port = generate_port()
+            message = {
+                'type': LOGIN,
+                'username': self.ui.login_username.get(),
+                'password': self.ui.login_password.get(),
+                'ip': self.ip,
+                'port': self.listen_port  # Use listen_port instead of tracker_port
+            }
+            send_msg(self.peer_socket, message)
+            response = pickle.loads(recv_msg(self.peer_socket))
+
+            if response['type'] == LOGIN_SUCCESS:
                 self.peer_id = response['peer_id']
-                return self.peer_id
+                self.username = self.ui.login_username.get()
+                messagebox.showinfo("Success", response['message'])
+                # Start peer server before showing file operations
+                self.peer_server()
+                self.ui.show_file_operations_frame(self.username)
             else:
-                print(f"Login failed for user {user_name}")
-                print(response['message'])
-                if response['type'] == LOGIN_WRONG_PASSWORD:
-                    print("Wrong password")
-                    print("Please try again.")
-                    self.login_account_with_tracker()
-                    return None
-                elif response['type'] == LOGIN_ACC_NOT_EXIST:
-                    print("Account does not exist. You need to register first.")
-                    self.register_account_with_tracker()
-                    return None
-                else:
-                    print("Internal server error")
-                    return None
+                messagebox.showerror("Error", response['message'])
         except Exception as e:
-            print(f"An error occurred during login: {e}")
-        pass
-    
-    def create_torrent(self, file_path: str):
-        print("Creating torrent...")
-        if not os.path.exists(file_path):
-            print(f"File {file_path} does not exist.")
+            messagebox.showerror("Error", str(e))
+
+    def handle_register(self):
+        if self.ui.register_password.get() != self.ui.register_confirm.get():
+            messagebox.showerror("Error", "Passwords do not match!")
             return
 
-        file_name = os.path.basename(file_path)
-        file_size = os.path.getsize(file_path)
-        info_hash = hashlib.sha1(file_name.encode()).hexdigest()
-        pieces = split_file_into_piece(file_path, PIECE_SIZE)
-        tracker_address = f"http://{SERVER}:{PORT}"
-        metainfo = {
-            'file_name': file_name,
-            'file_size': file_size,
-            'piece_length': PIECE_SIZE,
-            'pieces_count': len(pieces),
-            'announce': tracker_address
-        }
-        self.files[file_name] = metainfo
-        self.pieces[file_name] = {i: piece for i, piece in enumerate(pieces)}
-        # metainfo_path = os.path.join(f"repo_{self.user_name}", f"{file_name}.torrent")
-        # with open(metainfo_path, 'wb') as f:
-        #     pickle.dump(metainfo, f)
-        return metainfo
-    
-    def register_file_with_tracker(self):
-        if self.peer_id is None:
-            print("You need to login first.")
-            return
-        
-        file_path = str(input("Enter file name you want to register: "))
-        file_path = 'repo_' + self.user_name + '/' + file_path
-        metainfo = self.create_torrent(file_path)
-        # print(metainfo.encode())
         try:
-            print("Sending register file request...")
-            
-            message = pickle.dumps({'type': REGISTER_FILE, 'metainfo': metainfo, 'peer_id': self.peer_id})
-            self.peer_socket.sendall(struct.pack('>I', len(message)) + message)
-            
-            print("Register file request sent. Waiting for response...")
-            response_data = recv_msg(self.peer_socket)
-            if response_data is None:
-                raise ConnectionError("Connection closed while receiving data")
-            print(f"Received {len(response_data)} bytes of data")
-            response = pickle.loads(response_data)
-            if response['type'] == REGISTER_FILE_SUCCESSFUL:
-                print(f"File {file_path} registered successfully")
-                magnet_link = response['magnet_link']
-                print(f"Magnet link: {magnet_link}")
-                with open(os.path.join(f"repo_{self.user_name}", f"{metainfo['file_name']}_magnet"), 'wb') as f:
-                    f.write(magnet_link.encode())
+            # self.connect_to_tracker()
+            message = {
+                'type': REGISTER,
+                'username': self.ui.register_username.get(),
+                'password': self.ui.register_password.get(),
+                'ip': self.ip,
+                'port': self.listen_port  # Use listen_port instead of tracker_port
+            }
+            send_msg(self.peer_socket, message)
+            response = pickle.loads(recv_msg(self.peer_socket))
+
+            if response['type'] == REGISTER_SUCCESS:
+                if not os.path.exists(f"repo_{self.ui.register_username.get()}"):
+                    os.makedirs(f"repo_{self.ui.register_username.get()}")
+                messagebox.showinfo("Success", response['message'])
+                self.ui.show_login_frame()
             else:
-                print(f"File {file_path} registration failed")
-                print(response['message'])
+                messagebox.showerror("Error", response['message'])
         except Exception as e:
-            print(f"An error occurred during register file: {e}")
-        
-        
-    def logout_account_with_tracker(self):
-        if not self.peer_id:
-            print("You need to login first.")
-            return
-        message = pickle.dumps({'type': LOGOUT, 'peer_id': self.peer_id})
-        self.peer_socket.sendall(struct.pack('>I', len(message)) + message)
-        print("Logout request sent. Waiting for response...")
-        response_data = recv_msg(self.peer_socket)
-        if response_data is None:
-            raise ConnectionError("Connection closed while receiving data")
-        response = pickle.loads(response_data)
-        if response['type'] == LOGOUT_SUCCESSFUL:
-            print("Logout successful")
-        else:
-            print("Logout failed")
-            print(response['message'])
+            messagebox.showerror("Error", str(e))
+
+    def handle_logout(self):
+        try:
+            # self.connect_to_tracker()
+            message = {
+                'type': LOGOUT,
+                'peer_id': self.peer_id
+            }
+            send_msg(self.peer_socket, message)
+            response = pickle.loads(recv_msg(self.peer_socket))
+            if response['type'] == LOGOUT_SUCCESS:
+                messagebox.showinfo("Success", response['message'])
+            else:
+                messagebox.showerror("Error", response['message'])
+        except Exception as e:
+            messagebox.showerror("Error", str(e))
+
+    def connect_to_tracker(self, SERVER='localhost', PORT=5050):
+        """Connect to tracker server"""
+        if not self.peer_socket:
+            max_retries = 5
+            for attempt in range(max_retries):
+                try:
+                    self.peer_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                    self.peer_socket.connect((SERVER, PORT))
+                    return
+                except Exception as e:
+                    if attempt < max_retries - 1:
+                        time.sleep(1)
+                    else:
+                        raise
+
+    def connect_to_peer(self, ip, port):
+        try:
+            self.peer_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.peer_socket.connect((ip, port))
+        except Exception as e:
+            print(f"Error connecting to peer {ip}:{port}: {e}")
+            traceback.print_exc()
+
+    def get_available_files(self):
+        """Request list of available files from tracker"""
+        try:
+            message = {
+                'type': GET_FILES,
+                'peer_id': self.peer_id
+            }
+            send_msg(self.peer_socket, message)
+            response = pickle.loads(recv_msg(self.peer_socket))
+
+            if response['type'] == GET_FILES_SUCCESS:
+                all_files = response['files']
+                published_files = [
+                    {'filename': file.file_name, 'size': file.file_size} for file in self.torrents]
+                self.available_files = [
+                    file for file in all_files if file['info_hash'] not in [torrent.info_hash for torrent in self.torrents]]
+                self.ui.update_files_list(
+                    published_files, self.available_files)
+            else:
+                messagebox.showerror("Error", "Failed to get file list")
+        except Exception as e:
+            messagebox.showerror("Error", str(e))
+
+    def publish_file(self, file_path):
+        torrent = Torrent(file_path)
+        self.torrents.append(torrent)
+        try:
+            message = {
+                'type': PUBLISH,
+                'peer_id': self.peer_id,
+                'info_hash': torrent.info_hash,
+                'filename': torrent.file_name,
+                'filesize': torrent.file_size
+            }
+            send_msg(self.peer_socket, message)
+            response = pickle.loads(recv_msg(self.peer_socket))
+            if response['type'] == PUBLISH_SUCCESS:
+                messagebox.showinfo("Success", response['message'])
+                self.get_available_files()  # Refresh file list after publishing
+            else:
+                messagebox.showerror("Error", response['message'])
+        except Exception as e:
+            messagebox.showerror("Error", str(e))
+
+    def fetch_file(self, index):
+        """Client-side file download with multiple threads"""
+        try:
+            # Request peer list from tracker
+            message = {
+                'type': FETCH,
+                'peer_id': self.peer_id,
+                'info_hash': self.available_files[index]['info_hash']
+            }
+            send_msg(self.peer_socket, message)
+            response = pickle.loads(recv_msg(self.peer_socket))
             
-    def listen_to_another_peer(self):
+            if response['type'] == FETCH_SUCCESS:
+                peers = response['peers']
+                if not peers:
+                    messagebox.showerror("Error", "No peers available")
+                    return
+                    
+                # Calculate pieces needed
+                file_size = self.available_files[index]['size']
+                num_pieces = (file_size + PIECE_SIZE - 1) // PIECE_SIZE
+                
+                # Create download manager thread
+                download_thread = threading.Thread(
+                    target=self.manage_download,
+                    args=(peers, self.available_files[index], num_pieces)
+                )
+                download_thread.daemon = True
+                download_thread.start()
+                
+            else:
+                messagebox.showerror("Error", "Failed to fetch peer list")
+                
+        except Exception as e:
+            messagebox.showerror("Error", f"Error initiating download: {str(e)}")
+
+    def manage_download(self, peers, file_info, num_pieces):
+        """Manage the download process using multiple threads"""
+        try:
+            pieces = {}
+            download_threads = []
+            piece_assignments = []
+            
+            # Distribute pieces among available peers
+            for piece_index in range(num_pieces):
+                # Round-robin peer selection
+                peer = peers[piece_index % len(peers)]
+                piece_assignments.append((peer, piece_index))
+            
+            # Create threads for each piece-peer assignment
+            for peer, piece_index in piece_assignments:
+                thread = threading.Thread(
+                    target=self.download_piece,
+                    args=(peer[0], peer[1], file_info['info_hash'], piece_index, pieces)
+                )
+                download_threads.append(thread)
+                thread.start()
+                
+                # Limit concurrent threads
+                if len(download_threads) >= len(peers) * 2:  # 2 threads per peer
+                    for t in download_threads:
+                        t.join()
+                    download_threads = []
+            
+            # Wait for remaining threads
+            for thread in download_threads:
+                thread.join()
+                
+            # Save the complete file
+            self.save_complete_file(file_info['filename'], pieces, num_pieces)
+            messagebox.showinfo("Success", f"File downloaded successfully: {file_info['filename']}")
+            
+        except Exception as e:
+            messagebox.showerror("Error", f"Download failed: {str(e)}")
+
+    def download_piece(self, ip, port, info_hash, piece_index, pieces):
+        """Download a single piece from a specific peer"""
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                # Create new connection for each piece
+                with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                    s.connect((ip, port))
+                    
+                    message = {
+                        'type': GET_PIECE,
+                        'info_hash': info_hash,
+                        'piece_index': piece_index
+                    }
+                    send_msg(s, message)
+                    response = pickle.loads(recv_msg(s))
+                    
+                    if response['type'] == GET_PIECE_SUCCESS:
+                        pieces[piece_index] = response['data']
+                        print(f"Successfully downloaded piece {piece_index} from {ip}:{port}")
+                        return
+                    else:
+                        print(f"Failed to download piece {piece_index} from {ip}:{port}")
+                        
+            except Exception as e:
+                print(f"Error downloading piece {piece_index} from {ip}:{port}: {e}")
+                if attempt == max_retries - 1:
+                    traceback.print_exc()
+                else:
+                    time.sleep(1)  # Wait before retry
+
+    def save_complete_file(self, filename, pieces, num_pieces):
+        """Reassemble and save the complete file"""
+        try:
+            save_path = f"repo_{self.username}/{filename}"
+            with open(save_path, 'wb') as f:
+                for i in range(num_pieces):
+                    if i in pieces:
+                        f.write(pieces[i])
+                    else:
+                        raise Exception(f"Missing piece {i}")
+            print(f"File saved successfully: {save_path}")
+        except Exception as e:
+            print(f"Error saving file: {e}")
+            traceback.print_exc()
+            raise
+
+    def peer_server(self):
+        """Start listening server for peer connections"""
+        try:
+            # Close existing listen socket if it exists
+            if self.listen_socket:
+                try:
+                    self.listen_socket.close()
+                except:
+                    pass
+
+            # Create new socket for peer connections
+            self.listen_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.listen_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            
+            max_retries = 5
+            for attempt in range(max_retries):
+                try:
+                    self.listen_socket.bind((self.ip, self.listen_port))
+                    self.listen_socket.listen(4)
+                    print(f"Listening for peer connections on {self.ip}:{self.listen_port}")
+                    
+                    # Start the listening thread
+                    listen_thread = threading.Thread(target=self.listen_for_connections)
+                    listen_thread.daemon = True
+                    listen_thread.start()
+                    return
+                    
+                except OSError as bind_error:
+                    if attempt < max_retries - 1:
+                        print(f"Port {self.listen_port} is in use, trying another port...")
+                        self.listen_port = generate_port()  # Try a new port
+                    else:
+                        raise bind_error
+                        
+        except Exception as e:
+            print(f"Error in peer_server: {e}")
+            traceback.print_exc()
+
+    def listen_for_connections(self):
+        """Thread that accepts new connections"""
         while True:
             try:
-                if not self.server_socket:
-                    print("Server socket is not initialized")
-                    break
-                another_peer_socket, addr = self.server_socket.accept()
+                client_socket, addr = self.listen_socket.accept()
                 print(f"New connection from {addr}")
-                client_thread = threading.Thread(target=self.handle_peer, 
-                                                args=(another_peer_socket, addr))
+                # Create new thread for each client connection
+                client_thread = threading.Thread(
+                    target=self.handle_client_connection,
+                    args=(client_socket, addr)
+                )
                 client_thread.daemon = True
                 client_thread.start()
             except Exception as e:
-                if isinstance(e, OSError) and e.winerror == 10038:
-                    print("Server socket was closed")
-                    break
                 print(f"Error accepting connection: {e}")
-    
-    
-    def get_list_files_to_download(self):
-        if not self.peer_id:
-            print("You need to login first.")
-            return
-        message = pickle.dumps({'type': GET_LIST_FILES_TO_DOWNLOAD})
-        self.peer_socket.sendall(struct.pack('>I', len(message)) + message)
-        response_data = recv_msg(self.peer_socket)
-        if response_data is None:
-            raise ConnectionError("Connection closed while receiving data")
-        response = pickle.loads(response_data)
-        if response['type'] == GET_LIST_FILES_TO_DOWNLOAD and response['files']:
-            return response['files']
-        else:
-            print("No available files")
-    
-    def handle_peer(self, another_peer_socket, addr):
-        print(f"Handling connection from {addr}")
-        while True:
-            try:
-                print(f"Waiting for data from {addr}")
-                data = recv_msg(another_peer_socket)
-                if data is None:
-                    print(f"Client {addr} disconnected")
-                    break
-                print(f"Received {len(data)} bytes from {addr}")
-                info = pickle.loads(data)
-                print(f"Received message from {addr}: {info['type']}")
-                if info['type'] == VERIFY_MAGNET_LINK:
-                    self.listen_verify_magnet_link_response(another_peer_socket, info)
-                elif info['type'] == REQUEST_PIECE:
-                    self.listen_request_piece_response(another_peer_socket, info)
-                    
-            except Exception as e:
-                print(f"Error handling peer {addr}: {e}")
                 traceback.print_exc()
-                break
-        another_peer_socket.close()
-        print(f"Connection closed for {addr}")
-    
-    def listen_request_piece_response(self, another_peer_socket, info):
-        file_name = info['file_name']
-        piece_index = info['piece_index']
-        file_path = f"repo_{self.user_name}/{file_name}"
-        pieces = split_file_into_piece_to_send(file_path, PIECE_SIZE, piece_index)
-        send_msg(another_peer_socket, {'type': SEND_PIECE, 'pieces': pieces})
-        
-        
-    def send_request_piece(self, ip, port, info):
-        temp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        temp_socket.connect((ip, port))
-        message = {'type': REQUEST_PIECE, 'file_name': info['file_name'], 'piece_index': info['piece_index']}
-        send_msg(temp_socket, message)
-        response_data = recv_msg(temp_socket)
-        temp_socket.close()
-        if response_data is None:
-            raise ConnectionError("Connection closed while receiving data")
-        response = pickle.loads(response_data)
-        return response['pieces']
-    
-    def download_file(self):
-        files = self.get_list_files_to_download()
-        if not files or (len(files) == 1 and os.path.exists(f"repo_{self.user_name}/{files[0]}")):
-            print('No available files')
-            return
-        else:
-            print('All available files:')
-            for file in files:
-                if not os.path.exists(f"repo_{self.user_name}/{file}"):
-                    print(file)
-                    
-        file_name = input("Enter file name you want to download: ")
-        
-        if file_name not in files:
-            print("File not found")
-            return
-        if os.path.exists(f"repo_{self.user_name}/{file_name}"):
-            print("File already exists")
-            return
-        
-        msg = pickle.dumps({'type': REQUEST_FILE, 'file_name': file_name})
-        self.peer_socket.sendall(struct.pack('>I', len(msg)) + msg)
-        response_data = recv_msg(self.peer_socket)
-        if response_data is None:
-            raise ConnectionError("Connection closed while receiving data")
-        response = pickle.loads(response_data)
-        if response['type'] == SHOW_PEER_HOLD_FILE:
-            print(response['metainfo'])
-            # print(response['ip_port_list'])
-            metainfo = response['metainfo']
-            ip_port_list = response['ip_port_list']
-            print(f'Found {len(ip_port_list)} peers')
-            verify_result = []
-            magnet_link = create_magnet_link(metainfo, SERVER, PORT)
-            for ip, port in ip_port_list:
-                res = self.send_verify_magnet_link(magnet_link = magnet_link, ip = ip, port = port, file_name = file_name)
-                if res: verify_result.append((ip, port))
-            
-            print('List of peers that have the file:')
-            for ip, port in verify_result:
-                print(f'{ip}:{port}')
-                
-            if verify_result:
-                piece_per_peer = metainfo['pieces_count'] // len(verify_result)
-                # handle the case that the number of pieces is not divisible by the number of peers
-                remaining_pieces = metainfo['pieces_count'] % len(verify_result)
-                
-                num_of_peer_to_download = len(verify_result) # verify_result is list of tuple of ip and port
-                file_name = metainfo['file_name']
-                peer_and_piece_index: Dict[Tuple[str, int], List[int]] = {}
-                for j in range(piece_per_peer):
-                    for i in range(num_of_peer_to_download):
-                        key = (verify_result[i][0], verify_result[i][1])
-                        if key not in peer_and_piece_index:
-                            peer_and_piece_index[key] = []
-                        peer_and_piece_index[key].append(j * num_of_peer_to_download + i)
-                
-                # handle remaining pieces
-                for i in range(remaining_pieces):
-                    peer_and_piece_index[(verify_result[i][0], verify_result[i][1])].append(piece_per_peer * num_of_peer_to_download + i)
-                
-                for ip, port in peer_and_piece_index:
-                    print(f'Address: {ip}:{port} need to provide these pieces: {peer_and_piece_index[(ip, port)]}')
-                piece_received = []
-                total_piece = 0
-                for ip, port in peer_and_piece_index:
-                    list_piece_index = peer_and_piece_index[(ip, port)]
-                    message = {'file_name': file_name, 'piece_index': list_piece_index}
-                    response = self.send_request_piece(ip, port, message)
-                    # print(response)
-                    print(f"Received {len(response)} pieces from {ip}:{port}")
-                    total_piece += len(response)
-                
-                if total_piece != metainfo['pieces_count']:
-                    print(f"Received {total_piece} pieces, but expected {metainfo['pieces_count']} pieces")
-                    return
-                
-                piece_received.sort(key = lambda x: x['piece_index'])
-                with open(os.path.join(f"repo_{self.user_name}", file_name), 'wb') as f:
-                    for piece in piece_received:
-                        f.write(piece['piece'])
-                print(f"Downloaded file {file_name} successfully")
-            else:
-                print("Failed to verify magnet link for some peers")
-        elif response['type'] == SHOW_PEER_HOLD_FILE_FAILED:        
-            print(response['message'])
-        else:
-            print("Internal server error")
-    # def handle_magnet_link(self, metainfo, ip, port, ip_port_list):
-    #     magnet_link = create_magnet_link(metainfo, ip, port)
-    #     print(magnet_link)
-    #     threads = []
-    #     verify_result: Dict[(str, int), bool] = {}
-    #     for ip, port in ip_port_list:
-    #         print(f"Sending verify request to http://{ip}:{port}")
-    #         thread = threading.Thread(target=self.send_verify_magnet_link, args=(magnet_link, ip, port, metainfo['file_name']))
-    #         threads.append(thread)
-    #         result = thread.start()
-    #         verify_result[(ip, port)] = result
-        
-    #     for thread in threads:
-    #         thread.join()
-        
-    #     return verify_result
 
-    
-    def send_verify_magnet_link(self, magnet_link, ip, port, file_name):
-        # Create a new temporary socket for this specific peer connection
-        temp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    def handle_client_connection(self, client_socket, addr):
+        """Handle individual client connections"""
+        print(f"Handling connection from {addr}")
         try:
-            # Connect to the target peer's server_socket
-            temp_socket.connect((ip, port))
-            
-            # Send the verify magnet link request
-            message = {'type': VERIFY_MAGNET_LINK, 'magnet_link': magnet_link, 'file_name': file_name}
-            send_msg(temp_socket, message)
-            
-            # Receive the response
-            response_data = recv_msg(temp_socket)
-            if response_data is None:
-                raise ConnectionError("Connection closed while receiving data")
-            
-            response = pickle.loads(response_data)
-            return response['type'] == VERIFY_MAGNET_LINK_SUCCESSFUL
-        except Exception as e:
-            print(f"Error verifying magnet link with peer {ip}:{port}: {e}")
-            return False
-        finally:
-            temp_socket.close()  # Always close the temporary socket
-
-    def listen_verify_magnet_link_response(self, another_peer_socket, info):
-        try:
-            # Receive the verification request
-            magnet_link = info['magnet_link']
-            file_name = info['file_name']
-            print(f'Received magnet link from {magnet_link}')
-            # Verify the magnet link
-            with open(f"repo_{self.user_name}/{file_name}_magnet", 'rb') as f:
-                magnet_link_to_verify = f.read().decode('utf-8')
-                
-            print(f'Magnet link to verify: {magnet_link_to_verify}')
-            
-            if magnet_link == magnet_link_to_verify:
-                print(f"Verified magnet link for {file_name}")
-                response = {'type': VERIFY_MAGNET_LINK_SUCCESSFUL}
-            else:
-                print(f"Failed to verify magnet link for {file_name}")
-                response = {'type': VERIFY_MAGNET_LINK_FAILED}
-            
-            # Send the verification response
-            send_msg(another_peer_socket, response)
-        except Exception as e:
-            print(f"Error handling magnet link verification: {e}")
-            error_response = pickle.dumps({'type': 'ERROR', 'message': str(e)})
-            send_msg(another_peer_socket, error_response)
-    
-    def ininitialize_server_socket(self):
-        try:
-            self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            self.server_socket.bind((self.ip, self.port))
-            self.server_socket.listen(5) # assume that we only listen from 5 peers at the same time
-            print(f"Listening for incoming connections on {self.ip}:{self.port}")
-        except Exception as e:
-            print(f"Error initializing server socket: {e}")
-            traceback.print_exc()
-    def clean_up(self):
-        try:
-            if self.peer_socket:
-                self.peer_socket.close()
-            if self.server_socket:
-                self.server_socket.close()
-        except Exception as e:
-            print(f"Error cleaning up: {e}")
-            traceback.print_exc()
-            
-    def peer_service(self):
-        try:
-        # Start listener thread
-            self.ininitialize_server_socket()
-            self.listen_thread = threading.Thread(target=self.listen_to_another_peer)
-            self.listen_thread.daemon = True
-            self.listen_thread.start()
             while True:
-                print("\n--- Peer Client Menu ---")
-                print("1. Register a file")
-                print("2. Download a file")
-                print("3. Exit")
-                
-                choice = input("Enter your choice (1-3): ")
-                
-                if choice == '1':
-                    self.register_file_with_tracker()
-                elif choice == '2':
-                    self.download_file()
-                elif choice == '3':
-                    self.logout_account_with_tracker()
-                    self.clean_up()
-                    print("Exiting...")
+                data = recv_msg(client_socket)
+                if not data:
                     break
+                
+                request = pickle.loads(data)
+                print(f"Received request from {addr}: {request['type']}")
+                
+                if request['type'] == GET_PIECE:
+                    # Create new thread for file transfer
+                    transfer_thread = threading.Thread(
+                        target=self.handle_piece_transfer,
+                        args=(client_socket, request)
+                    )
+                    transfer_thread.daemon = True
+                    transfer_thread.start()
+                    transfer_thread.join()  # Wait for transfer to complete
                 else:
-                    print("Invalid choice. Please try again.")
+                    print(f"Unknown request type: {request['type']}")
+                    
         except Exception as e:
-            print(f"An error occurred: {e}")
+            print(f"Error handling client {addr}: {e}")
             traceback.print_exc()
-    
-    
-if __name__ == '__main__':
-    hostname = socket.gethostname()
-    local_ip = socket.gethostbyname(hostname)
+        finally:
+            print(f"Closing connection from {addr}")
+            client_socket.close()
 
-    peer_port = int(input("Enter peer port: "))
-    peer = None
+    def handle_piece_transfer(self, client_socket, request):
+        """Handle the actual file piece transfer"""
+        try:
+            info_hash = request['info_hash']
+            piece_index = request['piece_index']
+            
+            # Find the torrent
+            torrent = next((t for t in self.torrents if t.info_hash == info_hash), None)
+            if not torrent:
+                send_msg(client_socket, {
+                    'type': GET_PIECE_FAIL,
+                    'message': 'File not found'
+                })
+                return
+                
+            # Read and send the requested piece
+            with open(torrent.file_path, 'rb') as f:
+                f.seek(piece_index * PIECE_SIZE)
+                piece_data = f.read(PIECE_SIZE)
+                
+            send_msg(client_socket, {
+                'type': GET_PIECE_SUCCESS,
+                'data': piece_data
+            })
+            
+        except Exception as e:
+            print(f"Error in piece transfer: {e}")
+            traceback.print_exc()
+            send_msg(client_socket, {
+                'type': GET_PIECE_FAIL,
+                'message': str(e)
+            })
+
+    def download_from_peer(self, ip, info):
+        pass
+
+    def cleanup(self):
+        """Clean up resources before shutdown"""
+        self._shutdown = True
+        if self.peer_socket:
+            try:
+                self.peer_socket.close()
+            except:
+                pass
+        if self.listen_socket:
+            try:
+                self.listen_socket.close()
+            except:
+                pass
+
+if __name__ == '__main__':
     try:
-        peer = PeerClient(local_ip, peer_port)
-        peer.connect_to_tracker()
-        print('\nYou can register a new account or login to your account')
-        print('1. Register a new account')
-        print('2. Login to your account')
-        while True:
-            choice = int(input('Enter your choice: '))
-            if choice == 1:
-                peer_id = peer.register_account_with_tracker()
-                if peer_id:
-                    print(f'Your peer id is {peer_id}')
-            elif choice == 2:
-                peer_id = peer.login_account_with_tracker()
-                if peer_id:
-                    print(f'Your peer id is {peer_id}')
-                    break
-            else:
-                print('Invalid choice')
-        peer.peer_service()
+        peer = Peer('localhost', 5050)  # Port 5050 is for tracker connection
+        peer.ui.run()
     except Exception as e:
         print(f"An error occurred: {e}")
-    except KeyboardInterrupt:
-        print("Program interrupted by user.")
     finally:
-        if peer and peer.peer_socket:
-            peer.peer_socket.close()
-        print("Closing connection and exiting program.")
-        input("Press Enter to exit...")
+        print("Closing application...")
