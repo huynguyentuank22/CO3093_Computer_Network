@@ -34,3 +34,11 @@ Run tracker server by executing:
 For each peer, you need to open a new terminal and run:
 
     python peer.py
+
+You can test the application with these accounts following:
+
+- Username: `huy`, Password: `1212!@!@`
+- Username: `yuh`, Password: `12!@`
+- Username: `123`, Password: `1234`
+
+
