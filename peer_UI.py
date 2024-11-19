@@ -94,9 +94,12 @@ class PeerUI:
 
         # Fetch button
         self.fetch_button = ttk.Button(
-            buttons_frame, text="Fetch File", command=self.fetch_file)
+            buttons_frame, text="Fetch single File", command=self.fetch_file)
         self.fetch_button.grid(row=0, column=1, padx=10)
 
+        # Download button for multiple files
+        ttk.Button(self.file_operations_frame, text="Fecth Selected", command=self.download_selected_files).grid(
+            row=4, column=0, columnspan=2, pady=5)
         # Create two frames for file lists
         left_files_frame = ttk.LabelFrame(
             self.file_operations_frame, text="All Published Files")
@@ -127,7 +130,7 @@ class PeerUI:
 
         # Right listbox (Available files)
         self.available_files_listbox = tk.Listbox(
-            right_files_frame, height=10, width=30)
+            right_files_frame, height=10, width=30, selectmode=tk.MULTIPLE)
         self.available_files_listbox.pack(
             side=tk.LEFT, fill=tk.BOTH, expand=True)
 
@@ -140,7 +143,7 @@ class PeerUI:
 
         # Logout button at bottom
         ttk.Button(self.file_operations_frame, text="Exit", command=self.exit_application).grid(
-            row=4, column=0, columnspan=2, pady=20)
+            row=5, column=0, columnspan=2, pady=20)
 
     def reload_files(self):
         """Reload the available files list"""
@@ -184,6 +187,25 @@ class PeerUI:
             self.peer.fetch_file(index)
         else:
             messagebox.showwarning("Warning", "Please select a file to fetch")
+            
+    def download_selected_files(self):
+        selected_indices = self.available_files_listbox.curselection()
+        if not selected_indices:
+            messagebox.showwarning("Warning", "Please select files to download")
+            return
+
+        # Get the selected files
+        # selected_files = [self.available_files_listbox.get(i) for i in selected_indices]
+        # print(selected_indices)
+        # Start a thread for each file download
+        print(selected_indices)
+        multiple_download_thread = []
+        for index in selected_indices:
+            # print(index)
+            # print(self.peer.available_files[index])
+            self.peer.fetch_file(index)
+        
+            
 
     # def logout(self):
     #     self.peer.handle_logout()
