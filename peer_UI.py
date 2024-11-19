@@ -83,33 +83,36 @@ class PeerUI:
             self.file_operations_frame, text="Welcome!", font=('Helvetica', 12, 'bold'))
         self.welcome_label.grid(row=0, column=0, columnspan=2, pady=20)
 
-        # Buttons frame
+        # Buttons frame (Publish and Fetch in a single row)
         buttons_frame = ttk.Frame(self.file_operations_frame)
         buttons_frame.grid(row=1, column=0, columnspan=2, pady=10)
 
-        # Publish button
-        self.publish_button = ttk.Button(
-            buttons_frame, text="Publish File", command=self.publish_file)
-        self.publish_button.grid(row=0, column=0, padx=10)
+        # Publish single file button
+        self.publish_file_button = ttk.Button(
+            buttons_frame, text="Publish Select File", command=self.publish_file)
+        self.publish_file_button.grid(row=0, column=0, padx=10)
 
-        # Fetch button
-        self.fetch_button = ttk.Button(
-            buttons_frame, text="Fetch single File", command=self.fetch_file)
-        self.fetch_button.grid(row=0, column=1, padx=10)
+        # Publish folder button
+        self.publish_folder_button = ttk.Button(
+            buttons_frame, text="Publish Whole Folder", command=self.publish_folder)
+        self.publish_folder_button.grid(row=0, column=1, padx=10)
 
-        # Download button for multiple files
-        ttk.Button(self.file_operations_frame, text="Fecth Selected", command=self.download_selected_files).grid(
-            row=4, column=0, columnspan=2, pady=5)
-        # Create two frames for file lists
+
+        # Fetch multiple files button
+        self.fetch_multiple_files_button = ttk.Button(
+            buttons_frame, text="Fetch Selected Files", command=self.download_selected_files)
+        self.fetch_multiple_files_button.grid(row=0, column=2, padx=10)
+
+        # Create frames for file lists
         left_files_frame = ttk.LabelFrame(
             self.file_operations_frame, text="All Published Files")
         left_files_frame.grid(row=2, column=0, padx=5,
-                              pady=(20, 5), sticky='nsew')
+                            pady=(20, 5), sticky='nsew')
 
         right_files_frame = ttk.LabelFrame(
             self.file_operations_frame, text="Available Files")
         right_files_frame.grid(row=2, column=1, padx=5,
-                               pady=(20, 5), sticky='nsew')
+                            pady=(20, 5), sticky='nsew')
 
         # Reload button
         ttk.Button(self.file_operations_frame, text="🔄 Reload", command=self.reload_files).grid(
@@ -141,9 +144,32 @@ class PeerUI:
         self.available_files_listbox.configure(
             yscrollcommand=right_scrollbar.set)
 
-        # Logout button at bottom
+    # Logout button at bottom
         ttk.Button(self.file_operations_frame, text="Exit", command=self.exit_application).grid(
-            row=5, column=0, columnspan=2, pady=20)
+        row=4, column=0, columnspan=2, pady=20)
+        
+    def load_published_files(self):
+        """Load published files from the user's repository folder."""
+        repo_path = os.path.join(f"repo_{self.peer.username}")
+        published_files = []
+        
+        if os.path.exists(repo_path):
+            for root, _, files in os.walk(repo_path):
+                for file in files:
+                    file_path = os.path.join(root, file)
+                    file_size = os.path.getsize(file_path)  # Get the file size
+                    published_files.append({"filename": file, "size": file_size})
+        
+        return published_files
+
+    def update_published_files_list(self, published_files):
+        """Update the 'Published Files' listbox with the user's local repository files."""
+        self.published_files_listbox.delete(0, tk.END)  # Clear the current list
+        
+        for file in published_files:
+            size_kb = file['size'] / 1024  # Convert size to KB
+            file_entry = f"{file['filename']} ({size_kb:.2f} KB)"
+            self.published_files_listbox.insert(tk.END, file_entry)
 
     def reload_files(self):
         """Reload the available files list"""
@@ -174,11 +200,23 @@ class PeerUI:
     def run(self):
         self.peer.connect_to_tracker()
         self.root.mainloop()
-
+        
+    def publish_folder(self):
+        """Handle folder upload."""
+        folder_path = filedialog.askdirectory()
+        if folder_path:
+            for root, _, files in os.walk(folder_path):
+                for file in files:
+                    file_path = os.path.join(root, file)
+                    self.peer.publish_file(file_path)
+            messagebox.showinfo("Success", f"Published all files in {folder_path}.")
+            
     def publish_file(self):
-        file_path = tk.filedialog.askopenfilename()
-        if file_path:
-            self.peer.publish_file(file_path)
+        file_paths = tk.filedialog.askopenfilenames()
+        if file_paths:
+            for file_path in file_paths:
+                self.peer.publish_file(file_path)
+            messagebox.showinfo("Success", f"Published {len(file_paths)} file(s).")
 
     def fetch_file(self):
         selected = self.available_files_listbox.curselection()
@@ -198,7 +236,7 @@ class PeerUI:
         # selected_files = [self.available_files_listbox.get(i) for i in selected_indices]
         # print(selected_indices)
         # Start a thread for each file download
-        print(selected_indices)
+        # print(selected_indices)
         multiple_download_thread = []
         for index in selected_indices:
             # print(index)
@@ -219,6 +257,12 @@ class PeerUI:
         self.menu_frame.grid_remove()
         self.file_operations_frame.grid(row=0, column=0)
         self.welcome_label.config(text=f"Welcome, {username}!")
+        
+        # # Load and display files from the user's repository
+        # published_files = self.load_published_files()
+        # self.update_published_files_list(published_files)
+        
+        
         self.peer.get_available_files()  # Get file list when showing frame
 
     def update_files_list(self, published_files, available_files):

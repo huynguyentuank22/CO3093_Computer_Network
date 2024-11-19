@@ -15,6 +15,8 @@ class Peer:
         self.username = None
         self.torrents = []
         self.available_files = []
+        self.uploads = {} # dictionary to store num of pieces that peer has provided for another peers
+        self.downloads = {} # dictionary to store num of pieces that peer has downloaded from another peers
         self.ui = PeerUI(self)
         self._shutdown = False
 
@@ -36,6 +38,15 @@ class Peer:
             if response['type'] == LOGIN_SUCCESS:
                 self.peer_id = response['peer_id']
                 self.username = self.ui.login_username.get()
+                # updated published file
+                repo_path = os.path.join(f"repo_{self.username}")
+                if os.path.exists(repo_path):
+                    for root, _, files in os.walk(repo_path):
+                        for file in files:
+                            file_path = os.path.join(root, file)
+                            torrent = Torrent(file_path)
+                            self.torrents.append(torrent)
+                            
                 messagebox.showinfo("Success", response['message'])
                 # Start peer server before showing file operations
                 self.peer_server()
