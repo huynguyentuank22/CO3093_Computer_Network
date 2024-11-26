@@ -1,0 +1,1773 @@
+2024-11-26 17:16:46,978 - Connected with tracker server at localhost:5050
+2024-11-26 17:16:46,979 - Peer activity log started
+2024-11-26 17:16:46,979 - Peer initialized with IP: localhost and Port: 41884
+2024-11-26 17:16:47,801 - Listening for peer connections on localhost:41884
+2024-11-26 17:16:52,272 - Initiating download f"File size: {file_size} bytes, Number of pieces: {num_pieces}"
+2024-11-26 17:16:52,273 - Download completed in 0.00 seconds
+2024-11-26 17:17:00,298 - Initiating download f"File size: {file_size} bytes, Number of pieces: {num_pieces}"
+2024-11-26 17:17:00,299 - Download completed in 0.00 seconds
+2024-11-26 17:17:02,219 - Peer activity log ended
+2024-11-26 17:41:46,063 - Connected with tracker server at localhost:5050
+2024-11-26 17:41:46,063 - Peer activity log started
+2024-11-26 17:41:46,063 - Peer initialized with IP: localhost and Port: 17964
+2024-11-26 17:41:46,948 - Listening for peer connections on localhost:17964
+2024-11-26 17:41:46,948 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 17:41:51,231 - Initiating download f"File size: {file_size} bytes, Number of pieces: {num_pieces}"
+2024-11-26 17:41:51,231 - Download completed in 0.00 seconds
+2024-11-26 17:41:54,799 - Initiating download f"File size: {file_size} bytes, Number of pieces: {num_pieces}"
+2024-11-26 17:41:54,799 - Download completed in 0.00 seconds
+2024-11-26 17:41:57,763 - Peer activity log ended
+2024-11-26 17:44:59,059 - Connected with tracker server at localhost:5050
+2024-11-26 17:44:59,059 - Peer activity log started
+2024-11-26 17:44:59,059 - Peer initialized with IP: localhost and Port: 32079
+2024-11-26 17:45:00,010 - Listening for peer connections on localhost:32079
+2024-11-26 17:45:00,010 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 17:45:01,291 - Initiating download f"File size: {file_size} bytes, Number of pieces: {num_pieces}"
+2024-11-26 17:45:01,291 - Piece assignments: {piece_assignments}
+2024-11-26 17:45:01,291 - Download completed in 0.00 seconds
+2024-11-26 17:45:01,291 - Error downloading piece 0 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:45:01,291 - Error downloading piece 1 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:45:02,297 - Error downloading piece 0 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:45:02,297 - Error downloading piece 1 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:45:03,297 - Error downloading piece 1 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:45:03,297 - Error downloading piece 0 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:45:03,299 - Error downloading piece 2 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:45:03,299 - Error downloading piece 3 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:45:04,309 - Error downloading piece 2 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:45:04,309 - Error downloading piece 3 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:45:05,309 - Error downloading piece 2 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:45:05,310 - Error downloading piece 3 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:45:05,310 - Error downloading piece 4 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:45:05,310 - Error downloading piece 5 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:45:06,312 - Error downloading piece 4 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:45:06,313 - Error downloading piece 5 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:45:07,313 - Error downloading piece 4 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:45:07,313 - Error downloading piece 5 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:45:07,313 - Error saving file Assignment 2 (2).pdf: Missing piece 0
+2024-11-26 17:45:12,931 - Peer activity log ended
+2024-11-26 17:48:51,062 - Connected with tracker server at localhost:5050
+2024-11-26 17:48:51,062 - Peer activity log started
+2024-11-26 17:48:51,062 - Peer initialized with IP: localhost and Port: 62383
+2024-11-26 17:48:52,114 - Listening for peer connections on localhost:62383
+2024-11-26 17:48:52,114 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 17:48:53,722 - Initiating download File size: 2922842 bytes, Number of pieces: 6"
+2024-11-26 17:48:53,722 - Piece assignments: {piece_assignments}
+2024-11-26 17:48:53,722 - Download completed in 0.00 seconds
+2024-11-26 17:48:53,722 - Error downloading piece 0 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:48:53,722 - Error downloading piece 1 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:48:54,729 - Error downloading piece 0 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:48:54,729 - Error downloading piece 1 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:48:55,730 - Error downloading piece 0 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:48:55,730 - Error downloading piece 1 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:48:55,732 - Error downloading piece 2 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:48:55,732 - Error downloading piece 3 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:48:56,736 - Error downloading piece 3 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:48:56,736 - Error downloading piece 2 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:48:57,737 - Error downloading piece 3 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:48:57,737 - Error downloading piece 2 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:48:57,737 - Error downloading piece 4 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:48:57,737 - Error downloading piece 5 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:48:58,742 - Error downloading piece 4 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:48:58,743 - Error downloading piece 5 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:48:59,743 - Error downloading piece 5 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:48:59,743 - Error downloading piece 4 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:48:59,743 - Error saving file Assignment 2 (2).pdf: Missing piece 0
+2024-11-26 17:49:02,639 - Peer activity log ended
+2024-11-26 17:52:42,006 - Connected with tracker server at localhost:5050
+2024-11-26 17:52:42,006 - Peer activity log started
+2024-11-26 17:52:42,006 - Peer initialized with IP: localhost and Port: 60627
+2024-11-26 17:52:43,064 - Listening for peer connections on localhost:60627
+2024-11-26 17:52:43,067 - Received list of available files from tracker: []
+2024-11-26 17:52:46,823 - Received list of available files from tracker: []
+2024-11-26 17:53:15,233 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 17:53:17,454 - Initiating download File size: 2922842 bytes, Number of pieces: 6"
+2024-11-26 17:53:17,454 - Piece assignments: [((1, 'localhost', 58968), 0), ((1, 'localhost', 58968), 1), ((1, 'localhost', 58968), 2), ((1, 'localhost', 58968), 3), ((1, 'localhost', 58968), 4), ((1, 'localhost', 58968), 5)]
+2024-11-26 17:53:17,454 - Download completed in 0.00 seconds
+2024-11-26 17:53:17,454 - Error downloading piece 0 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:53:17,454 - Error downloading piece 1 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:53:18,458 - Error downloading piece 0 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:53:18,458 - Error downloading piece 1 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:53:19,459 - Error downloading piece 0 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:53:19,459 - Error downloading piece 1 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:53:19,459 - Error downloading piece 2 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:53:19,459 - Error downloading piece 3 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:53:20,464 - Error downloading piece 3 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:53:20,464 - Error downloading piece 2 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:53:21,465 - Error downloading piece 3 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:53:21,465 - Error downloading piece 2 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:53:21,465 - Error downloading piece 4 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:53:21,465 - Error downloading piece 5 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:53:22,468 - Error downloading piece 4 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:53:22,469 - Error downloading piece 5 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:53:23,469 - Error downloading piece 4 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:53:23,469 - Error downloading piece 5 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:53:23,471 - Error saving file Assignment 2 (2).pdf: Missing piece 0
+2024-11-26 17:57:45,957 - Peer activity log ended
+2024-11-26 17:58:33,266 - Connected with tracker server at localhost:5050
+2024-11-26 17:58:33,266 - Peer activity log started
+2024-11-26 17:58:33,266 - Peer initialized with IP: localhost and Port: 57570
+2024-11-26 17:58:34,038 - Listening for peer connections on localhost:57570
+2024-11-26 17:58:34,038 - Received list of available files from tracker: []
+2024-11-26 17:58:42,858 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 17:58:44,458 - Initiating download File size: 2922842 bytes, Number of pieces: 6"
+2024-11-26 17:58:44,458 - Piece assignments: [((1, 'localhost', 18948), 0), ((1, 'localhost', 18948), 1), ((1, 'localhost', 18948), 2), ((1, 'localhost', 18948), 3), ((1, 'localhost', 18948), 4), ((1, 'localhost', 18948), 5)]
+2024-11-26 17:58:44,458 - Download completed in 0.00 seconds
+2024-11-26 17:58:44,458 - Error downloading piece 0 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:58:44,458 - Error downloading piece 1 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:58:45,460 - Error downloading piece 0 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:58:45,461 - Error downloading piece 1 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:58:46,461 - Error downloading piece 0 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:58:46,461 - Error downloading piece 1 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:58:46,461 - Error downloading piece 2 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:58:46,461 - Error downloading piece 3 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:58:47,466 - Error downloading piece 3 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:58:47,466 - Error downloading piece 2 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:58:48,468 - Error downloading piece 3 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:58:48,468 - Error downloading piece 2 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:58:48,468 - Error downloading piece 4 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:58:48,468 - Error downloading piece 5 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:58:49,471 - Error downloading piece 4 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:58:49,471 - Error downloading piece 5 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:58:50,472 - Error downloading piece 5 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:58:50,472 - Error downloading piece 4 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 17:58:50,472 - Error saving file Assignment 2 (2).pdf: Missing piece 0
+2024-11-26 18:00:11,415 - Initiating download File size: 2922842 bytes, Number of pieces: 6"
+2024-11-26 18:00:11,430 - Piece assignments: [((1, 'localhost', 18948), 0), ((1, 'localhost', 18948), 1), ((1, 'localhost', 18948), 2), ((1, 'localhost', 18948), 3), ((1, 'localhost', 18948), 4), ((1, 'localhost', 18948), 5)]
+2024-11-26 18:00:11,430 - Download completed in 0.02 seconds
+2024-11-26 18:00:11,430 - Error downloading piece 0 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:00:11,430 - Error downloading piece 1 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:00:12,432 - Error downloading piece 0 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:00:12,433 - Error downloading piece 1 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:00:13,433 - Error downloading piece 0 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:00:13,433 - Error downloading piece 1 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:00:13,437 - Error downloading piece 2 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:00:13,437 - Error downloading piece 3 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:00:14,438 - Error downloading piece 2 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:00:14,438 - Error downloading piece 3 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:00:15,440 - Error downloading piece 2 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:00:15,440 - Error downloading piece 3 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:00:15,442 - Error downloading piece 4 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:00:15,442 - Error downloading piece 5 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:00:16,447 - Error downloading piece 4 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:00:16,447 - Error downloading piece 5 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:00:17,448 - Error downloading piece 4 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:00:17,448 - Error downloading piece 5 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:00:17,449 - Error saving file Assignment 2 (2).pdf: Missing piece 0
+2024-11-26 18:01:22,960 - Connected with tracker server at localhost:5050
+2024-11-26 18:01:22,960 - Peer activity log started
+2024-11-26 18:01:22,960 - Peer initialized with IP: localhost and Port: 37458
+2024-11-26 18:01:23,801 - Listening for peer connections on localhost:37458
+2024-11-26 18:01:23,801 - Received list of available files from tracker: []
+2024-11-26 18:01:30,838 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 18:01:32,305 - Initiating download File size: 2922842 bytes, Number of pieces: 6"
+2024-11-26 18:01:32,305 - Piece assignments: [((1, 'localhost', 59676), 0), ((1, 'localhost', 59676), 1), ((1, 'localhost', 59676), 2), ((1, 'localhost', 59676), 3), ((1, 'localhost', 59676), 4), ((1, 'localhost', 59676), 5)]
+2024-11-26 18:01:32,305 - Download completed in 0.00 seconds
+2024-11-26 18:01:32,320 - Error downloading piece 0 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:01:32,320 - Error downloading piece 1 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:01:33,321 - Error downloading piece 0 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:01:33,322 - Error downloading piece 1 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:01:34,322 - Error downloading piece 0 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:01:34,323 - Error downloading piece 1 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:01:34,325 - Error downloading piece 2 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:01:34,325 - Error downloading piece 3 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:01:35,330 - Error downloading piece 2 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:01:35,330 - Error downloading piece 3 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:01:36,331 - Error downloading piece 3 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:01:36,331 - Error downloading piece 2 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:01:36,331 - Error downloading piece 4 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:01:36,331 - Error downloading piece 5 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:01:37,335 - Error downloading piece 4 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:01:37,335 - Error downloading piece 5 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:01:38,335 - Error downloading piece 4 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:01:38,336 - Error downloading piece 5 from 1:localhost: str, bytes or bytearray expected, not int
+2024-11-26 18:01:38,336 - Error saving file Assignment 2 (2).pdf: Missing piece 0
+2024-11-26 18:03:00,426 - Peer activity log ended
+2024-11-26 18:03:43,457 - Connected with tracker server at localhost:5050
+2024-11-26 18:03:43,457 - Peer activity log started
+2024-11-26 18:03:43,457 - Peer initialized with IP: localhost and Port: 36135
+2024-11-26 18:03:44,275 - Listening for peer connections on localhost:36135
+2024-11-26 18:03:44,275 - Received list of available files from tracker: []
+2024-11-26 18:04:13,288 - Received list of available files from tracker: [{'filename': 'Cursor Setup 0.42.5 - Build 24111460bf2loz1-x64.exe', 'size': 128209200, 'info_hash': '035dc462bed560e642a71d339090ab6c1ce21ef2'}, {'filename': 'tieu_minh_phung.pkt', 'size': 437669, 'info_hash': 'c8b3ad4e229b48d3fb9a24003b62260368c2fbfa'}, {'filename': 'bk_name_vi.png', 'size': 85742, 'info_hash': 'edb02b2546d4a660b9f5b7ffa33c5969b71d2fef'}, {'filename': '10_Ch10 Agile Methodology_2023.pptx', 'size': 7335187, 'info_hash': '83d7c16395d65ae7477572146ecf28f4973f5d23'}, {'filename': '11_Ch11_CI_CD_DevOps_2023.pptx', 'size': 2921609, 'info_hash': 'eb9cf86ff48e73e6d5fd6340387481c1413bd001'}, {'filename': 'tmp (1).pkt', 'size': 398340, 'info_hash': 'ad86dafa9b35829f0b2f6adb2be6683794c53c94'}]
+2024-11-26 18:04:15,490 - Received list of available files from tracker: [{'filename': 'Cursor Setup 0.42.5 - Build 24111460bf2loz1-x64.exe', 'size': 128209200, 'info_hash': '035dc462bed560e642a71d339090ab6c1ce21ef2'}, {'filename': 'tieu_minh_phung.pkt', 'size': 437669, 'info_hash': 'c8b3ad4e229b48d3fb9a24003b62260368c2fbfa'}, {'filename': 'bk_name_vi.png', 'size': 85742, 'info_hash': 'edb02b2546d4a660b9f5b7ffa33c5969b71d2fef'}, {'filename': '10_Ch10 Agile Methodology_2023.pptx', 'size': 7335187, 'info_hash': '83d7c16395d65ae7477572146ecf28f4973f5d23'}, {'filename': '11_Ch11_CI_CD_DevOps_2023.pptx', 'size': 2921609, 'info_hash': 'eb9cf86ff48e73e6d5fd6340387481c1413bd001'}, {'filename': 'tmp (1).pkt', 'size': 398340, 'info_hash': 'ad86dafa9b35829f0b2f6adb2be6683794c53c94'}]
+2024-11-26 18:04:20,778 - Initiating download File size: 85742 bytes, Number of pieces: 1"
+2024-11-26 18:04:20,778 - Piece assignments: [((1, 'localhost', 37667), 0)]
+2024-11-26 18:04:20,778 - Download completed in 0.00 seconds
+2024-11-26 18:04:20,778 - Requesting piece 0 from localhost:37667
+2024-11-26 18:04:20,778 - Failed to download piece 0 from localhost:37667 because of Bandwidth currently unavailable for this peer
+2024-11-26 18:04:20,778 - Requesting piece 0 from localhost:37667
+2024-11-26 18:04:20,778 - Failed to download piece 0 from localhost:37667 because of Bandwidth currently unavailable for this peer
+2024-11-26 18:04:20,778 - Requesting piece 0 from localhost:37667
+2024-11-26 18:04:20,778 - Failed to download piece 0 from localhost:37667 because of Bandwidth currently unavailable for this peer
+2024-11-26 18:04:20,792 - Error saving file bk_name_vi.png: Missing piece 0
+2024-11-26 18:04:49,313 - Peer activity log ended
+2024-11-26 18:07:34,082 - Connected with tracker server at localhost:5050
+2024-11-26 18:07:34,082 - Peer activity log started
+2024-11-26 18:07:34,082 - Peer initialized with IP: localhost and Port: 33861
+2024-11-26 18:07:34,959 - Listening for peer connections on localhost:33861
+2024-11-26 18:07:34,959 - Received list of available files from tracker: []
+2024-11-26 18:07:40,648 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 18:07:42,311 - Initiating download File size: 2922842 bytes, Number of pieces: 6"
+2024-11-26 18:07:42,311 - Piece assignments: [((1, 'localhost', 24954), 0), ((1, 'localhost', 24954), 1), ((1, 'localhost', 24954), 2), ((1, 'localhost', 24954), 3), ((1, 'localhost', 24954), 4), ((1, 'localhost', 24954), 5)]
+2024-11-26 18:07:42,311 - Download completed in 0.00 seconds
+2024-11-26 18:07:42,311 - Requesting piece 0 from localhost:24954
+2024-11-26 18:07:42,311 - Requesting piece 1 from localhost:24954
+2024-11-26 18:07:42,326 - Failed to download piece 0 from localhost:24954 because of Bandwidth currently unavailable for this peer
+2024-11-26 18:07:42,326 - Failed to download piece 1 from localhost:24954 because of Bandwidth currently unavailable for this peer
+2024-11-26 18:07:42,326 - Requesting piece 0 from localhost:24954
+2024-11-26 18:07:42,326 - Requesting piece 1 from localhost:24954
+2024-11-26 18:07:42,326 - Failed to download piece 0 from localhost:24954 because of Bandwidth currently unavailable for this peer
+2024-11-26 18:07:42,326 - Requesting piece 0 from localhost:24954
+2024-11-26 18:07:42,326 - Failed to download piece 1 from localhost:24954 because of Bandwidth currently unavailable for this peer
+2024-11-26 18:07:42,326 - Requesting piece 1 from localhost:24954
+2024-11-26 18:07:42,326 - Failed to download piece 0 from localhost:24954 because of Bandwidth currently unavailable for this peer
+2024-11-26 18:07:42,326 - Failed to download piece 1 from localhost:24954 because of Bandwidth currently unavailable for this peer
+2024-11-26 18:07:42,326 - Requesting piece 2 from localhost:24954
+2024-11-26 18:07:42,326 - Requesting piece 3 from localhost:24954
+2024-11-26 18:07:42,326 - Failed to download piece 2 from localhost:24954 because of Bandwidth currently unavailable for this peer
+2024-11-26 18:07:42,326 - Failed to download piece 3 from localhost:24954 because of Bandwidth currently unavailable for this peer
+2024-11-26 18:07:42,326 - Requesting piece 2 from localhost:24954
+2024-11-26 18:07:42,326 - Requesting piece 3 from localhost:24954
+2024-11-26 18:07:42,326 - Failed to download piece 2 from localhost:24954 because of Bandwidth currently unavailable for this peer
+2024-11-26 18:07:42,326 - Requesting piece 2 from localhost:24954
+2024-11-26 18:07:42,326 - Failed to download piece 3 from localhost:24954 because of Bandwidth currently unavailable for this peer
+2024-11-26 18:07:42,326 - Requesting piece 3 from localhost:24954
+2024-11-26 18:07:42,326 - Failed to download piece 2 from localhost:24954 because of Bandwidth currently unavailable for this peer
+2024-11-26 18:07:42,326 - Failed to download piece 3 from localhost:24954 because of Bandwidth currently unavailable for this peer
+2024-11-26 18:07:42,326 - Requesting piece 4 from localhost:24954
+2024-11-26 18:07:42,326 - Requesting piece 5 from localhost:24954
+2024-11-26 18:07:42,326 - Failed to download piece 4 from localhost:24954 because of Bandwidth currently unavailable for this peer
+2024-11-26 18:07:42,326 - Failed to download piece 5 from localhost:24954 because of Bandwidth currently unavailable for this peer
+2024-11-26 18:07:42,326 - Requesting piece 4 from localhost:24954
+2024-11-26 18:07:42,326 - Requesting piece 5 from localhost:24954
+2024-11-26 18:07:42,326 - Failed to download piece 4 from localhost:24954 because of Bandwidth currently unavailable for this peer
+2024-11-26 18:07:42,326 - Requesting piece 4 from localhost:24954
+2024-11-26 18:07:42,326 - Failed to download piece 5 from localhost:24954 because of Bandwidth currently unavailable for this peer
+2024-11-26 18:07:42,326 - Requesting piece 5 from localhost:24954
+2024-11-26 18:07:42,326 - Failed to download piece 4 from localhost:24954 because of Bandwidth currently unavailable for this peer
+2024-11-26 18:07:42,326 - Failed to download piece 5 from localhost:24954 because of Bandwidth currently unavailable for this peer
+2024-11-26 18:07:42,339 - Error saving file Assignment 2 (2).pdf: Missing piece 0
+2024-11-26 18:08:17,037 - Peer activity log ended
+2024-11-26 18:08:58,295 - Connected with tracker server at localhost:5050
+2024-11-26 18:08:58,295 - Peer activity log started
+2024-11-26 18:08:58,295 - Peer initialized with IP: localhost and Port: 49853
+2024-11-26 18:08:59,006 - Listening for peer connections on localhost:49853
+2024-11-26 18:08:59,011 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}, {'filename': 'bk_name_vi.png', 'size': 85742, 'info_hash': 'edb02b2546d4a660b9f5b7ffa33c5969b71d2fef'}]
+2024-11-26 18:09:08,940 - Initiating download File size: 85742 bytes, Number of pieces: 1"
+2024-11-26 18:09:08,941 - Piece assignments: [((1, 'localhost', 42821), 0)]
+2024-11-26 18:09:08,941 - Download completed in 0.00 seconds
+2024-11-26 18:09:08,941 - Requesting piece 0 from localhost:42821
+2024-11-26 18:09:08,952 - Failed to download piece 0 from localhost:42821 because of cannot access local variable 'torrent' where it is not associated with a value
+2024-11-26 18:09:08,952 - Requesting piece 0 from localhost:42821
+2024-11-26 18:09:08,956 - Failed to download piece 0 from localhost:42821 because of cannot access local variable 'torrent' where it is not associated with a value
+2024-11-26 18:09:08,957 - Requesting piece 0 from localhost:42821
+2024-11-26 18:09:08,960 - Failed to download piece 0 from localhost:42821 because of cannot access local variable 'torrent' where it is not associated with a value
+2024-11-26 18:09:08,960 - Error saving file bk_name_vi.png: Missing piece 0
+2024-11-26 18:09:16,404 - Peer activity log ended
+2024-11-26 18:13:11,396 - Connected with tracker server at localhost:5050
+2024-11-26 18:13:11,396 - Peer activity log started
+2024-11-26 18:13:11,396 - Peer initialized with IP: localhost and Port: 11158
+2024-11-26 18:13:12,174 - Listening for peer connections on localhost:11158
+2024-11-26 18:13:12,181 - Received list of available files from tracker: []
+2024-11-26 18:13:19,229 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 18:13:21,001 - Initiating download File size: 2922842 bytes, Number of pieces: 6"
+2024-11-26 18:13:21,001 - Piece assignments: [((1, 'localhost', 20540), 0), ((1, 'localhost', 20540), 1), ((1, 'localhost', 20540), 2), ((1, 'localhost', 20540), 3), ((1, 'localhost', 20540), 4), ((1, 'localhost', 20540), 5)]
+2024-11-26 18:13:21,001 - Download completed in 0.00 seconds
+2024-11-26 18:13:21,001 - Requesting piece 0 from localhost:20540
+2024-11-26 18:13:21,001 - Requesting piece 1 from localhost:20540
+2024-11-26 18:13:21,001 - Successfully downloaded piece 0 from peer_id 1 localhost:20540
+2024-11-26 18:13:21,016 - Successfully downloaded piece 1 from peer_id 1 localhost:20540
+2024-11-26 18:13:21,017 - Requesting piece 2 from localhost:20540
+2024-11-26 18:13:21,018 - Requesting piece 3 from localhost:20540
+2024-11-26 18:13:21,020 - Successfully downloaded piece 2 from peer_id 1 localhost:20540
+2024-11-26 18:13:21,020 - Successfully downloaded piece 3 from peer_id 1 localhost:20540
+2024-11-26 18:13:21,021 - Requesting piece 4 from localhost:20540
+2024-11-26 18:13:21,021 - Requesting piece 5 from localhost:20540
+2024-11-26 18:13:21,022 - Successfully downloaded piece 4 from peer_id 1 localhost:20540
+2024-11-26 18:13:21,022 - Successfully downloaded piece 5 from peer_id 1 localhost:20540
+2024-11-26 18:13:21,027 - File Assignment 2 (2).pdf saved successfully
+2024-11-26 18:14:10,777 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}, {'filename': '2211298_VoHoangHuy_TN01.docx', 'size': 673567, 'info_hash': '567536943361d164b807d41cf81874f2d931a0f8'}, {'filename': '2211298_VoHoangHuy_TN01.pdf', 'size': 539857, 'info_hash': '1af346df2c32cff89bb52a9f77e50310d42a6819'}]
+2024-11-26 18:14:15,586 - Initiating download File size: 673567 bytes, Number of pieces: 2"
+2024-11-26 18:14:15,586 - Ranked peers based on uploaded contributions: [(1, 'localhost', 20540)]
+2024-11-26 18:14:15,586 - Piece assignments: [((1, 'localhost', 20540), 0), ((1, 'localhost', 20540), 1)]
+2024-11-26 18:14:15,601 - Download completed in 0.02 seconds
+2024-11-26 18:14:15,601 - Requesting piece 0 from localhost:20540
+2024-11-26 18:14:15,601 - Requesting piece 1 from localhost:20540
+2024-11-26 18:14:15,607 - Successfully downloaded piece 1 from peer_id 1 localhost:20540
+2024-11-26 18:14:15,607 - Successfully downloaded piece 0 from peer_id 1 localhost:20540
+2024-11-26 18:14:15,608 - File 2211298_VoHoangHuy_TN01.docx saved successfully
+2024-11-26 18:14:17,665 - Initiating download File size: 673567 bytes, Number of pieces: 2"
+2024-11-26 18:14:17,665 - Ranked peers based on uploaded contributions: [(1, 'localhost', 20540)]
+2024-11-26 18:14:17,665 - Piece assignments: [((1, 'localhost', 20540), 0), ((1, 'localhost', 20540), 1)]
+2024-11-26 18:14:17,665 - Download completed in 0.00 seconds
+2024-11-26 18:14:17,665 - Initiating download File size: 539857 bytes, Number of pieces: 2"
+2024-11-26 18:14:17,665 - Ranked peers based on uploaded contributions: [(1, 'localhost', 20540)]
+2024-11-26 18:14:17,665 - Download completed in 0.00 seconds
+2024-11-26 18:14:17,665 - Piece assignments: [((1, 'localhost', 20540), 0), ((1, 'localhost', 20540), 1)]
+2024-11-26 18:14:17,665 - Requesting piece 0 from localhost:20540
+2024-11-26 18:14:17,665 - Requesting piece 1 from localhost:20540
+2024-11-26 18:14:17,665 - Requesting piece 0 from localhost:20540
+2024-11-26 18:14:17,665 - Requesting piece 1 from localhost:20540
+2024-11-26 18:14:17,672 - Successfully downloaded piece 0 from peer_id 1 localhost:20540
+2024-11-26 18:14:17,672 - Successfully downloaded piece 1 from peer_id 1 localhost:20540
+2024-11-26 18:14:17,673 - File 2211298_VoHoangHuy_TN01.docx saved successfully
+2024-11-26 18:14:17,673 - Successfully downloaded piece 0 from peer_id 1 localhost:20540
+2024-11-26 18:14:17,673 - Successfully downloaded piece 1 from peer_id 1 localhost:20540
+2024-11-26 18:14:17,675 - File 2211298_VoHoangHuy_TN01.pdf saved successfully
+2024-11-26 18:14:20,821 - Peer activity log ended
+2024-11-26 20:35:46,951 - Connected with tracker server at localhost:5050
+2024-11-26 20:35:46,951 - Peer activity log started
+2024-11-26 20:35:46,951 - Peer initialized with IP: localhost and Port: 65452
+2024-11-26 20:35:49,274 - Peer activity log ended
+2024-11-26 20:57:32,851 - Connected with tracker server at localhost:5050
+2024-11-26 20:57:32,851 - Peer activity log started
+2024-11-26 20:57:32,851 - Peer initialized with IP: localhost and Port: 17217
+2024-11-26 20:57:34,750 - Listening for peer connections on localhost:17217
+2024-11-26 20:57:34,752 - Received list of available files from tracker: []
+2024-11-26 20:57:57,138 - Received list of available files from tracker: [{'filename': 'nostudynolife_Round 2_RBAC 2024_Slide.pdf', 'size': 278454961, 'info_hash': '5d5f89b50137d554f8b3e4ab9993605510673bde'}]
+2024-11-26 20:58:01,099 - Initiating download File size: 278454961 bytes, Number of pieces: 532"
+2024-11-26 20:58:01,100 - Piece assignments: [((1, 'localhost', 46277), 0), ((1, 'localhost', 46277), 1), ((1, 'localhost', 46277), 2), ((1, 'localhost', 46277), 3), ((1, 'localhost', 46277), 4), ((1, 'localhost', 46277), 5), ((1, 'localhost', 46277), 6), ((1, 'localhost', 46277), 7), ((1, 'localhost', 46277), 8), ((1, 'localhost', 46277), 9), ((1, 'localhost', 46277), 10), ((1, 'localhost', 46277), 11), ((1, 'localhost', 46277), 12), ((1, 'localhost', 46277), 13), ((1, 'localhost', 46277), 14), ((1, 'localhost', 46277), 15), ((1, 'localhost', 46277), 16), ((1, 'localhost', 46277), 17), ((1, 'localhost', 46277), 18), ((1, 'localhost', 46277), 19), ((1, 'localhost', 46277), 20), ((1, 'localhost', 46277), 21), ((1, 'localhost', 46277), 22), ((1, 'localhost', 46277), 23), ((1, 'localhost', 46277), 24), ((1, 'localhost', 46277), 25), ((1, 'localhost', 46277), 26), ((1, 'localhost', 46277), 27), ((1, 'localhost', 46277), 28), ((1, 'localhost', 46277), 29), ((1, 'localhost', 46277), 30), ((1, 'localhost', 46277), 31), ((1, 'localhost', 46277), 32), ((1, 'localhost', 46277), 33), ((1, 'localhost', 46277), 34), ((1, 'localhost', 46277), 35), ((1, 'localhost', 46277), 36), ((1, 'localhost', 46277), 37), ((1, 'localhost', 46277), 38), ((1, 'localhost', 46277), 39), ((1, 'localhost', 46277), 40), ((1, 'localhost', 46277), 41), ((1, 'localhost', 46277), 42), ((1, 'localhost', 46277), 43), ((1, 'localhost', 46277), 44), ((1, 'localhost', 46277), 45), ((1, 'localhost', 46277), 46), ((1, 'localhost', 46277), 47), ((1, 'localhost', 46277), 48), ((1, 'localhost', 46277), 49), ((1, 'localhost', 46277), 50), ((1, 'localhost', 46277), 51), ((1, 'localhost', 46277), 52), ((1, 'localhost', 46277), 53), ((1, 'localhost', 46277), 54), ((1, 'localhost', 46277), 55), ((1, 'localhost', 46277), 56), ((1, 'localhost', 46277), 57), ((1, 'localhost', 46277), 58), ((1, 'localhost', 46277), 59), ((1, 'localhost', 46277), 60), ((1, 'localhost', 46277), 61), ((1, 'localhost', 46277), 62), ((1, 'localhost', 46277), 63), ((1, 'localhost', 46277), 64), ((1, 'localhost', 46277), 65), ((1, 'localhost', 46277), 66), ((1, 'localhost', 46277), 67), ((1, 'localhost', 46277), 68), ((1, 'localhost', 46277), 69), ((1, 'localhost', 46277), 70), ((1, 'localhost', 46277), 71), ((1, 'localhost', 46277), 72), ((1, 'localhost', 46277), 73), ((1, 'localhost', 46277), 74), ((1, 'localhost', 46277), 75), ((1, 'localhost', 46277), 76), ((1, 'localhost', 46277), 77), ((1, 'localhost', 46277), 78), ((1, 'localhost', 46277), 79), ((1, 'localhost', 46277), 80), ((1, 'localhost', 46277), 81), ((1, 'localhost', 46277), 82), ((1, 'localhost', 46277), 83), ((1, 'localhost', 46277), 84), ((1, 'localhost', 46277), 85), ((1, 'localhost', 46277), 86), ((1, 'localhost', 46277), 87), ((1, 'localhost', 46277), 88), ((1, 'localhost', 46277), 89), ((1, 'localhost', 46277), 90), ((1, 'localhost', 46277), 91), ((1, 'localhost', 46277), 92), ((1, 'localhost', 46277), 93), ((1, 'localhost', 46277), 94), ((1, 'localhost', 46277), 95), ((1, 'localhost', 46277), 96), ((1, 'localhost', 46277), 97), ((1, 'localhost', 46277), 98), ((1, 'localhost', 46277), 99), ((1, 'localhost', 46277), 100), ((1, 'localhost', 46277), 101), ((1, 'localhost', 46277), 102), ((1, 'localhost', 46277), 103), ((1, 'localhost', 46277), 104), ((1, 'localhost', 46277), 105), ((1, 'localhost', 46277), 106), ((1, 'localhost', 46277), 107), ((1, 'localhost', 46277), 108), ((1, 'localhost', 46277), 109), ((1, 'localhost', 46277), 110), ((1, 'localhost', 46277), 111), ((1, 'localhost', 46277), 112), ((1, 'localhost', 46277), 113), ((1, 'localhost', 46277), 114), ((1, 'localhost', 46277), 115), ((1, 'localhost', 46277), 116), ((1, 'localhost', 46277), 117), ((1, 'localhost', 46277), 118), ((1, 'localhost', 46277), 119), ((1, 'localhost', 46277), 120), ((1, 'localhost', 46277), 121), ((1, 'localhost', 46277), 122), ((1, 'localhost', 46277), 123), ((1, 'localhost', 46277), 124), ((1, 'localhost', 46277), 125), ((1, 'localhost', 46277), 126), ((1, 'localhost', 46277), 127), ((1, 'localhost', 46277), 128), ((1, 'localhost', 46277), 129), ((1, 'localhost', 46277), 130), ((1, 'localhost', 46277), 131), ((1, 'localhost', 46277), 132), ((1, 'localhost', 46277), 133), ((1, 'localhost', 46277), 134), ((1, 'localhost', 46277), 135), ((1, 'localhost', 46277), 136), ((1, 'localhost', 46277), 137), ((1, 'localhost', 46277), 138), ((1, 'localhost', 46277), 139), ((1, 'localhost', 46277), 140), ((1, 'localhost', 46277), 141), ((1, 'localhost', 46277), 142), ((1, 'localhost', 46277), 143), ((1, 'localhost', 46277), 144), ((1, 'localhost', 46277), 145), ((1, 'localhost', 46277), 146), ((1, 'localhost', 46277), 147), ((1, 'localhost', 46277), 148), ((1, 'localhost', 46277), 149), ((1, 'localhost', 46277), 150), ((1, 'localhost', 46277), 151), ((1, 'localhost', 46277), 152), ((1, 'localhost', 46277), 153), ((1, 'localhost', 46277), 154), ((1, 'localhost', 46277), 155), ((1, 'localhost', 46277), 156), ((1, 'localhost', 46277), 157), ((1, 'localhost', 46277), 158), ((1, 'localhost', 46277), 159), ((1, 'localhost', 46277), 160), ((1, 'localhost', 46277), 161), ((1, 'localhost', 46277), 162), ((1, 'localhost', 46277), 163), ((1, 'localhost', 46277), 164), ((1, 'localhost', 46277), 165), ((1, 'localhost', 46277), 166), ((1, 'localhost', 46277), 167), ((1, 'localhost', 46277), 168), ((1, 'localhost', 46277), 169), ((1, 'localhost', 46277), 170), ((1, 'localhost', 46277), 171), ((1, 'localhost', 46277), 172), ((1, 'localhost', 46277), 173), ((1, 'localhost', 46277), 174), ((1, 'localhost', 46277), 175), ((1, 'localhost', 46277), 176), ((1, 'localhost', 46277), 177), ((1, 'localhost', 46277), 178), ((1, 'localhost', 46277), 179), ((1, 'localhost', 46277), 180), ((1, 'localhost', 46277), 181), ((1, 'localhost', 46277), 182), ((1, 'localhost', 46277), 183), ((1, 'localhost', 46277), 184), ((1, 'localhost', 46277), 185), ((1, 'localhost', 46277), 186), ((1, 'localhost', 46277), 187), ((1, 'localhost', 46277), 188), ((1, 'localhost', 46277), 189), ((1, 'localhost', 46277), 190), ((1, 'localhost', 46277), 191), ((1, 'localhost', 46277), 192), ((1, 'localhost', 46277), 193), ((1, 'localhost', 46277), 194), ((1, 'localhost', 46277), 195), ((1, 'localhost', 46277), 196), ((1, 'localhost', 46277), 197), ((1, 'localhost', 46277), 198), ((1, 'localhost', 46277), 199), ((1, 'localhost', 46277), 200), ((1, 'localhost', 46277), 201), ((1, 'localhost', 46277), 202), ((1, 'localhost', 46277), 203), ((1, 'localhost', 46277), 204), ((1, 'localhost', 46277), 205), ((1, 'localhost', 46277), 206), ((1, 'localhost', 46277), 207), ((1, 'localhost', 46277), 208), ((1, 'localhost', 46277), 209), ((1, 'localhost', 46277), 210), ((1, 'localhost', 46277), 211), ((1, 'localhost', 46277), 212), ((1, 'localhost', 46277), 213), ((1, 'localhost', 46277), 214), ((1, 'localhost', 46277), 215), ((1, 'localhost', 46277), 216), ((1, 'localhost', 46277), 217), ((1, 'localhost', 46277), 218), ((1, 'localhost', 46277), 219), ((1, 'localhost', 46277), 220), ((1, 'localhost', 46277), 221), ((1, 'localhost', 46277), 222), ((1, 'localhost', 46277), 223), ((1, 'localhost', 46277), 224), ((1, 'localhost', 46277), 225), ((1, 'localhost', 46277), 226), ((1, 'localhost', 46277), 227), ((1, 'localhost', 46277), 228), ((1, 'localhost', 46277), 229), ((1, 'localhost', 46277), 230), ((1, 'localhost', 46277), 231), ((1, 'localhost', 46277), 232), ((1, 'localhost', 46277), 233), ((1, 'localhost', 46277), 234), ((1, 'localhost', 46277), 235), ((1, 'localhost', 46277), 236), ((1, 'localhost', 46277), 237), ((1, 'localhost', 46277), 238), ((1, 'localhost', 46277), 239), ((1, 'localhost', 46277), 240), ((1, 'localhost', 46277), 241), ((1, 'localhost', 46277), 242), ((1, 'localhost', 46277), 243), ((1, 'localhost', 46277), 244), ((1, 'localhost', 46277), 245), ((1, 'localhost', 46277), 246), ((1, 'localhost', 46277), 247), ((1, 'localhost', 46277), 248), ((1, 'localhost', 46277), 249), ((1, 'localhost', 46277), 250), ((1, 'localhost', 46277), 251), ((1, 'localhost', 46277), 252), ((1, 'localhost', 46277), 253), ((1, 'localhost', 46277), 254), ((1, 'localhost', 46277), 255), ((1, 'localhost', 46277), 256), ((1, 'localhost', 46277), 257), ((1, 'localhost', 46277), 258), ((1, 'localhost', 46277), 259), ((1, 'localhost', 46277), 260), ((1, 'localhost', 46277), 261), ((1, 'localhost', 46277), 262), ((1, 'localhost', 46277), 263), ((1, 'localhost', 46277), 264), ((1, 'localhost', 46277), 265), ((1, 'localhost', 46277), 266), ((1, 'localhost', 46277), 267), ((1, 'localhost', 46277), 268), ((1, 'localhost', 46277), 269), ((1, 'localhost', 46277), 270), ((1, 'localhost', 46277), 271), ((1, 'localhost', 46277), 272), ((1, 'localhost', 46277), 273), ((1, 'localhost', 46277), 274), ((1, 'localhost', 46277), 275), ((1, 'localhost', 46277), 276), ((1, 'localhost', 46277), 277), ((1, 'localhost', 46277), 278), ((1, 'localhost', 46277), 279), ((1, 'localhost', 46277), 280), ((1, 'localhost', 46277), 281), ((1, 'localhost', 46277), 282), ((1, 'localhost', 46277), 283), ((1, 'localhost', 46277), 284), ((1, 'localhost', 46277), 285), ((1, 'localhost', 46277), 286), ((1, 'localhost', 46277), 287), ((1, 'localhost', 46277), 288), ((1, 'localhost', 46277), 289), ((1, 'localhost', 46277), 290), ((1, 'localhost', 46277), 291), ((1, 'localhost', 46277), 292), ((1, 'localhost', 46277), 293), ((1, 'localhost', 46277), 294), ((1, 'localhost', 46277), 295), ((1, 'localhost', 46277), 296), ((1, 'localhost', 46277), 297), ((1, 'localhost', 46277), 298), ((1, 'localhost', 46277), 299), ((1, 'localhost', 46277), 300), ((1, 'localhost', 46277), 301), ((1, 'localhost', 46277), 302), ((1, 'localhost', 46277), 303), ((1, 'localhost', 46277), 304), ((1, 'localhost', 46277), 305), ((1, 'localhost', 46277), 306), ((1, 'localhost', 46277), 307), ((1, 'localhost', 46277), 308), ((1, 'localhost', 46277), 309), ((1, 'localhost', 46277), 310), ((1, 'localhost', 46277), 311), ((1, 'localhost', 46277), 312), ((1, 'localhost', 46277), 313), ((1, 'localhost', 46277), 314), ((1, 'localhost', 46277), 315), ((1, 'localhost', 46277), 316), ((1, 'localhost', 46277), 317), ((1, 'localhost', 46277), 318), ((1, 'localhost', 46277), 319), ((1, 'localhost', 46277), 320), ((1, 'localhost', 46277), 321), ((1, 'localhost', 46277), 322), ((1, 'localhost', 46277), 323), ((1, 'localhost', 46277), 324), ((1, 'localhost', 46277), 325), ((1, 'localhost', 46277), 326), ((1, 'localhost', 46277), 327), ((1, 'localhost', 46277), 328), ((1, 'localhost', 46277), 329), ((1, 'localhost', 46277), 330), ((1, 'localhost', 46277), 331), ((1, 'localhost', 46277), 332), ((1, 'localhost', 46277), 333), ((1, 'localhost', 46277), 334), ((1, 'localhost', 46277), 335), ((1, 'localhost', 46277), 336), ((1, 'localhost', 46277), 337), ((1, 'localhost', 46277), 338), ((1, 'localhost', 46277), 339), ((1, 'localhost', 46277), 340), ((1, 'localhost', 46277), 341), ((1, 'localhost', 46277), 342), ((1, 'localhost', 46277), 343), ((1, 'localhost', 46277), 344), ((1, 'localhost', 46277), 345), ((1, 'localhost', 46277), 346), ((1, 'localhost', 46277), 347), ((1, 'localhost', 46277), 348), ((1, 'localhost', 46277), 349), ((1, 'localhost', 46277), 350), ((1, 'localhost', 46277), 351), ((1, 'localhost', 46277), 352), ((1, 'localhost', 46277), 353), ((1, 'localhost', 46277), 354), ((1, 'localhost', 46277), 355), ((1, 'localhost', 46277), 356), ((1, 'localhost', 46277), 357), ((1, 'localhost', 46277), 358), ((1, 'localhost', 46277), 359), ((1, 'localhost', 46277), 360), ((1, 'localhost', 46277), 361), ((1, 'localhost', 46277), 362), ((1, 'localhost', 46277), 363), ((1, 'localhost', 46277), 364), ((1, 'localhost', 46277), 365), ((1, 'localhost', 46277), 366), ((1, 'localhost', 46277), 367), ((1, 'localhost', 46277), 368), ((1, 'localhost', 46277), 369), ((1, 'localhost', 46277), 370), ((1, 'localhost', 46277), 371), ((1, 'localhost', 46277), 372), ((1, 'localhost', 46277), 373), ((1, 'localhost', 46277), 374), ((1, 'localhost', 46277), 375), ((1, 'localhost', 46277), 376), ((1, 'localhost', 46277), 377), ((1, 'localhost', 46277), 378), ((1, 'localhost', 46277), 379), ((1, 'localhost', 46277), 380), ((1, 'localhost', 46277), 381), ((1, 'localhost', 46277), 382), ((1, 'localhost', 46277), 383), ((1, 'localhost', 46277), 384), ((1, 'localhost', 46277), 385), ((1, 'localhost', 46277), 386), ((1, 'localhost', 46277), 387), ((1, 'localhost', 46277), 388), ((1, 'localhost', 46277), 389), ((1, 'localhost', 46277), 390), ((1, 'localhost', 46277), 391), ((1, 'localhost', 46277), 392), ((1, 'localhost', 46277), 393), ((1, 'localhost', 46277), 394), ((1, 'localhost', 46277), 395), ((1, 'localhost', 46277), 396), ((1, 'localhost', 46277), 397), ((1, 'localhost', 46277), 398), ((1, 'localhost', 46277), 399), ((1, 'localhost', 46277), 400), ((1, 'localhost', 46277), 401), ((1, 'localhost', 46277), 402), ((1, 'localhost', 46277), 403), ((1, 'localhost', 46277), 404), ((1, 'localhost', 46277), 405), ((1, 'localhost', 46277), 406), ((1, 'localhost', 46277), 407), ((1, 'localhost', 46277), 408), ((1, 'localhost', 46277), 409), ((1, 'localhost', 46277), 410), ((1, 'localhost', 46277), 411), ((1, 'localhost', 46277), 412), ((1, 'localhost', 46277), 413), ((1, 'localhost', 46277), 414), ((1, 'localhost', 46277), 415), ((1, 'localhost', 46277), 416), ((1, 'localhost', 46277), 417), ((1, 'localhost', 46277), 418), ((1, 'localhost', 46277), 419), ((1, 'localhost', 46277), 420), ((1, 'localhost', 46277), 421), ((1, 'localhost', 46277), 422), ((1, 'localhost', 46277), 423), ((1, 'localhost', 46277), 424), ((1, 'localhost', 46277), 425), ((1, 'localhost', 46277), 426), ((1, 'localhost', 46277), 427), ((1, 'localhost', 46277), 428), ((1, 'localhost', 46277), 429), ((1, 'localhost', 46277), 430), ((1, 'localhost', 46277), 431), ((1, 'localhost', 46277), 432), ((1, 'localhost', 46277), 433), ((1, 'localhost', 46277), 434), ((1, 'localhost', 46277), 435), ((1, 'localhost', 46277), 436), ((1, 'localhost', 46277), 437), ((1, 'localhost', 46277), 438), ((1, 'localhost', 46277), 439), ((1, 'localhost', 46277), 440), ((1, 'localhost', 46277), 441), ((1, 'localhost', 46277), 442), ((1, 'localhost', 46277), 443), ((1, 'localhost', 46277), 444), ((1, 'localhost', 46277), 445), ((1, 'localhost', 46277), 446), ((1, 'localhost', 46277), 447), ((1, 'localhost', 46277), 448), ((1, 'localhost', 46277), 449), ((1, 'localhost', 46277), 450), ((1, 'localhost', 46277), 451), ((1, 'localhost', 46277), 452), ((1, 'localhost', 46277), 453), ((1, 'localhost', 46277), 454), ((1, 'localhost', 46277), 455), ((1, 'localhost', 46277), 456), ((1, 'localhost', 46277), 457), ((1, 'localhost', 46277), 458), ((1, 'localhost', 46277), 459), ((1, 'localhost', 46277), 460), ((1, 'localhost', 46277), 461), ((1, 'localhost', 46277), 462), ((1, 'localhost', 46277), 463), ((1, 'localhost', 46277), 464), ((1, 'localhost', 46277), 465), ((1, 'localhost', 46277), 466), ((1, 'localhost', 46277), 467), ((1, 'localhost', 46277), 468), ((1, 'localhost', 46277), 469), ((1, 'localhost', 46277), 470), ((1, 'localhost', 46277), 471), ((1, 'localhost', 46277), 472), ((1, 'localhost', 46277), 473), ((1, 'localhost', 46277), 474), ((1, 'localhost', 46277), 475), ((1, 'localhost', 46277), 476), ((1, 'localhost', 46277), 477), ((1, 'localhost', 46277), 478), ((1, 'localhost', 46277), 479), ((1, 'localhost', 46277), 480), ((1, 'localhost', 46277), 481), ((1, 'localhost', 46277), 482), ((1, 'localhost', 46277), 483), ((1, 'localhost', 46277), 484), ((1, 'localhost', 46277), 485), ((1, 'localhost', 46277), 486), ((1, 'localhost', 46277), 487), ((1, 'localhost', 46277), 488), ((1, 'localhost', 46277), 489), ((1, 'localhost', 46277), 490), ((1, 'localhost', 46277), 491), ((1, 'localhost', 46277), 492), ((1, 'localhost', 46277), 493), ((1, 'localhost', 46277), 494), ((1, 'localhost', 46277), 495), ((1, 'localhost', 46277), 496), ((1, 'localhost', 46277), 497), ((1, 'localhost', 46277), 498), ((1, 'localhost', 46277), 499), ((1, 'localhost', 46277), 500), ((1, 'localhost', 46277), 501), ((1, 'localhost', 46277), 502), ((1, 'localhost', 46277), 503), ((1, 'localhost', 46277), 504), ((1, 'localhost', 46277), 505), ((1, 'localhost', 46277), 506), ((1, 'localhost', 46277), 507), ((1, 'localhost', 46277), 508), ((1, 'localhost', 46277), 509), ((1, 'localhost', 46277), 510), ((1, 'localhost', 46277), 511), ((1, 'localhost', 46277), 512), ((1, 'localhost', 46277), 513), ((1, 'localhost', 46277), 514), ((1, 'localhost', 46277), 515), ((1, 'localhost', 46277), 516), ((1, 'localhost', 46277), 517), ((1, 'localhost', 46277), 518), ((1, 'localhost', 46277), 519), ((1, 'localhost', 46277), 520), ((1, 'localhost', 46277), 521), ((1, 'localhost', 46277), 522), ((1, 'localhost', 46277), 523), ((1, 'localhost', 46277), 524), ((1, 'localhost', 46277), 525), ((1, 'localhost', 46277), 526), ((1, 'localhost', 46277), 527), ((1, 'localhost', 46277), 528), ((1, 'localhost', 46277), 529), ((1, 'localhost', 46277), 530), ((1, 'localhost', 46277), 531)]
+2024-11-26 20:58:01,102 - Requesting piece 0 from localhost:46277
+2024-11-26 20:58:01,102 - Requesting piece 1 from localhost:46277
+2024-11-26 20:58:01,105 - Successfully downloaded piece 0 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,130 - Successfully downloaded piece 1 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,132 - Requesting piece 2 from localhost:46277
+2024-11-26 20:58:01,132 - Requesting piece 3 from localhost:46277
+2024-11-26 20:58:01,136 - Successfully downloaded piece 3 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,137 - Successfully downloaded piece 2 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,138 - Requesting piece 4 from localhost:46277
+2024-11-26 20:58:01,138 - Requesting piece 5 from localhost:46277
+2024-11-26 20:58:01,141 - Successfully downloaded piece 4 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,141 - Successfully downloaded piece 5 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,143 - Requesting piece 6 from localhost:46277
+2024-11-26 20:58:01,143 - Requesting piece 7 from localhost:46277
+2024-11-26 20:58:01,145 - Successfully downloaded piece 7 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,146 - Successfully downloaded piece 6 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,147 - Requesting piece 8 from localhost:46277
+2024-11-26 20:58:01,147 - Requesting piece 9 from localhost:46277
+2024-11-26 20:58:01,150 - Successfully downloaded piece 8 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,150 - Successfully downloaded piece 9 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,151 - Requesting piece 10 from localhost:46277
+2024-11-26 20:58:01,151 - Requesting piece 11 from localhost:46277
+2024-11-26 20:58:01,154 - Successfully downloaded piece 10 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,154 - Successfully downloaded piece 11 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,156 - Requesting piece 12 from localhost:46277
+2024-11-26 20:58:01,156 - Requesting piece 13 from localhost:46277
+2024-11-26 20:58:01,159 - Successfully downloaded piece 12 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,159 - Successfully downloaded piece 13 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,161 - Requesting piece 14 from localhost:46277
+2024-11-26 20:58:01,161 - Requesting piece 15 from localhost:46277
+2024-11-26 20:58:01,163 - Successfully downloaded piece 14 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,163 - Successfully downloaded piece 15 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,164 - Requesting piece 16 from localhost:46277
+2024-11-26 20:58:01,164 - Requesting piece 17 from localhost:46277
+2024-11-26 20:58:01,167 - Successfully downloaded piece 17 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,167 - Successfully downloaded piece 16 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,168 - Requesting piece 18 from localhost:46277
+2024-11-26 20:58:01,168 - Requesting piece 19 from localhost:46277
+2024-11-26 20:58:01,171 - Successfully downloaded piece 18 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,171 - Successfully downloaded piece 19 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,172 - Requesting piece 21 from localhost:46277
+2024-11-26 20:58:01,172 - Requesting piece 20 from localhost:46277
+2024-11-26 20:58:01,175 - Successfully downloaded piece 21 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,176 - Successfully downloaded piece 20 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,177 - Requesting piece 22 from localhost:46277
+2024-11-26 20:58:01,177 - Requesting piece 23 from localhost:46277
+2024-11-26 20:58:01,180 - Successfully downloaded piece 22 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,180 - Successfully downloaded piece 23 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,181 - Requesting piece 24 from localhost:46277
+2024-11-26 20:58:01,181 - Requesting piece 25 from localhost:46277
+2024-11-26 20:58:01,184 - Successfully downloaded piece 24 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,184 - Successfully downloaded piece 25 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,186 - Requesting piece 26 from localhost:46277
+2024-11-26 20:58:01,186 - Requesting piece 27 from localhost:46277
+2024-11-26 20:58:01,189 - Successfully downloaded piece 27 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,189 - Successfully downloaded piece 26 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,190 - Requesting piece 28 from localhost:46277
+2024-11-26 20:58:01,190 - Requesting piece 29 from localhost:46277
+2024-11-26 20:58:01,193 - Successfully downloaded piece 28 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,193 - Successfully downloaded piece 29 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,194 - Requesting piece 30 from localhost:46277
+2024-11-26 20:58:01,194 - Requesting piece 31 from localhost:46277
+2024-11-26 20:58:01,197 - Successfully downloaded piece 30 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,198 - Successfully downloaded piece 31 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,199 - Requesting piece 33 from localhost:46277
+2024-11-26 20:58:01,199 - Requesting piece 32 from localhost:46277
+2024-11-26 20:58:01,202 - Successfully downloaded piece 32 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,202 - Successfully downloaded piece 33 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,203 - Requesting piece 34 from localhost:46277
+2024-11-26 20:58:01,203 - Requesting piece 35 from localhost:46277
+2024-11-26 20:58:01,206 - Successfully downloaded piece 34 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,206 - Successfully downloaded piece 35 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,208 - Requesting piece 37 from localhost:46277
+2024-11-26 20:58:01,208 - Requesting piece 36 from localhost:46277
+2024-11-26 20:58:01,210 - Successfully downloaded piece 37 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,211 - Successfully downloaded piece 36 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,212 - Requesting piece 39 from localhost:46277
+2024-11-26 20:58:01,212 - Requesting piece 38 from localhost:46277
+2024-11-26 20:58:01,216 - Successfully downloaded piece 38 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,216 - Successfully downloaded piece 39 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,217 - Requesting piece 40 from localhost:46277
+2024-11-26 20:58:01,217 - Requesting piece 41 from localhost:46277
+2024-11-26 20:58:01,220 - Successfully downloaded piece 40 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,221 - Successfully downloaded piece 41 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,222 - Requesting piece 42 from localhost:46277
+2024-11-26 20:58:01,222 - Requesting piece 43 from localhost:46277
+2024-11-26 20:58:01,226 - Successfully downloaded piece 42 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,226 - Successfully downloaded piece 43 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,227 - Requesting piece 44 from localhost:46277
+2024-11-26 20:58:01,227 - Requesting piece 45 from localhost:46277
+2024-11-26 20:58:01,230 - Successfully downloaded piece 44 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,231 - Successfully downloaded piece 45 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,231 - Requesting piece 46 from localhost:46277
+2024-11-26 20:58:01,232 - Requesting piece 47 from localhost:46277
+2024-11-26 20:58:01,234 - Successfully downloaded piece 46 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,234 - Successfully downloaded piece 47 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,237 - Requesting piece 48 from localhost:46277
+2024-11-26 20:58:01,237 - Requesting piece 49 from localhost:46277
+2024-11-26 20:58:01,240 - Successfully downloaded piece 48 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,240 - Successfully downloaded piece 49 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,241 - Requesting piece 50 from localhost:46277
+2024-11-26 20:58:01,241 - Requesting piece 51 from localhost:46277
+2024-11-26 20:58:01,245 - Successfully downloaded piece 50 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,245 - Successfully downloaded piece 51 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,246 - Requesting piece 52 from localhost:46277
+2024-11-26 20:58:01,246 - Requesting piece 53 from localhost:46277
+2024-11-26 20:58:01,250 - Successfully downloaded piece 52 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,250 - Successfully downloaded piece 53 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,251 - Requesting piece 54 from localhost:46277
+2024-11-26 20:58:01,251 - Requesting piece 55 from localhost:46277
+2024-11-26 20:58:01,254 - Successfully downloaded piece 54 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,254 - Successfully downloaded piece 55 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,256 - Requesting piece 56 from localhost:46277
+2024-11-26 20:58:01,257 - Requesting piece 57 from localhost:46277
+2024-11-26 20:58:01,260 - Successfully downloaded piece 57 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,260 - Successfully downloaded piece 56 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,261 - Requesting piece 58 from localhost:46277
+2024-11-26 20:58:01,261 - Requesting piece 59 from localhost:46277
+2024-11-26 20:58:01,265 - Successfully downloaded piece 58 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,265 - Successfully downloaded piece 59 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,266 - Requesting piece 61 from localhost:46277
+2024-11-26 20:58:01,266 - Requesting piece 60 from localhost:46277
+2024-11-26 20:58:01,269 - Successfully downloaded piece 61 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,270 - Successfully downloaded piece 60 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,271 - Requesting piece 62 from localhost:46277
+2024-11-26 20:58:01,271 - Requesting piece 63 from localhost:46277
+2024-11-26 20:58:01,275 - Successfully downloaded piece 62 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,276 - Successfully downloaded piece 63 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,277 - Requesting piece 64 from localhost:46277
+2024-11-26 20:58:01,277 - Requesting piece 65 from localhost:46277
+2024-11-26 20:58:01,280 - Successfully downloaded piece 64 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,280 - Successfully downloaded piece 65 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,281 - Requesting piece 66 from localhost:46277
+2024-11-26 20:58:01,281 - Requesting piece 67 from localhost:46277
+2024-11-26 20:58:01,284 - Successfully downloaded piece 66 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,284 - Successfully downloaded piece 67 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,285 - Requesting piece 68 from localhost:46277
+2024-11-26 20:58:01,286 - Requesting piece 69 from localhost:46277
+2024-11-26 20:58:01,288 - Successfully downloaded piece 68 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,288 - Successfully downloaded piece 69 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,290 - Requesting piece 70 from localhost:46277
+2024-11-26 20:58:01,290 - Requesting piece 71 from localhost:46277
+2024-11-26 20:58:01,293 - Successfully downloaded piece 70 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,293 - Successfully downloaded piece 71 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,294 - Requesting piece 72 from localhost:46277
+2024-11-26 20:58:01,294 - Requesting piece 73 from localhost:46277
+2024-11-26 20:58:01,297 - Successfully downloaded piece 72 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,298 - Successfully downloaded piece 73 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,299 - Requesting piece 74 from localhost:46277
+2024-11-26 20:58:01,299 - Requesting piece 75 from localhost:46277
+2024-11-26 20:58:01,302 - Successfully downloaded piece 74 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,302 - Successfully downloaded piece 75 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,303 - Requesting piece 76 from localhost:46277
+2024-11-26 20:58:01,303 - Requesting piece 77 from localhost:46277
+2024-11-26 20:58:01,306 - Successfully downloaded piece 77 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,307 - Successfully downloaded piece 76 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,308 - Requesting piece 78 from localhost:46277
+2024-11-26 20:58:01,308 - Requesting piece 79 from localhost:46277
+2024-11-26 20:58:01,311 - Successfully downloaded piece 79 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,311 - Successfully downloaded piece 78 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,312 - Requesting piece 80 from localhost:46277
+2024-11-26 20:58:01,312 - Requesting piece 81 from localhost:46277
+2024-11-26 20:58:01,315 - Successfully downloaded piece 80 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,315 - Successfully downloaded piece 81 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,316 - Requesting piece 82 from localhost:46277
+2024-11-26 20:58:01,316 - Requesting piece 83 from localhost:46277
+2024-11-26 20:58:01,319 - Successfully downloaded piece 83 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,319 - Successfully downloaded piece 82 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,320 - Requesting piece 84 from localhost:46277
+2024-11-26 20:58:01,320 - Requesting piece 85 from localhost:46277
+2024-11-26 20:58:01,323 - Successfully downloaded piece 84 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,323 - Successfully downloaded piece 85 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,324 - Requesting piece 86 from localhost:46277
+2024-11-26 20:58:01,324 - Requesting piece 87 from localhost:46277
+2024-11-26 20:58:01,327 - Successfully downloaded piece 86 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,327 - Successfully downloaded piece 87 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,328 - Requesting piece 88 from localhost:46277
+2024-11-26 20:58:01,328 - Requesting piece 89 from localhost:46277
+2024-11-26 20:58:01,331 - Successfully downloaded piece 88 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,331 - Successfully downloaded piece 89 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,332 - Requesting piece 90 from localhost:46277
+2024-11-26 20:58:01,332 - Requesting piece 91 from localhost:46277
+2024-11-26 20:58:01,334 - Successfully downloaded piece 90 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,334 - Successfully downloaded piece 91 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,336 - Requesting piece 92 from localhost:46277
+2024-11-26 20:58:01,336 - Requesting piece 93 from localhost:46277
+2024-11-26 20:58:01,338 - Successfully downloaded piece 92 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,340 - Successfully downloaded piece 93 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,341 - Requesting piece 94 from localhost:46277
+2024-11-26 20:58:01,341 - Requesting piece 95 from localhost:46277
+2024-11-26 20:58:01,344 - Successfully downloaded piece 94 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,344 - Successfully downloaded piece 95 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,345 - Requesting piece 96 from localhost:46277
+2024-11-26 20:58:01,345 - Requesting piece 97 from localhost:46277
+2024-11-26 20:58:01,347 - Successfully downloaded piece 96 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,348 - Successfully downloaded piece 97 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,350 - Requesting piece 98 from localhost:46277
+2024-11-26 20:58:01,350 - Requesting piece 99 from localhost:46277
+2024-11-26 20:58:01,353 - Successfully downloaded piece 98 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,353 - Successfully downloaded piece 99 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,355 - Requesting piece 100 from localhost:46277
+2024-11-26 20:58:01,355 - Requesting piece 101 from localhost:46277
+2024-11-26 20:58:01,358 - Successfully downloaded piece 100 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,358 - Successfully downloaded piece 101 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,359 - Requesting piece 102 from localhost:46277
+2024-11-26 20:58:01,359 - Requesting piece 103 from localhost:46277
+2024-11-26 20:58:01,363 - Successfully downloaded piece 102 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,363 - Successfully downloaded piece 103 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,364 - Requesting piece 104 from localhost:46277
+2024-11-26 20:58:01,364 - Requesting piece 105 from localhost:46277
+2024-11-26 20:58:01,367 - Successfully downloaded piece 104 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,368 - Successfully downloaded piece 105 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,369 - Requesting piece 106 from localhost:46277
+2024-11-26 20:58:01,369 - Requesting piece 107 from localhost:46277
+2024-11-26 20:58:01,371 - Successfully downloaded piece 106 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,372 - Successfully downloaded piece 107 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,373 - Requesting piece 109 from localhost:46277
+2024-11-26 20:58:01,374 - Requesting piece 108 from localhost:46277
+2024-11-26 20:58:01,377 - Successfully downloaded piece 108 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,378 - Successfully downloaded piece 109 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,379 - Requesting piece 110 from localhost:46277
+2024-11-26 20:58:01,379 - Requesting piece 111 from localhost:46277
+2024-11-26 20:58:01,382 - Successfully downloaded piece 110 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,383 - Successfully downloaded piece 111 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,384 - Requesting piece 112 from localhost:46277
+2024-11-26 20:58:01,384 - Requesting piece 113 from localhost:46277
+2024-11-26 20:58:01,386 - Successfully downloaded piece 112 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,387 - Successfully downloaded piece 113 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,388 - Requesting piece 114 from localhost:46277
+2024-11-26 20:58:01,388 - Requesting piece 115 from localhost:46277
+2024-11-26 20:58:01,391 - Successfully downloaded piece 114 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,392 - Successfully downloaded piece 115 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,393 - Requesting piece 116 from localhost:46277
+2024-11-26 20:58:01,393 - Requesting piece 117 from localhost:46277
+2024-11-26 20:58:01,397 - Successfully downloaded piece 116 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,397 - Successfully downloaded piece 117 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,398 - Requesting piece 118 from localhost:46277
+2024-11-26 20:58:01,398 - Requesting piece 119 from localhost:46277
+2024-11-26 20:58:01,401 - Successfully downloaded piece 118 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,401 - Successfully downloaded piece 119 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,402 - Requesting piece 120 from localhost:46277
+2024-11-26 20:58:01,403 - Requesting piece 121 from localhost:46277
+2024-11-26 20:58:01,405 - Successfully downloaded piece 120 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,406 - Successfully downloaded piece 121 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,406 - Requesting piece 122 from localhost:46277
+2024-11-26 20:58:01,407 - Requesting piece 123 from localhost:46277
+2024-11-26 20:58:01,411 - Successfully downloaded piece 122 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,411 - Successfully downloaded piece 123 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,412 - Requesting piece 124 from localhost:46277
+2024-11-26 20:58:01,412 - Requesting piece 125 from localhost:46277
+2024-11-26 20:58:01,416 - Successfully downloaded piece 124 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,416 - Successfully downloaded piece 125 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,417 - Requesting piece 126 from localhost:46277
+2024-11-26 20:58:01,417 - Requesting piece 127 from localhost:46277
+2024-11-26 20:58:01,420 - Successfully downloaded piece 127 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,421 - Successfully downloaded piece 126 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,422 - Requesting piece 128 from localhost:46277
+2024-11-26 20:58:01,422 - Requesting piece 129 from localhost:46277
+2024-11-26 20:58:01,426 - Successfully downloaded piece 128 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,426 - Successfully downloaded piece 129 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,427 - Requesting piece 130 from localhost:46277
+2024-11-26 20:58:01,427 - Requesting piece 131 from localhost:46277
+2024-11-26 20:58:01,430 - Successfully downloaded piece 130 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,431 - Successfully downloaded piece 131 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,432 - Requesting piece 132 from localhost:46277
+2024-11-26 20:58:01,432 - Requesting piece 133 from localhost:46277
+2024-11-26 20:58:01,435 - Successfully downloaded piece 132 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,435 - Successfully downloaded piece 133 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,437 - Requesting piece 134 from localhost:46277
+2024-11-26 20:58:01,437 - Requesting piece 135 from localhost:46277
+2024-11-26 20:58:01,440 - Successfully downloaded piece 134 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,440 - Successfully downloaded piece 135 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,442 - Requesting piece 136 from localhost:46277
+2024-11-26 20:58:01,442 - Requesting piece 137 from localhost:46277
+2024-11-26 20:58:01,445 - Successfully downloaded piece 136 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,445 - Successfully downloaded piece 137 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,446 - Requesting piece 138 from localhost:46277
+2024-11-26 20:58:01,446 - Requesting piece 139 from localhost:46277
+2024-11-26 20:58:01,450 - Successfully downloaded piece 138 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,450 - Successfully downloaded piece 139 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,451 - Requesting piece 140 from localhost:46277
+2024-11-26 20:58:01,451 - Requesting piece 141 from localhost:46277
+2024-11-26 20:58:01,454 - Successfully downloaded piece 141 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,454 - Successfully downloaded piece 140 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,455 - Requesting piece 142 from localhost:46277
+2024-11-26 20:58:01,455 - Requesting piece 143 from localhost:46277
+2024-11-26 20:58:01,458 - Successfully downloaded piece 142 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,458 - Successfully downloaded piece 143 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,460 - Requesting piece 144 from localhost:46277
+2024-11-26 20:58:01,460 - Requesting piece 145 from localhost:46277
+2024-11-26 20:58:01,463 - Successfully downloaded piece 144 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,463 - Successfully downloaded piece 145 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,464 - Requesting piece 146 from localhost:46277
+2024-11-26 20:58:01,464 - Requesting piece 147 from localhost:46277
+2024-11-26 20:58:01,468 - Successfully downloaded piece 146 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,469 - Successfully downloaded piece 147 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,470 - Requesting piece 148 from localhost:46277
+2024-11-26 20:58:01,470 - Requesting piece 149 from localhost:46277
+2024-11-26 20:58:01,473 - Successfully downloaded piece 148 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,474 - Successfully downloaded piece 149 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,475 - Requesting piece 150 from localhost:46277
+2024-11-26 20:58:01,475 - Requesting piece 151 from localhost:46277
+2024-11-26 20:58:01,477 - Successfully downloaded piece 150 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,478 - Successfully downloaded piece 151 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,479 - Requesting piece 152 from localhost:46277
+2024-11-26 20:58:01,479 - Requesting piece 153 from localhost:46277
+2024-11-26 20:58:01,482 - Successfully downloaded piece 152 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,482 - Successfully downloaded piece 153 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,483 - Requesting piece 154 from localhost:46277
+2024-11-26 20:58:01,483 - Requesting piece 155 from localhost:46277
+2024-11-26 20:58:01,487 - Successfully downloaded piece 154 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,487 - Successfully downloaded piece 155 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,488 - Requesting piece 156 from localhost:46277
+2024-11-26 20:58:01,489 - Requesting piece 157 from localhost:46277
+2024-11-26 20:58:01,492 - Successfully downloaded piece 156 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,492 - Successfully downloaded piece 157 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,493 - Requesting piece 159 from localhost:46277
+2024-11-26 20:58:01,493 - Requesting piece 158 from localhost:46277
+2024-11-26 20:58:01,496 - Successfully downloaded piece 159 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,496 - Successfully downloaded piece 158 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,497 - Requesting piece 160 from localhost:46277
+2024-11-26 20:58:01,498 - Requesting piece 161 from localhost:46277
+2024-11-26 20:58:01,501 - Successfully downloaded piece 160 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,501 - Successfully downloaded piece 161 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,502 - Requesting piece 162 from localhost:46277
+2024-11-26 20:58:01,502 - Requesting piece 163 from localhost:46277
+2024-11-26 20:58:01,506 - Successfully downloaded piece 162 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,506 - Successfully downloaded piece 163 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,507 - Requesting piece 165 from localhost:46277
+2024-11-26 20:58:01,507 - Requesting piece 164 from localhost:46277
+2024-11-26 20:58:01,510 - Successfully downloaded piece 165 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,511 - Successfully downloaded piece 164 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,512 - Requesting piece 166 from localhost:46277
+2024-11-26 20:58:01,512 - Requesting piece 167 from localhost:46277
+2024-11-26 20:58:01,515 - Successfully downloaded piece 166 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,515 - Successfully downloaded piece 167 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,516 - Requesting piece 168 from localhost:46277
+2024-11-26 20:58:01,516 - Requesting piece 169 from localhost:46277
+2024-11-26 20:58:01,519 - Successfully downloaded piece 168 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,519 - Successfully downloaded piece 169 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,520 - Requesting piece 170 from localhost:46277
+2024-11-26 20:58:01,520 - Requesting piece 171 from localhost:46277
+2024-11-26 20:58:01,525 - Successfully downloaded piece 170 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,525 - Successfully downloaded piece 171 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,526 - Requesting piece 172 from localhost:46277
+2024-11-26 20:58:01,526 - Requesting piece 173 from localhost:46277
+2024-11-26 20:58:01,529 - Successfully downloaded piece 172 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,530 - Successfully downloaded piece 173 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,531 - Requesting piece 174 from localhost:46277
+2024-11-26 20:58:01,531 - Requesting piece 175 from localhost:46277
+2024-11-26 20:58:01,534 - Successfully downloaded piece 174 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,534 - Successfully downloaded piece 175 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,536 - Requesting piece 176 from localhost:46277
+2024-11-26 20:58:01,536 - Requesting piece 177 from localhost:46277
+2024-11-26 20:58:01,539 - Successfully downloaded piece 176 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,539 - Successfully downloaded piece 177 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,540 - Requesting piece 178 from localhost:46277
+2024-11-26 20:58:01,540 - Requesting piece 179 from localhost:46277
+2024-11-26 20:58:01,544 - Successfully downloaded piece 178 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,544 - Successfully downloaded piece 179 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,545 - Requesting piece 180 from localhost:46277
+2024-11-26 20:58:01,546 - Requesting piece 181 from localhost:46277
+2024-11-26 20:58:01,549 - Successfully downloaded piece 180 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,549 - Successfully downloaded piece 181 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,550 - Requesting piece 182 from localhost:46277
+2024-11-26 20:58:01,550 - Requesting piece 183 from localhost:46277
+2024-11-26 20:58:01,553 - Successfully downloaded piece 182 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,554 - Successfully downloaded piece 183 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,555 - Requesting piece 184 from localhost:46277
+2024-11-26 20:58:01,555 - Requesting piece 185 from localhost:46277
+2024-11-26 20:58:01,558 - Successfully downloaded piece 184 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,558 - Successfully downloaded piece 185 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,560 - Requesting piece 186 from localhost:46277
+2024-11-26 20:58:01,560 - Requesting piece 187 from localhost:46277
+2024-11-26 20:58:01,563 - Successfully downloaded piece 186 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,564 - Successfully downloaded piece 187 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,565 - Requesting piece 188 from localhost:46277
+2024-11-26 20:58:01,565 - Requesting piece 189 from localhost:46277
+2024-11-26 20:58:01,568 - Successfully downloaded piece 188 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,568 - Successfully downloaded piece 189 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,569 - Requesting piece 190 from localhost:46277
+2024-11-26 20:58:01,569 - Requesting piece 191 from localhost:46277
+2024-11-26 20:58:01,572 - Successfully downloaded piece 190 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,572 - Successfully downloaded piece 191 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,573 - Requesting piece 192 from localhost:46277
+2024-11-26 20:58:01,574 - Requesting piece 193 from localhost:46277
+2024-11-26 20:58:01,577 - Successfully downloaded piece 192 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,577 - Successfully downloaded piece 193 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,578 - Requesting piece 194 from localhost:46277
+2024-11-26 20:58:01,578 - Requesting piece 195 from localhost:46277
+2024-11-26 20:58:01,581 - Successfully downloaded piece 194 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,581 - Successfully downloaded piece 195 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,582 - Requesting piece 196 from localhost:46277
+2024-11-26 20:58:01,583 - Requesting piece 197 from localhost:46277
+2024-11-26 20:58:01,585 - Successfully downloaded piece 196 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,586 - Successfully downloaded piece 197 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,587 - Requesting piece 198 from localhost:46277
+2024-11-26 20:58:01,587 - Requesting piece 199 from localhost:46277
+2024-11-26 20:58:01,589 - Successfully downloaded piece 198 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,590 - Successfully downloaded piece 199 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,591 - Requesting piece 200 from localhost:46277
+2024-11-26 20:58:01,591 - Requesting piece 201 from localhost:46277
+2024-11-26 20:58:01,594 - Successfully downloaded piece 200 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,595 - Successfully downloaded piece 201 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,596 - Requesting piece 202 from localhost:46277
+2024-11-26 20:58:01,596 - Requesting piece 203 from localhost:46277
+2024-11-26 20:58:01,599 - Successfully downloaded piece 202 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,599 - Successfully downloaded piece 203 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,600 - Requesting piece 204 from localhost:46277
+2024-11-26 20:58:01,600 - Requesting piece 205 from localhost:46277
+2024-11-26 20:58:01,603 - Successfully downloaded piece 204 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,603 - Successfully downloaded piece 205 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,604 - Requesting piece 206 from localhost:46277
+2024-11-26 20:58:01,604 - Requesting piece 207 from localhost:46277
+2024-11-26 20:58:01,608 - Successfully downloaded piece 206 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,608 - Successfully downloaded piece 207 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,609 - Requesting piece 208 from localhost:46277
+2024-11-26 20:58:01,609 - Requesting piece 209 from localhost:46277
+2024-11-26 20:58:01,612 - Successfully downloaded piece 208 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,612 - Successfully downloaded piece 209 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,613 - Requesting piece 210 from localhost:46277
+2024-11-26 20:58:01,613 - Requesting piece 211 from localhost:46277
+2024-11-26 20:58:01,617 - Successfully downloaded piece 210 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,617 - Successfully downloaded piece 211 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,618 - Requesting piece 212 from localhost:46277
+2024-11-26 20:58:01,619 - Requesting piece 213 from localhost:46277
+2024-11-26 20:58:01,622 - Successfully downloaded piece 212 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,622 - Successfully downloaded piece 213 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,623 - Requesting piece 214 from localhost:46277
+2024-11-26 20:58:01,623 - Requesting piece 215 from localhost:46277
+2024-11-26 20:58:01,626 - Successfully downloaded piece 214 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,626 - Successfully downloaded piece 215 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,627 - Requesting piece 216 from localhost:46277
+2024-11-26 20:58:01,627 - Requesting piece 217 from localhost:46277
+2024-11-26 20:58:01,629 - Successfully downloaded piece 216 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,631 - Successfully downloaded piece 217 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,632 - Requesting piece 218 from localhost:46277
+2024-11-26 20:58:01,632 - Requesting piece 219 from localhost:46277
+2024-11-26 20:58:01,635 - Successfully downloaded piece 218 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,635 - Successfully downloaded piece 219 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,636 - Requesting piece 220 from localhost:46277
+2024-11-26 20:58:01,636 - Requesting piece 221 from localhost:46277
+2024-11-26 20:58:01,640 - Successfully downloaded piece 220 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,640 - Successfully downloaded piece 221 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,641 - Requesting piece 223 from localhost:46277
+2024-11-26 20:58:01,641 - Requesting piece 222 from localhost:46277
+2024-11-26 20:58:01,644 - Successfully downloaded piece 222 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,644 - Successfully downloaded piece 223 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,646 - Requesting piece 224 from localhost:46277
+2024-11-26 20:58:01,646 - Requesting piece 225 from localhost:46277
+2024-11-26 20:58:01,649 - Successfully downloaded piece 224 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,649 - Successfully downloaded piece 225 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,650 - Requesting piece 226 from localhost:46277
+2024-11-26 20:58:01,650 - Requesting piece 227 from localhost:46277
+2024-11-26 20:58:01,654 - Successfully downloaded piece 226 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,654 - Successfully downloaded piece 227 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,655 - Requesting piece 229 from localhost:46277
+2024-11-26 20:58:01,655 - Requesting piece 228 from localhost:46277
+2024-11-26 20:58:01,659 - Successfully downloaded piece 229 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,659 - Successfully downloaded piece 228 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,660 - Requesting piece 230 from localhost:46277
+2024-11-26 20:58:01,660 - Requesting piece 231 from localhost:46277
+2024-11-26 20:58:01,664 - Successfully downloaded piece 231 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,665 - Successfully downloaded piece 230 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,666 - Requesting piece 232 from localhost:46277
+2024-11-26 20:58:01,666 - Requesting piece 233 from localhost:46277
+2024-11-26 20:58:01,669 - Successfully downloaded piece 233 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,669 - Successfully downloaded piece 232 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,670 - Requesting piece 234 from localhost:46277
+2024-11-26 20:58:01,670 - Requesting piece 235 from localhost:46277
+2024-11-26 20:58:01,673 - Successfully downloaded piece 234 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,674 - Successfully downloaded piece 235 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,674 - Requesting piece 236 from localhost:46277
+2024-11-26 20:58:01,674 - Requesting piece 237 from localhost:46277
+2024-11-26 20:58:01,678 - Successfully downloaded piece 237 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,679 - Successfully downloaded piece 236 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,680 - Requesting piece 238 from localhost:46277
+2024-11-26 20:58:01,680 - Requesting piece 239 from localhost:46277
+2024-11-26 20:58:01,683 - Successfully downloaded piece 238 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,684 - Successfully downloaded piece 239 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,685 - Requesting piece 240 from localhost:46277
+2024-11-26 20:58:01,685 - Requesting piece 241 from localhost:46277
+2024-11-26 20:58:01,693 - Successfully downloaded piece 240 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,693 - Successfully downloaded piece 241 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,695 - Requesting piece 242 from localhost:46277
+2024-11-26 20:58:01,695 - Requesting piece 243 from localhost:46277
+2024-11-26 20:58:01,700 - Successfully downloaded piece 243 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,701 - Successfully downloaded piece 242 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,702 - Requesting piece 244 from localhost:46277
+2024-11-26 20:58:01,702 - Requesting piece 245 from localhost:46277
+2024-11-26 20:58:01,706 - Successfully downloaded piece 244 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,706 - Successfully downloaded piece 245 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,707 - Requesting piece 246 from localhost:46277
+2024-11-26 20:58:01,707 - Requesting piece 247 from localhost:46277
+2024-11-26 20:58:01,711 - Successfully downloaded piece 246 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,711 - Successfully downloaded piece 247 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,712 - Requesting piece 248 from localhost:46277
+2024-11-26 20:58:01,712 - Requesting piece 249 from localhost:46277
+2024-11-26 20:58:01,716 - Successfully downloaded piece 248 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,716 - Successfully downloaded piece 249 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,718 - Requesting piece 250 from localhost:46277
+2024-11-26 20:58:01,718 - Requesting piece 251 from localhost:46277
+2024-11-26 20:58:01,721 - Successfully downloaded piece 250 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,721 - Successfully downloaded piece 251 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,723 - Requesting piece 252 from localhost:46277
+2024-11-26 20:58:01,723 - Requesting piece 253 from localhost:46277
+2024-11-26 20:58:01,726 - Successfully downloaded piece 253 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,726 - Successfully downloaded piece 252 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,728 - Requesting piece 255 from localhost:46277
+2024-11-26 20:58:01,729 - Requesting piece 254 from localhost:46277
+2024-11-26 20:58:01,732 - Successfully downloaded piece 254 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,732 - Successfully downloaded piece 255 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,734 - Requesting piece 256 from localhost:46277
+2024-11-26 20:58:01,734 - Requesting piece 257 from localhost:46277
+2024-11-26 20:58:01,737 - Successfully downloaded piece 256 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,737 - Successfully downloaded piece 257 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,738 - Requesting piece 258 from localhost:46277
+2024-11-26 20:58:01,739 - Requesting piece 259 from localhost:46277
+2024-11-26 20:58:01,742 - Successfully downloaded piece 259 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,743 - Successfully downloaded piece 258 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,744 - Requesting piece 260 from localhost:46277
+2024-11-26 20:58:01,744 - Requesting piece 261 from localhost:46277
+2024-11-26 20:58:01,748 - Successfully downloaded piece 260 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,748 - Successfully downloaded piece 261 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,749 - Requesting piece 262 from localhost:46277
+2024-11-26 20:58:01,750 - Requesting piece 263 from localhost:46277
+2024-11-26 20:58:01,751 - Successfully downloaded piece 262 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,751 - Successfully downloaded piece 263 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,754 - Requesting piece 265 from localhost:46277
+2024-11-26 20:58:01,755 - Requesting piece 264 from localhost:46277
+2024-11-26 20:58:01,758 - Successfully downloaded piece 265 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,758 - Successfully downloaded piece 264 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,760 - Requesting piece 266 from localhost:46277
+2024-11-26 20:58:01,760 - Requesting piece 267 from localhost:46277
+2024-11-26 20:58:01,765 - Successfully downloaded piece 267 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,765 - Successfully downloaded piece 266 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,767 - Requesting piece 269 from localhost:46277
+2024-11-26 20:58:01,767 - Requesting piece 268 from localhost:46277
+2024-11-26 20:58:01,771 - Successfully downloaded piece 268 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,772 - Successfully downloaded piece 269 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,773 - Requesting piece 270 from localhost:46277
+2024-11-26 20:58:01,773 - Requesting piece 271 from localhost:46277
+2024-11-26 20:58:01,776 - Successfully downloaded piece 271 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,776 - Successfully downloaded piece 270 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,776 - Requesting piece 272 from localhost:46277
+2024-11-26 20:58:01,776 - Requesting piece 273 from localhost:46277
+2024-11-26 20:58:01,784 - Successfully downloaded piece 273 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,785 - Successfully downloaded piece 272 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,786 - Requesting piece 274 from localhost:46277
+2024-11-26 20:58:01,786 - Requesting piece 275 from localhost:46277
+2024-11-26 20:58:01,790 - Successfully downloaded piece 274 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,791 - Successfully downloaded piece 275 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,792 - Requesting piece 276 from localhost:46277
+2024-11-26 20:58:01,792 - Requesting piece 277 from localhost:46277
+2024-11-26 20:58:01,796 - Successfully downloaded piece 276 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,796 - Successfully downloaded piece 277 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,798 - Requesting piece 278 from localhost:46277
+2024-11-26 20:58:01,798 - Requesting piece 279 from localhost:46277
+2024-11-26 20:58:01,801 - Successfully downloaded piece 278 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,801 - Successfully downloaded piece 279 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,803 - Requesting piece 280 from localhost:46277
+2024-11-26 20:58:01,803 - Requesting piece 281 from localhost:46277
+2024-11-26 20:58:01,807 - Successfully downloaded piece 281 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,808 - Successfully downloaded piece 280 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,809 - Requesting piece 282 from localhost:46277
+2024-11-26 20:58:01,809 - Requesting piece 283 from localhost:46277
+2024-11-26 20:58:01,813 - Successfully downloaded piece 282 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,814 - Successfully downloaded piece 283 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,814 - Requesting piece 284 from localhost:46277
+2024-11-26 20:58:01,814 - Requesting piece 285 from localhost:46277
+2024-11-26 20:58:01,819 - Successfully downloaded piece 284 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,819 - Successfully downloaded piece 285 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,822 - Requesting piece 286 from localhost:46277
+2024-11-26 20:58:01,822 - Requesting piece 287 from localhost:46277
+2024-11-26 20:58:01,827 - Successfully downloaded piece 287 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,827 - Successfully downloaded piece 286 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,829 - Requesting piece 288 from localhost:46277
+2024-11-26 20:58:01,829 - Requesting piece 289 from localhost:46277
+2024-11-26 20:58:01,833 - Successfully downloaded piece 288 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,833 - Successfully downloaded piece 289 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,836 - Requesting piece 291 from localhost:46277
+2024-11-26 20:58:01,836 - Requesting piece 290 from localhost:46277
+2024-11-26 20:58:01,841 - Successfully downloaded piece 290 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,842 - Successfully downloaded piece 291 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,844 - Requesting piece 292 from localhost:46277
+2024-11-26 20:58:01,844 - Requesting piece 293 from localhost:46277
+2024-11-26 20:58:01,847 - Successfully downloaded piece 292 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,848 - Successfully downloaded piece 293 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,849 - Requesting piece 294 from localhost:46277
+2024-11-26 20:58:01,850 - Requesting piece 295 from localhost:46277
+2024-11-26 20:58:01,853 - Successfully downloaded piece 294 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,853 - Successfully downloaded piece 295 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,854 - Requesting piece 296 from localhost:46277
+2024-11-26 20:58:01,854 - Requesting piece 297 from localhost:46277
+2024-11-26 20:58:01,858 - Successfully downloaded piece 296 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,859 - Successfully downloaded piece 297 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,860 - Requesting piece 298 from localhost:46277
+2024-11-26 20:58:01,860 - Requesting piece 299 from localhost:46277
+2024-11-26 20:58:01,864 - Successfully downloaded piece 298 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,864 - Successfully downloaded piece 299 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,865 - Requesting piece 300 from localhost:46277
+2024-11-26 20:58:01,865 - Requesting piece 301 from localhost:46277
+2024-11-26 20:58:01,869 - Successfully downloaded piece 300 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,870 - Successfully downloaded piece 301 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,871 - Requesting piece 302 from localhost:46277
+2024-11-26 20:58:01,871 - Requesting piece 303 from localhost:46277
+2024-11-26 20:58:01,874 - Successfully downloaded piece 302 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,874 - Successfully downloaded piece 303 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,876 - Requesting piece 304 from localhost:46277
+2024-11-26 20:58:01,876 - Requesting piece 305 from localhost:46277
+2024-11-26 20:58:01,880 - Successfully downloaded piece 304 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,880 - Successfully downloaded piece 305 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,882 - Requesting piece 306 from localhost:46277
+2024-11-26 20:58:01,882 - Requesting piece 307 from localhost:46277
+2024-11-26 20:58:01,885 - Successfully downloaded piece 306 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,886 - Successfully downloaded piece 307 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,887 - Requesting piece 308 from localhost:46277
+2024-11-26 20:58:01,887 - Requesting piece 309 from localhost:46277
+2024-11-26 20:58:01,890 - Successfully downloaded piece 308 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,891 - Successfully downloaded piece 309 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,892 - Requesting piece 310 from localhost:46277
+2024-11-26 20:58:01,892 - Requesting piece 311 from localhost:46277
+2024-11-26 20:58:01,896 - Successfully downloaded piece 310 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,899 - Successfully downloaded piece 311 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,901 - Requesting piece 312 from localhost:46277
+2024-11-26 20:58:01,901 - Requesting piece 313 from localhost:46277
+2024-11-26 20:58:01,906 - Successfully downloaded piece 312 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,906 - Successfully downloaded piece 313 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,908 - Requesting piece 314 from localhost:46277
+2024-11-26 20:58:01,908 - Requesting piece 315 from localhost:46277
+2024-11-26 20:58:01,909 - Successfully downloaded piece 314 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,909 - Successfully downloaded piece 315 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,916 - Requesting piece 316 from localhost:46277
+2024-11-26 20:58:01,916 - Requesting piece 317 from localhost:46277
+2024-11-26 20:58:01,936 - Successfully downloaded piece 317 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,936 - Successfully downloaded piece 316 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,936 - Requesting piece 318 from localhost:46277
+2024-11-26 20:58:01,936 - Requesting piece 319 from localhost:46277
+2024-11-26 20:58:01,949 - Successfully downloaded piece 318 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,949 - Successfully downloaded piece 319 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,949 - Requesting piece 320 from localhost:46277
+2024-11-26 20:58:01,949 - Requesting piece 321 from localhost:46277
+2024-11-26 20:58:01,957 - Successfully downloaded piece 320 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,957 - Successfully downloaded piece 321 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,959 - Requesting piece 322 from localhost:46277
+2024-11-26 20:58:01,960 - Requesting piece 323 from localhost:46277
+2024-11-26 20:58:01,966 - Successfully downloaded piece 323 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,966 - Successfully downloaded piece 322 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,967 - Requesting piece 324 from localhost:46277
+2024-11-26 20:58:01,967 - Requesting piece 325 from localhost:46277
+2024-11-26 20:58:01,974 - Successfully downloaded piece 324 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,974 - Successfully downloaded piece 325 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,976 - Requesting piece 326 from localhost:46277
+2024-11-26 20:58:01,976 - Requesting piece 327 from localhost:46277
+2024-11-26 20:58:01,982 - Successfully downloaded piece 327 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,982 - Successfully downloaded piece 326 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,984 - Requesting piece 328 from localhost:46277
+2024-11-26 20:58:01,984 - Requesting piece 329 from localhost:46277
+2024-11-26 20:58:01,990 - Successfully downloaded piece 328 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,990 - Successfully downloaded piece 329 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,992 - Requesting piece 330 from localhost:46277
+2024-11-26 20:58:01,992 - Requesting piece 331 from localhost:46277
+2024-11-26 20:58:01,996 - Successfully downloaded piece 331 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,996 - Successfully downloaded piece 330 from peer_id 1 localhost:46277
+2024-11-26 20:58:01,998 - Requesting piece 332 from localhost:46277
+2024-11-26 20:58:01,998 - Requesting piece 333 from localhost:46277
+2024-11-26 20:58:02,002 - Successfully downloaded piece 332 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,004 - Successfully downloaded piece 333 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,006 - Requesting piece 335 from localhost:46277
+2024-11-26 20:58:02,006 - Requesting piece 334 from localhost:46277
+2024-11-26 20:58:02,011 - Successfully downloaded piece 334 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,016 - Successfully downloaded piece 335 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,021 - Requesting piece 336 from localhost:46277
+2024-11-26 20:58:02,021 - Requesting piece 337 from localhost:46277
+2024-11-26 20:58:02,028 - Successfully downloaded piece 337 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,030 - Successfully downloaded piece 336 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,032 - Requesting piece 339 from localhost:46277
+2024-11-26 20:58:02,033 - Requesting piece 338 from localhost:46277
+2024-11-26 20:58:02,039 - Successfully downloaded piece 338 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,040 - Successfully downloaded piece 339 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,041 - Requesting piece 340 from localhost:46277
+2024-11-26 20:58:02,042 - Requesting piece 341 from localhost:46277
+2024-11-26 20:58:02,046 - Successfully downloaded piece 341 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,046 - Successfully downloaded piece 340 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,048 - Requesting piece 343 from localhost:46277
+2024-11-26 20:58:02,048 - Requesting piece 342 from localhost:46277
+2024-11-26 20:58:02,052 - Successfully downloaded piece 342 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,052 - Successfully downloaded piece 343 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,054 - Requesting piece 345 from localhost:46277
+2024-11-26 20:58:02,054 - Requesting piece 344 from localhost:46277
+2024-11-26 20:58:02,057 - Successfully downloaded piece 345 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,058 - Successfully downloaded piece 344 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,059 - Requesting piece 346 from localhost:46277
+2024-11-26 20:58:02,060 - Requesting piece 347 from localhost:46277
+2024-11-26 20:58:02,063 - Successfully downloaded piece 346 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,063 - Successfully downloaded piece 347 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,066 - Requesting piece 349 from localhost:46277
+2024-11-26 20:58:02,066 - Requesting piece 348 from localhost:46277
+2024-11-26 20:58:02,069 - Successfully downloaded piece 348 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,069 - Successfully downloaded piece 349 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,071 - Requesting piece 350 from localhost:46277
+2024-11-26 20:58:02,071 - Requesting piece 351 from localhost:46277
+2024-11-26 20:58:02,074 - Successfully downloaded piece 350 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,074 - Successfully downloaded piece 351 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,077 - Requesting piece 352 from localhost:46277
+2024-11-26 20:58:02,077 - Requesting piece 353 from localhost:46277
+2024-11-26 20:58:02,081 - Successfully downloaded piece 352 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,081 - Successfully downloaded piece 353 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,083 - Requesting piece 354 from localhost:46277
+2024-11-26 20:58:02,083 - Requesting piece 355 from localhost:46277
+2024-11-26 20:58:02,086 - Successfully downloaded piece 354 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,087 - Successfully downloaded piece 355 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,088 - Requesting piece 356 from localhost:46277
+2024-11-26 20:58:02,088 - Requesting piece 357 from localhost:46277
+2024-11-26 20:58:02,091 - Successfully downloaded piece 357 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,091 - Successfully downloaded piece 356 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,094 - Requesting piece 358 from localhost:46277
+2024-11-26 20:58:02,094 - Requesting piece 359 from localhost:46277
+2024-11-26 20:58:02,097 - Successfully downloaded piece 358 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,097 - Successfully downloaded piece 359 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,099 - Requesting piece 360 from localhost:46277
+2024-11-26 20:58:02,099 - Requesting piece 361 from localhost:46277
+2024-11-26 20:58:02,102 - Successfully downloaded piece 360 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,102 - Successfully downloaded piece 361 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,103 - Requesting piece 362 from localhost:46277
+2024-11-26 20:58:02,104 - Requesting piece 363 from localhost:46277
+2024-11-26 20:58:02,107 - Successfully downloaded piece 362 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,107 - Successfully downloaded piece 363 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,109 - Requesting piece 364 from localhost:46277
+2024-11-26 20:58:02,109 - Requesting piece 365 from localhost:46277
+2024-11-26 20:58:02,112 - Successfully downloaded piece 364 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,112 - Successfully downloaded piece 365 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,113 - Requesting piece 366 from localhost:46277
+2024-11-26 20:58:02,114 - Requesting piece 367 from localhost:46277
+2024-11-26 20:58:02,116 - Successfully downloaded piece 367 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,116 - Successfully downloaded piece 366 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,118 - Requesting piece 368 from localhost:46277
+2024-11-26 20:58:02,118 - Requesting piece 369 from localhost:46277
+2024-11-26 20:58:02,123 - Successfully downloaded piece 368 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,124 - Successfully downloaded piece 369 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,126 - Requesting piece 370 from localhost:46277
+2024-11-26 20:58:02,126 - Requesting piece 371 from localhost:46277
+2024-11-26 20:58:02,126 - Successfully downloaded piece 371 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,126 - Successfully downloaded piece 370 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,131 - Requesting piece 373 from localhost:46277
+2024-11-26 20:58:02,132 - Requesting piece 372 from localhost:46277
+2024-11-26 20:58:02,136 - Successfully downloaded piece 373 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,137 - Successfully downloaded piece 372 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,138 - Requesting piece 374 from localhost:46277
+2024-11-26 20:58:02,138 - Requesting piece 375 from localhost:46277
+2024-11-26 20:58:02,143 - Successfully downloaded piece 375 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,143 - Successfully downloaded piece 374 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,144 - Requesting piece 376 from localhost:46277
+2024-11-26 20:58:02,144 - Requesting piece 377 from localhost:46277
+2024-11-26 20:58:02,147 - Successfully downloaded piece 376 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,148 - Successfully downloaded piece 377 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,149 - Requesting piece 378 from localhost:46277
+2024-11-26 20:58:02,150 - Requesting piece 379 from localhost:46277
+2024-11-26 20:58:02,152 - Successfully downloaded piece 378 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,153 - Successfully downloaded piece 379 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,154 - Requesting piece 380 from localhost:46277
+2024-11-26 20:58:02,154 - Requesting piece 381 from localhost:46277
+2024-11-26 20:58:02,158 - Successfully downloaded piece 380 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,158 - Successfully downloaded piece 381 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,160 - Requesting piece 382 from localhost:46277
+2024-11-26 20:58:02,160 - Requesting piece 383 from localhost:46277
+2024-11-26 20:58:02,163 - Successfully downloaded piece 382 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,163 - Successfully downloaded piece 383 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,164 - Requesting piece 384 from localhost:46277
+2024-11-26 20:58:02,164 - Requesting piece 385 from localhost:46277
+2024-11-26 20:58:02,168 - Successfully downloaded piece 384 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,168 - Successfully downloaded piece 385 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,170 - Requesting piece 386 from localhost:46277
+2024-11-26 20:58:02,170 - Requesting piece 387 from localhost:46277
+2024-11-26 20:58:02,172 - Successfully downloaded piece 386 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,172 - Successfully downloaded piece 387 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,174 - Requesting piece 389 from localhost:46277
+2024-11-26 20:58:02,174 - Requesting piece 388 from localhost:46277
+2024-11-26 20:58:02,178 - Successfully downloaded piece 389 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,178 - Successfully downloaded piece 388 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,179 - Requesting piece 391 from localhost:46277
+2024-11-26 20:58:02,179 - Requesting piece 390 from localhost:46277
+2024-11-26 20:58:02,182 - Successfully downloaded piece 390 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,182 - Successfully downloaded piece 391 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,184 - Requesting piece 393 from localhost:46277
+2024-11-26 20:58:02,184 - Requesting piece 392 from localhost:46277
+2024-11-26 20:58:02,187 - Successfully downloaded piece 393 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,188 - Successfully downloaded piece 392 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,189 - Requesting piece 394 from localhost:46277
+2024-11-26 20:58:02,189 - Requesting piece 395 from localhost:46277
+2024-11-26 20:58:02,196 - Successfully downloaded piece 395 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,196 - Successfully downloaded piece 394 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,198 - Requesting piece 396 from localhost:46277
+2024-11-26 20:58:02,198 - Requesting piece 397 from localhost:46277
+2024-11-26 20:58:02,206 - Successfully downloaded piece 397 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,206 - Successfully downloaded piece 396 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,207 - Requesting piece 398 from localhost:46277
+2024-11-26 20:58:02,207 - Requesting piece 399 from localhost:46277
+2024-11-26 20:58:02,211 - Successfully downloaded piece 398 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,211 - Successfully downloaded piece 399 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,212 - Requesting piece 400 from localhost:46277
+2024-11-26 20:58:02,213 - Requesting piece 401 from localhost:46277
+2024-11-26 20:58:02,217 - Successfully downloaded piece 401 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,217 - Successfully downloaded piece 400 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,218 - Requesting piece 402 from localhost:46277
+2024-11-26 20:58:02,218 - Requesting piece 403 from localhost:46277
+2024-11-26 20:58:02,223 - Successfully downloaded piece 402 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,223 - Successfully downloaded piece 403 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,226 - Requesting piece 404 from localhost:46277
+2024-11-26 20:58:02,226 - Requesting piece 405 from localhost:46277
+2024-11-26 20:58:02,229 - Successfully downloaded piece 404 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,229 - Successfully downloaded piece 405 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,230 - Requesting piece 406 from localhost:46277
+2024-11-26 20:58:02,231 - Requesting piece 407 from localhost:46277
+2024-11-26 20:58:02,234 - Successfully downloaded piece 407 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,234 - Successfully downloaded piece 406 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,236 - Requesting piece 408 from localhost:46277
+2024-11-26 20:58:02,236 - Requesting piece 409 from localhost:46277
+2024-11-26 20:58:02,239 - Successfully downloaded piece 408 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,239 - Successfully downloaded piece 409 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,241 - Requesting piece 410 from localhost:46277
+2024-11-26 20:58:02,241 - Requesting piece 411 from localhost:46277
+2024-11-26 20:58:02,241 - Successfully downloaded piece 410 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,241 - Successfully downloaded piece 411 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,246 - Requesting piece 412 from localhost:46277
+2024-11-26 20:58:02,246 - Requesting piece 413 from localhost:46277
+2024-11-26 20:58:02,249 - Successfully downloaded piece 412 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,249 - Successfully downloaded piece 413 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,250 - Requesting piece 415 from localhost:46277
+2024-11-26 20:58:02,250 - Requesting piece 414 from localhost:46277
+2024-11-26 20:58:02,254 - Successfully downloaded piece 415 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,254 - Successfully downloaded piece 414 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,255 - Requesting piece 416 from localhost:46277
+2024-11-26 20:58:02,255 - Requesting piece 417 from localhost:46277
+2024-11-26 20:58:02,259 - Successfully downloaded piece 416 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,259 - Successfully downloaded piece 417 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,260 - Requesting piece 418 from localhost:46277
+2024-11-26 20:58:02,260 - Requesting piece 419 from localhost:46277
+2024-11-26 20:58:02,263 - Successfully downloaded piece 418 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,263 - Successfully downloaded piece 419 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,264 - Requesting piece 420 from localhost:46277
+2024-11-26 20:58:02,264 - Requesting piece 421 from localhost:46277
+2024-11-26 20:58:02,268 - Successfully downloaded piece 420 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,268 - Successfully downloaded piece 421 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,269 - Requesting piece 422 from localhost:46277
+2024-11-26 20:58:02,269 - Requesting piece 423 from localhost:46277
+2024-11-26 20:58:02,273 - Successfully downloaded piece 423 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,273 - Successfully downloaded piece 422 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,274 - Requesting piece 424 from localhost:46277
+2024-11-26 20:58:02,274 - Requesting piece 425 from localhost:46277
+2024-11-26 20:58:02,278 - Successfully downloaded piece 424 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,278 - Successfully downloaded piece 425 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,280 - Requesting piece 426 from localhost:46277
+2024-11-26 20:58:02,280 - Requesting piece 427 from localhost:46277
+2024-11-26 20:58:02,284 - Successfully downloaded piece 426 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,284 - Successfully downloaded piece 427 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,284 - Requesting piece 428 from localhost:46277
+2024-11-26 20:58:02,284 - Requesting piece 429 from localhost:46277
+2024-11-26 20:58:02,292 - Successfully downloaded piece 428 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,292 - Successfully downloaded piece 429 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,293 - Requesting piece 431 from localhost:46277
+2024-11-26 20:58:02,293 - Requesting piece 430 from localhost:46277
+2024-11-26 20:58:02,298 - Successfully downloaded piece 431 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,298 - Successfully downloaded piece 430 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,299 - Requesting piece 432 from localhost:46277
+2024-11-26 20:58:02,299 - Requesting piece 433 from localhost:46277
+2024-11-26 20:58:02,304 - Successfully downloaded piece 432 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,304 - Successfully downloaded piece 433 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,306 - Requesting piece 434 from localhost:46277
+2024-11-26 20:58:02,306 - Requesting piece 435 from localhost:46277
+2024-11-26 20:58:02,311 - Successfully downloaded piece 435 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,311 - Successfully downloaded piece 434 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,313 - Requesting piece 436 from localhost:46277
+2024-11-26 20:58:02,313 - Requesting piece 437 from localhost:46277
+2024-11-26 20:58:02,316 - Successfully downloaded piece 436 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,316 - Successfully downloaded piece 437 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,318 - Requesting piece 438 from localhost:46277
+2024-11-26 20:58:02,318 - Requesting piece 439 from localhost:46277
+2024-11-26 20:58:02,321 - Successfully downloaded piece 438 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,322 - Successfully downloaded piece 439 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,323 - Requesting piece 440 from localhost:46277
+2024-11-26 20:58:02,323 - Requesting piece 441 from localhost:46277
+2024-11-26 20:58:02,327 - Successfully downloaded piece 441 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,327 - Successfully downloaded piece 440 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,329 - Requesting piece 442 from localhost:46277
+2024-11-26 20:58:02,329 - Requesting piece 443 from localhost:46277
+2024-11-26 20:58:02,332 - Successfully downloaded piece 442 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,332 - Successfully downloaded piece 443 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,333 - Requesting piece 444 from localhost:46277
+2024-11-26 20:58:02,333 - Requesting piece 445 from localhost:46277
+2024-11-26 20:58:02,337 - Successfully downloaded piece 444 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,338 - Successfully downloaded piece 445 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,339 - Requesting piece 446 from localhost:46277
+2024-11-26 20:58:02,339 - Requesting piece 447 from localhost:46277
+2024-11-26 20:58:02,343 - Successfully downloaded piece 446 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,343 - Successfully downloaded piece 447 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,344 - Requesting piece 448 from localhost:46277
+2024-11-26 20:58:02,344 - Requesting piece 449 from localhost:46277
+2024-11-26 20:58:02,348 - Successfully downloaded piece 448 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,349 - Successfully downloaded piece 449 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,350 - Requesting piece 450 from localhost:46277
+2024-11-26 20:58:02,350 - Requesting piece 451 from localhost:46277
+2024-11-26 20:58:02,353 - Successfully downloaded piece 450 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,353 - Successfully downloaded piece 451 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,355 - Requesting piece 452 from localhost:46277
+2024-11-26 20:58:02,355 - Requesting piece 453 from localhost:46277
+2024-11-26 20:58:02,359 - Successfully downloaded piece 452 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,359 - Successfully downloaded piece 453 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,360 - Requesting piece 454 from localhost:46277
+2024-11-26 20:58:02,361 - Requesting piece 455 from localhost:46277
+2024-11-26 20:58:02,364 - Successfully downloaded piece 454 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,364 - Successfully downloaded piece 455 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,365 - Requesting piece 456 from localhost:46277
+2024-11-26 20:58:02,365 - Requesting piece 457 from localhost:46277
+2024-11-26 20:58:02,366 - Successfully downloaded piece 456 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,366 - Successfully downloaded piece 457 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,371 - Requesting piece 458 from localhost:46277
+2024-11-26 20:58:02,371 - Requesting piece 459 from localhost:46277
+2024-11-26 20:58:02,374 - Successfully downloaded piece 459 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,374 - Successfully downloaded piece 458 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,376 - Requesting piece 460 from localhost:46277
+2024-11-26 20:58:02,376 - Requesting piece 461 from localhost:46277
+2024-11-26 20:58:02,380 - Successfully downloaded piece 461 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,380 - Successfully downloaded piece 460 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,381 - Requesting piece 462 from localhost:46277
+2024-11-26 20:58:02,381 - Requesting piece 463 from localhost:46277
+2024-11-26 20:58:02,384 - Successfully downloaded piece 463 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,385 - Successfully downloaded piece 462 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,386 - Requesting piece 464 from localhost:46277
+2024-11-26 20:58:02,386 - Requesting piece 465 from localhost:46277
+2024-11-26 20:58:02,389 - Successfully downloaded piece 464 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,390 - Successfully downloaded piece 465 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,391 - Requesting piece 466 from localhost:46277
+2024-11-26 20:58:02,391 - Requesting piece 467 from localhost:46277
+2024-11-26 20:58:02,394 - Successfully downloaded piece 466 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,394 - Successfully downloaded piece 467 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,396 - Requesting piece 468 from localhost:46277
+2024-11-26 20:58:02,396 - Requesting piece 469 from localhost:46277
+2024-11-26 20:58:02,399 - Successfully downloaded piece 468 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,399 - Successfully downloaded piece 469 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,400 - Requesting piece 470 from localhost:46277
+2024-11-26 20:58:02,400 - Requesting piece 471 from localhost:46277
+2024-11-26 20:58:02,404 - Successfully downloaded piece 470 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,405 - Successfully downloaded piece 471 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,406 - Requesting piece 472 from localhost:46277
+2024-11-26 20:58:02,406 - Requesting piece 473 from localhost:46277
+2024-11-26 20:58:02,409 - Successfully downloaded piece 472 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,409 - Successfully downloaded piece 473 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,410 - Requesting piece 474 from localhost:46277
+2024-11-26 20:58:02,411 - Requesting piece 475 from localhost:46277
+2024-11-26 20:58:02,414 - Successfully downloaded piece 474 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,414 - Successfully downloaded piece 475 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,416 - Requesting piece 477 from localhost:46277
+2024-11-26 20:58:02,416 - Requesting piece 476 from localhost:46277
+2024-11-26 20:58:02,419 - Successfully downloaded piece 476 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,419 - Successfully downloaded piece 477 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,420 - Requesting piece 478 from localhost:46277
+2024-11-26 20:58:02,420 - Requesting piece 479 from localhost:46277
+2024-11-26 20:58:02,423 - Successfully downloaded piece 478 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,423 - Successfully downloaded piece 479 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,424 - Requesting piece 480 from localhost:46277
+2024-11-26 20:58:02,424 - Requesting piece 481 from localhost:46277
+2024-11-26 20:58:02,428 - Successfully downloaded piece 480 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,428 - Successfully downloaded piece 481 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,429 - Requesting piece 482 from localhost:46277
+2024-11-26 20:58:02,429 - Requesting piece 483 from localhost:46277
+2024-11-26 20:58:02,432 - Successfully downloaded piece 482 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,432 - Successfully downloaded piece 483 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,435 - Requesting piece 484 from localhost:46277
+2024-11-26 20:58:02,435 - Requesting piece 485 from localhost:46277
+2024-11-26 20:58:02,438 - Successfully downloaded piece 484 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,438 - Successfully downloaded piece 485 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,439 - Requesting piece 486 from localhost:46277
+2024-11-26 20:58:02,439 - Requesting piece 487 from localhost:46277
+2024-11-26 20:58:02,442 - Successfully downloaded piece 486 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,443 - Successfully downloaded piece 487 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,444 - Requesting piece 488 from localhost:46277
+2024-11-26 20:58:02,444 - Requesting piece 489 from localhost:46277
+2024-11-26 20:58:02,446 - Successfully downloaded piece 488 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,447 - Successfully downloaded piece 489 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,448 - Requesting piece 490 from localhost:46277
+2024-11-26 20:58:02,448 - Requesting piece 491 from localhost:46277
+2024-11-26 20:58:02,451 - Successfully downloaded piece 491 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,452 - Successfully downloaded piece 490 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,453 - Requesting piece 492 from localhost:46277
+2024-11-26 20:58:02,453 - Requesting piece 493 from localhost:46277
+2024-11-26 20:58:02,457 - Successfully downloaded piece 492 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,457 - Successfully downloaded piece 493 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,458 - Requesting piece 494 from localhost:46277
+2024-11-26 20:58:02,458 - Requesting piece 495 from localhost:46277
+2024-11-26 20:58:02,462 - Successfully downloaded piece 495 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,462 - Successfully downloaded piece 494 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,463 - Requesting piece 496 from localhost:46277
+2024-11-26 20:58:02,464 - Requesting piece 497 from localhost:46277
+2024-11-26 20:58:02,468 - Successfully downloaded piece 496 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,468 - Successfully downloaded piece 497 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,470 - Requesting piece 499 from localhost:46277
+2024-11-26 20:58:02,470 - Requesting piece 498 from localhost:46277
+2024-11-26 20:58:02,473 - Successfully downloaded piece 498 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,474 - Successfully downloaded piece 499 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,476 - Requesting piece 500 from localhost:46277
+2024-11-26 20:58:02,476 - Requesting piece 501 from localhost:46277
+2024-11-26 20:58:02,480 - Successfully downloaded piece 501 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,480 - Successfully downloaded piece 500 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,482 - Requesting piece 503 from localhost:46277
+2024-11-26 20:58:02,482 - Requesting piece 502 from localhost:46277
+2024-11-26 20:58:02,486 - Successfully downloaded piece 502 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,486 - Successfully downloaded piece 503 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,487 - Requesting piece 504 from localhost:46277
+2024-11-26 20:58:02,487 - Requesting piece 505 from localhost:46277
+2024-11-26 20:58:02,491 - Successfully downloaded piece 504 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,491 - Successfully downloaded piece 505 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,493 - Requesting piece 506 from localhost:46277
+2024-11-26 20:58:02,493 - Requesting piece 507 from localhost:46277
+2024-11-26 20:58:02,496 - Successfully downloaded piece 506 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,496 - Successfully downloaded piece 507 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,497 - Requesting piece 508 from localhost:46277
+2024-11-26 20:58:02,498 - Requesting piece 509 from localhost:46277
+2024-11-26 20:58:02,501 - Successfully downloaded piece 508 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,501 - Successfully downloaded piece 509 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,503 - Requesting piece 510 from localhost:46277
+2024-11-26 20:58:02,503 - Requesting piece 511 from localhost:46277
+2024-11-26 20:58:02,506 - Successfully downloaded piece 510 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,507 - Successfully downloaded piece 511 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,508 - Requesting piece 512 from localhost:46277
+2024-11-26 20:58:02,508 - Requesting piece 513 from localhost:46277
+2024-11-26 20:58:02,512 - Successfully downloaded piece 512 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,512 - Successfully downloaded piece 513 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,513 - Requesting piece 514 from localhost:46277
+2024-11-26 20:58:02,513 - Requesting piece 515 from localhost:46277
+2024-11-26 20:58:02,517 - Successfully downloaded piece 514 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,518 - Successfully downloaded piece 515 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,519 - Requesting piece 516 from localhost:46277
+2024-11-26 20:58:02,519 - Requesting piece 517 from localhost:46277
+2024-11-26 20:58:02,522 - Successfully downloaded piece 516 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,522 - Successfully downloaded piece 517 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,524 - Requesting piece 518 from localhost:46277
+2024-11-26 20:58:02,524 - Requesting piece 519 from localhost:46277
+2024-11-26 20:58:02,527 - Successfully downloaded piece 518 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,528 - Successfully downloaded piece 519 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,529 - Requesting piece 520 from localhost:46277
+2024-11-26 20:58:02,529 - Requesting piece 521 from localhost:46277
+2024-11-26 20:58:02,532 - Successfully downloaded piece 520 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,532 - Successfully downloaded piece 521 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,534 - Requesting piece 522 from localhost:46277
+2024-11-26 20:58:02,534 - Requesting piece 523 from localhost:46277
+2024-11-26 20:58:02,537 - Successfully downloaded piece 522 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,537 - Successfully downloaded piece 523 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,539 - Requesting piece 524 from localhost:46277
+2024-11-26 20:58:02,539 - Requesting piece 525 from localhost:46277
+2024-11-26 20:58:02,542 - Successfully downloaded piece 524 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,542 - Successfully downloaded piece 525 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,544 - Requesting piece 526 from localhost:46277
+2024-11-26 20:58:02,544 - Requesting piece 527 from localhost:46277
+2024-11-26 20:58:02,548 - Successfully downloaded piece 527 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,548 - Successfully downloaded piece 526 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,550 - Requesting piece 528 from localhost:46277
+2024-11-26 20:58:02,550 - Requesting piece 529 from localhost:46277
+2024-11-26 20:58:02,553 - Successfully downloaded piece 528 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,553 - Successfully downloaded piece 529 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,554 - Requesting piece 530 from localhost:46277
+2024-11-26 20:58:02,554 - Requesting piece 531 from localhost:46277
+2024-11-26 20:58:02,557 - Successfully downloaded piece 531 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,557 - Successfully downloaded piece 530 from peer_id 1 localhost:46277
+2024-11-26 20:58:02,704 - File nostudynolife_Round 2_RBAC 2024_Slide.pdf saved successfully
+2024-11-26 21:31:47,062 - Connected with tracker server at localhost:5050
+2024-11-26 21:31:47,062 - Peer activity log started
+2024-11-26 21:31:47,062 - Peer initialized with IP: localhost and Port: 18388
+2024-11-26 21:31:48,140 - Listening for peer connections on localhost:18388
+2024-11-26 21:31:48,142 - Received list of available files from tracker: []
+2024-11-26 21:32:03,726 - Received list of available files from tracker: [{'filename': 'Report (3).pdf', 'size': 6299773, 'info_hash': '22be793f9efce603b2b9faae5112ff0e8bdf20ea'}]
+2024-11-26 21:32:06,052 - Initiating download File size: 6299773 bytes, Number of pieces: 13"
+2024-11-26 21:32:07,527 - Download completed in 1.48 seconds
+2024-11-26 21:32:12,979 - Initiating download File size: 6299773 bytes, Number of pieces: 13"
+2024-11-26 21:32:14,034 - Download completed in 1.05 seconds
+2024-11-26 21:32:57,561 - Received list of available files from tracker: []
+2024-11-26 21:32:58,241 - Peer activity log ended
+2024-11-26 21:33:48,537 - Connected with tracker server at localhost:5050
+2024-11-26 21:33:48,537 - Peer activity log started
+2024-11-26 21:33:48,537 - Peer initialized with IP: localhost and Port: 23818
+2024-11-26 21:33:49,362 - Listening for peer connections on localhost:23818
+2024-11-26 21:33:49,362 - Received list of available files from tracker: []
+2024-11-26 21:33:57,908 - Received list of available files from tracker: [{'filename': 'Report (3).pdf', 'size': 6299773, 'info_hash': '22be793f9efce603b2b9faae5112ff0e8bdf20ea'}]
+2024-11-26 21:34:03,754 - Initiating download File size: 6299773 bytes, Number of pieces: 13"
+2024-11-26 21:45:39,802 - Connected with tracker server at localhost:5050
+2024-11-26 21:45:39,802 - Peer activity log started
+2024-11-26 21:45:39,803 - Peer initialized with IP: localhost and Port: 56061
+2024-11-26 21:45:40,783 - Listening for peer connections on localhost:56061
+2024-11-26 21:45:40,784 - Received list of available files from tracker: []
+2024-11-26 21:45:50,084 - Received list of available files from tracker: [{'filename': 'Report (3).pdf', 'size': 6299773, 'info_hash': '22be793f9efce603b2b9faae5112ff0e8bdf20ea'}]
+2024-11-26 21:45:51,519 - Initiating download File size: 6299773 bytes, Number of pieces: 13"
+2024-11-26 21:54:15,433 - Connected with tracker server at localhost:5050
+2024-11-26 21:54:15,433 - Peer activity log started
+2024-11-26 21:54:15,433 - Peer initialized with IP: localhost and Port: 15875
+2024-11-26 21:54:16,251 - Listening for peer connections on localhost:15875
+2024-11-26 21:54:16,254 - Received list of available files from tracker: []
+2024-11-26 21:54:22,359 - Received list of available files from tracker: [{'filename': 'Report (3).pdf', 'size': 6299773, 'info_hash': '22be793f9efce603b2b9faae5112ff0e8bdf20ea'}]
+2024-11-26 21:54:23,390 - Initiating download File size: 6299773 bytes, Number of pieces: 13"
+2024-11-26 21:54:25,149 - Download completed in 1.76 seconds
+2024-11-26 21:54:27,135 - Received list of available files from tracker: [{'filename': 'Report (3).pdf', 'size': 6299773, 'info_hash': '22be793f9efce603b2b9faae5112ff0e8bdf20ea'}]
+2024-11-26 21:54:30,344 - Initiating download File size: 6299773 bytes, Number of pieces: 13"
+2024-11-26 21:54:31,664 - Download completed in 1.32 seconds
+2024-11-26 22:22:15,251 - Peer activity log ended
+2024-11-26 22:45:28,539 - Connected with tracker server at localhost:5050
+2024-11-26 22:45:28,539 - Peer activity log started
+2024-11-26 22:45:28,539 - Peer initialized with IP: localhost and Port: 22031
+2024-11-26 22:45:29,414 - Listening for peer connections on localhost:22031
+2024-11-26 22:45:29,414 - Received list of available files from tracker: []
+2024-11-26 22:45:36,103 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 22:45:37,187 - Fetched peer list: [(1, 'localhost', 51661)]
+2024-11-26 22:45:37,187 - Initiating download file name: Assignment 2 (2).pdf, file size: 2922842 bytes, number of pieces: 6
+2024-11-26 22:45:39,410 - Download completed in 2.22 seconds
+2024-11-26 22:45:42,484 - Peer activity log ended
+2024-11-26 22:47:33,720 - Connected with tracker server at localhost:5050
+2024-11-26 22:47:33,720 - Peer activity log started
+2024-11-26 22:47:33,720 - Peer initialized with IP: localhost and Port: 56090
+2024-11-26 22:47:34,521 - Listening for peer connections on localhost:56090
+2024-11-26 22:47:34,521 - Received list of available files from tracker: []
+2024-11-26 22:47:42,333 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 22:47:44,358 - Fetched peer list: [(1, 'localhost', 41425)]
+2024-11-26 22:47:44,358 - Initiating download file name: Assignment 2 (2).pdf, file size: 2922842 bytes, number of pieces: 6
+2024-11-26 22:49:17,629 - Connected with tracker server at localhost:5050
+2024-11-26 22:49:17,629 - Peer activity log started
+2024-11-26 22:49:17,629 - Peer initialized with IP: localhost and Port: 64455
+2024-11-26 22:49:18,303 - Listening for peer connections on localhost:64455
+2024-11-26 22:49:18,303 - Received list of available files from tracker: []
+2024-11-26 22:49:24,867 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 22:49:26,002 - Fetched peer list: [(1, 'localhost', 25426)]
+2024-11-26 22:49:26,002 - Initiating download file name: Assignment 2 (2).pdf, file size: 2922842 bytes, number of pieces: 6
+2024-11-26 22:49:26,002 - Piece assignments: [((1, 'localhost', 25426), 0), ((1, 'localhost', 25426), 1), ((1, 'localhost', 25426), 2), ((1, 'localhost', 25426), 3), ((1, 'localhost', 25426), 4), ((1, 'localhost', 25426), 5)]
+2024-11-26 22:49:26,002 - Requesting piece 1 from localhost:25426
+2024-11-26 22:49:26,002 - Requesting piece 0 from localhost:25426
+2024-11-26 22:49:26,018 - Failed to download piece 1 from localhost:25426 because of 'piece_index'
+2024-11-26 22:49:26,018 - Failed to download piece 0 from localhost:25426 because of 'piece_index'
+2024-11-26 22:49:26,018 - Requesting piece 1 from localhost:25426
+2024-11-26 22:49:26,018 - Requesting piece 0 from localhost:25426
+2024-11-26 22:49:26,018 - Failed to download piece 0 from localhost:25426 because of 'piece_index'
+2024-11-26 22:49:26,018 - Requesting piece 0 from localhost:25426
+2024-11-26 22:49:26,018 - Failed to download piece 1 from localhost:25426 because of 'piece_index'
+2024-11-26 22:49:26,018 - Requesting piece 1 from localhost:25426
+2024-11-26 22:49:26,029 - Failed to download piece 0 from localhost:25426 because of 'piece_index'
+2024-11-26 22:49:26,030 - Failed to download piece 1 from localhost:25426 because of 'piece_index'
+2024-11-26 22:49:26,031 - Requesting piece 2 from localhost:25426
+2024-11-26 22:49:26,031 - Requesting piece 3 from localhost:25426
+2024-11-26 22:49:26,034 - Failed to download piece 2 from localhost:25426 because of 'piece_index'
+2024-11-26 22:49:26,035 - Requesting piece 2 from localhost:25426
+2024-11-26 22:49:26,039 - Failed to download piece 3 from localhost:25426 because of 'piece_index'
+2024-11-26 22:49:26,040 - Requesting piece 3 from localhost:25426
+2024-11-26 22:49:26,040 - Failed to download piece 2 from localhost:25426 because of 'piece_index'
+2024-11-26 22:49:26,040 - Requesting piece 2 from localhost:25426
+2024-11-26 22:49:26,044 - Failed to download piece 2 from localhost:25426 because of 'piece_index'
+2024-11-26 22:49:26,047 - Failed to download piece 3 from localhost:25426 because of 'piece_index'
+2024-11-26 22:49:26,047 - Requesting piece 3 from localhost:25426
+2024-11-26 22:49:26,052 - Failed to download piece 3 from localhost:25426 because of 'piece_index'
+2024-11-26 22:49:26,053 - Requesting piece 4 from localhost:25426
+2024-11-26 22:49:26,053 - Requesting piece 5 from localhost:25426
+2024-11-26 22:49:26,058 - Failed to download piece 4 from localhost:25426 because of 'piece_index'
+2024-11-26 22:49:26,059 - Requesting piece 4 from localhost:25426
+2024-11-26 22:49:26,060 - Failed to download piece 5 from localhost:25426 because of 'piece_index'
+2024-11-26 22:49:26,061 - Requesting piece 5 from localhost:25426
+2024-11-26 22:49:26,064 - Failed to download piece 5 from localhost:25426 because of 'piece_index'
+2024-11-26 22:49:26,064 - Failed to download piece 4 from localhost:25426 because of 'piece_index'
+2024-11-26 22:49:26,064 - Requesting piece 4 from localhost:25426
+2024-11-26 22:49:26,064 - Requesting piece 5 from localhost:25426
+2024-11-26 22:49:26,064 - Failed to download piece 5 from localhost:25426 because of 'piece_index'
+2024-11-26 22:49:26,064 - Failed to download piece 4 from localhost:25426 because of 'piece_index'
+2024-11-26 22:49:26,064 - Error saving file Assignment 2 (2).pdf: Missing piece 0
+2024-11-26 22:49:33,227 - Peer activity log ended
+2024-11-26 22:55:26,379 - Connected with tracker server at localhost:5050
+2024-11-26 22:55:26,379 - Peer activity log started
+2024-11-26 22:55:26,379 - Peer initialized with IP: localhost and Port: 10642
+2024-11-26 22:55:27,276 - Listening for peer connections on localhost:10642
+2024-11-26 22:55:27,276 - Received list of available files from tracker: []
+2024-11-26 22:55:32,721 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 22:55:34,100 - Fetched peer list: [(1, 'localhost', 53928)]
+2024-11-26 22:55:34,100 - Initiating download file name: Assignment 2 (2).pdf, file size: 2922842 bytes, number of pieces: 6
+2024-11-26 22:55:34,100 - Piece assignments: [((1, 'localhost', 53928), 0), ((1, 'localhost', 53928), 1), ((1, 'localhost', 53928), 2), ((1, 'localhost', 53928), 3), ((1, 'localhost', 53928), 4), ((1, 'localhost', 53928), 5)]
+2024-11-26 22:55:34,100 - Download completed in 0.00 seconds
+2024-11-26 22:55:34,100 - Requesting piece 0 from localhost:53928
+2024-11-26 22:55:34,100 - Requesting piece 1 from localhost:53928
+2024-11-26 22:55:34,100 - Failed to download piece 0 from localhost:53928 because of 'piece_index'
+2024-11-26 22:55:34,113 - Failed to download piece 1 from localhost:53928 because of 'piece_index'
+2024-11-26 22:55:34,113 - Requesting piece 0 from localhost:53928
+2024-11-26 22:55:34,113 - Requesting piece 1 from localhost:53928
+2024-11-26 22:55:34,116 - Failed to download piece 0 from localhost:53928 because of 'piece_index'
+2024-11-26 22:55:34,116 - Requesting piece 0 from localhost:53928
+2024-11-26 22:55:34,117 - Failed to download piece 1 from localhost:53928 because of 'piece_index'
+2024-11-26 22:55:34,117 - Requesting piece 1 from localhost:53928
+2024-11-26 22:55:34,119 - Failed to download piece 0 from localhost:53928 because of 'piece_index'
+2024-11-26 22:55:34,122 - Failed to download piece 1 from localhost:53928 because of 'piece_index'
+2024-11-26 22:55:34,124 - Requesting piece 3 from localhost:53928
+2024-11-26 22:55:34,124 - Requesting piece 2 from localhost:53928
+2024-11-26 22:55:34,125 - Failed to download piece 3 from localhost:53928 because of 'piece_index'
+2024-11-26 22:55:34,125 - Requesting piece 3 from localhost:53928
+2024-11-26 22:55:34,125 - Failed to download piece 2 from localhost:53928 because of 'piece_index'
+2024-11-26 22:55:34,125 - Requesting piece 2 from localhost:53928
+2024-11-26 22:55:34,132 - Failed to download piece 3 from localhost:53928 because of 'piece_index'
+2024-11-26 22:55:34,132 - Requesting piece 3 from localhost:53928
+2024-11-26 22:55:34,133 - Failed to download piece 2 from localhost:53928 because of 'piece_index'
+2024-11-26 22:55:34,133 - Requesting piece 2 from localhost:53928
+2024-11-26 22:55:34,133 - Failed to download piece 3 from localhost:53928 because of 'piece_index'
+2024-11-26 22:55:34,133 - Failed to download piece 2 from localhost:53928 because of 'piece_index'
+2024-11-26 22:55:34,141 - Requesting piece 5 from localhost:53928
+2024-11-26 22:55:34,141 - Requesting piece 4 from localhost:53928
+2024-11-26 22:55:34,142 - Failed to download piece 4 from localhost:53928 because of 'piece_index'
+2024-11-26 22:55:34,142 - Requesting piece 4 from localhost:53928
+2024-11-26 22:55:34,142 - Failed to download piece 5 from localhost:53928 because of 'piece_index'
+2024-11-26 22:55:34,142 - Requesting piece 5 from localhost:53928
+2024-11-26 22:55:34,150 - Failed to download piece 5 from localhost:53928 because of 'piece_index'
+2024-11-26 22:55:34,150 - Failed to download piece 4 from localhost:53928 because of 'piece_index'
+2024-11-26 22:55:34,150 - Requesting piece 4 from localhost:53928
+2024-11-26 22:55:34,150 - Requesting piece 5 from localhost:53928
+2024-11-26 22:55:34,158 - Failed to download piece 5 from localhost:53928 because of 'piece_index'
+2024-11-26 22:55:34,158 - Failed to download piece 4 from localhost:53928 because of 'piece_index'
+2024-11-26 22:55:34,158 - Error saving file Assignment 2 (2).pdf: Missing piece 0
+2024-11-26 22:58:13,033 - Peer activity log ended
+2024-11-26 22:58:56,204 - Connected with tracker server at localhost:5050
+2024-11-26 22:58:56,204 - Peer activity log started
+2024-11-26 22:58:56,204 - Peer initialized with IP: localhost and Port: 60793
+2024-11-26 22:58:57,074 - Listening for peer connections on localhost:60793
+2024-11-26 22:58:57,076 - Received list of available files from tracker: []
+2024-11-26 22:59:04,320 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 22:59:05,725 - Fetched peer list: [(1, 'localhost', 53566)]
+2024-11-26 22:59:05,725 - Initiating download file name: Assignment 2 (2).pdf, file size: 2922842 bytes, number of pieces: 6
+2024-11-26 22:59:05,726 - Piece assignments: [((1, 'localhost', 53566), 0), ((1, 'localhost', 53566), 1), ((1, 'localhost', 53566), 2), ((1, 'localhost', 53566), 3), ((1, 'localhost', 53566), 4), ((1, 'localhost', 53566), 5)]
+2024-11-26 22:59:05,726 - Download completed in 0.00 seconds
+2024-11-26 22:59:05,727 - Requesting piece 0 from localhost:53566
+2024-11-26 22:59:05,727 - Requesting piece 1 from localhost:53566
+2024-11-26 22:59:05,731 - Successfully downloaded piece 0 from peer_id 1 localhost:53566
+2024-11-26 22:59:05,732 - Successfully downloaded piece 1 from peer_id 1 localhost:53566
+2024-11-26 22:59:05,733 - Requesting piece 2 from localhost:53566
+2024-11-26 22:59:05,733 - Requesting piece 3 from localhost:53566
+2024-11-26 22:59:05,736 - Successfully downloaded piece 3 from peer_id 1 localhost:53566
+2024-11-26 22:59:05,736 - Successfully downloaded piece 2 from peer_id 1 localhost:53566
+2024-11-26 22:59:05,737 - Requesting piece 4 from localhost:53566
+2024-11-26 22:59:05,737 - Requesting piece 5 from localhost:53566
+2024-11-26 22:59:05,740 - Successfully downloaded piece 4 from peer_id 1 localhost:53566
+2024-11-26 22:59:05,740 - Successfully downloaded piece 5 from peer_id 1 localhost:53566
+2024-11-26 22:59:05,741 - File Assignment 2 (2).pdf saved successfully
+2024-11-26 23:01:17,580 - Peer activity log ended
+2024-11-26 23:02:01,356 - Connected with tracker server at localhost:5050
+2024-11-26 23:02:01,356 - Peer activity log started
+2024-11-26 23:02:01,356 - Peer initialized with IP: localhost and Port: 19227
+2024-11-26 23:02:02,222 - Listening for peer connections on localhost:19227
+2024-11-26 23:02:02,222 - Received list of available files from tracker: []
+2024-11-26 23:02:06,989 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 23:02:07,894 - Fetched peer list: [(1, 'localhost', 48991)]
+2024-11-26 23:02:07,894 - Initiating download file name: Assignment 2 (2).pdf, file size: 2922842 bytes, number of pieces: 6
+2024-11-26 23:02:08,843 - Download completed in 0.95 seconds
+2024-11-26 23:02:13,213 - Peer activity log ended
+2024-11-26 23:13:07,614 - Connected with tracker server at localhost:5050
+2024-11-26 23:13:07,614 - Peer activity log started
+2024-11-26 23:13:07,614 - Peer initialized with IP: localhost and Port: 11703
+2024-11-26 23:13:08,311 - Listening for peer connections on localhost:11703
+2024-11-26 23:13:08,311 - Received list of available files from tracker: []
+2024-11-26 23:13:14,271 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 23:13:15,713 - Fetched peer list: [(1, 'localhost', 37631)]
+2024-11-26 23:13:15,713 - Initiating download file name: Assignment 2 (2).pdf, file size: 2922842 bytes, number of pieces: 6
+2024-11-26 23:15:22,261 - Peer activity log ended
+2024-11-26 23:18:28,446 - Connected with tracker server at localhost:5050
+2024-11-26 23:18:28,446 - Peer activity log started
+2024-11-26 23:18:28,446 - Peer initialized with IP: localhost and Port: 37861
+2024-11-26 23:18:29,386 - Listening for peer connections on localhost:37861
+2024-11-26 23:18:29,392 - Received list of available files from tracker: []
+2024-11-26 23:18:34,725 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 23:18:36,334 - Fetched peer list: [(1, 'localhost', 31866)]
+2024-11-26 23:18:36,334 - Initiating download file name: Assignment 2 (2).pdf, file size: 2922842 bytes, number of pieces: 6
+2024-11-26 23:18:38,565 - Peer activity log ended
+2024-11-26 23:20:18,520 - Connected with tracker server at localhost:5050
+2024-11-26 23:20:18,520 - Peer activity log started
+2024-11-26 23:20:18,520 - Peer initialized with IP: localhost and Port: 28389
+2024-11-26 23:20:19,571 - Listening for peer connections on localhost:28389
+2024-11-26 23:20:19,571 - Received list of available files from tracker: []
+2024-11-26 23:20:24,776 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 23:20:26,261 - Fetched peer list: [(1, 'localhost', 53251)]
+2024-11-26 23:20:26,261 - Initiating download file name: Assignment 2 (2).pdf, file size: 2922842 bytes, number of pieces: 6
+2024-11-26 23:23:07,115 - Connected with tracker server at localhost:5050
+2024-11-26 23:23:07,115 - Peer activity log started
+2024-11-26 23:23:07,115 - Peer initialized with IP: localhost and Port: 52319
+2024-11-26 23:23:08,096 - Listening for peer connections on localhost:52319
+2024-11-26 23:23:08,106 - Received list of available files from tracker: []
+2024-11-26 23:23:14,572 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 23:23:15,448 - Fetched peer list: [(1, 'localhost', 49183)]
+2024-11-26 23:23:15,448 - Initiating download file name: Assignment 2 (2).pdf, file size: 2922842 bytes, number of pieces: 6
+2024-11-26 23:23:17,208 - Peer activity log ended
+2024-11-26 23:26:08,436 - Connected with tracker server at localhost:5050
+2024-11-26 23:26:08,436 - Peer activity log started
+2024-11-26 23:26:08,436 - Peer initialized with IP: localhost and Port: 45431
+2024-11-26 23:26:09,306 - Listening for peer connections on localhost:45431
+2024-11-26 23:26:09,306 - Received list of available files from tracker: []
+2024-11-26 23:26:15,098 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 23:26:16,005 - Fetched peer list: [(1, 'localhost', 60104)]
+2024-11-26 23:26:16,005 - Initiating download file name: Assignment 2 (2).pdf, file size: 2922842 bytes, number of pieces: 6
+2024-11-26 23:26:17,740 - Peer activity log ended
+2024-11-26 23:28:42,570 - Connected with tracker server at localhost:5050
+2024-11-26 23:28:42,570 - Peer activity log started
+2024-11-26 23:28:42,570 - Peer initialized with IP: localhost and Port: 58823
+2024-11-26 23:28:43,447 - Listening for peer connections on localhost:58823
+2024-11-26 23:28:43,447 - Received list of available files from tracker: []
+2024-11-26 23:28:48,253 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 23:28:49,365 - Fetched peer list: [(1, 'localhost', 63891)]
+2024-11-26 23:28:49,365 - Initiating download file name: Assignment 2 (2).pdf, file size: 2922842 bytes, number of pieces: 6
+2024-11-26 23:28:50,758 - Peer activity log ended
+2024-11-26 23:37:02,744 - Connected with tracker server at localhost:5050
+2024-11-26 23:37:02,744 - Peer activity log started
+2024-11-26 23:37:02,744 - Peer initialized with IP: localhost and Port: 58389
+2024-11-26 23:37:03,571 - Listening for peer connections on localhost:58389
+2024-11-26 23:37:03,571 - Received list of available files from tracker: []
+2024-11-26 23:37:07,763 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 23:37:08,679 - Fetched peer list: [(1, 'localhost', 20127)]
+2024-11-26 23:37:08,679 - Initiating download file name: Assignment 2 (2).pdf, file size: 2922842 bytes, number of pieces: 6
+2024-11-26 23:37:08,679 - Piece assignments: [((1, 'localhost', 20127), 0), ((1, 'localhost', 20127), 1), ((1, 'localhost', 20127), 2), ((1, 'localhost', 20127), 3), ((1, 'localhost', 20127), 4), ((1, 'localhost', 20127), 5)]
+2024-11-26 23:37:08,679 - Requesting piece 0 from localhost:20127
+2024-11-26 23:37:08,679 - Requesting piece 1 from localhost:20127
+2024-11-26 23:37:08,679 - Successfully downloaded piece 0 from peer_id 1 localhost:20127
+2024-11-26 23:37:08,679 - Successfully downloaded piece 1 from peer_id 1 localhost:20127
+2024-11-26 23:37:08,679 - Requesting piece 2 from localhost:20127
+2024-11-26 23:37:08,687 - Requesting piece 3 from localhost:20127
+2024-11-26 23:37:08,689 - Successfully downloaded piece 2 from peer_id 1 localhost:20127
+2024-11-26 23:37:08,690 - Successfully downloaded piece 3 from peer_id 1 localhost:20127
+2024-11-26 23:37:08,690 - Requesting piece 4 from localhost:20127
+2024-11-26 23:37:08,690 - Requesting piece 5 from localhost:20127
+2024-11-26 23:37:08,693 - Successfully downloaded piece 4 from peer_id 1 localhost:20127
+2024-11-26 23:37:08,693 - Successfully downloaded piece 5 from peer_id 1 localhost:20127
+2024-11-26 23:37:08,693 - File Assignment 2 (2).pdf saved successfully
+2024-11-26 23:39:52,728 - Peer activity log ended
+2024-11-26 23:40:46,333 - Connected with tracker server at localhost:5050
+2024-11-26 23:40:46,333 - Peer activity log started
+2024-11-26 23:40:46,333 - Peer initialized with IP: localhost and Port: 55702
+2024-11-26 23:40:47,046 - Listening for peer connections on localhost:55702
+2024-11-26 23:40:47,046 - Received list of available files from tracker: []
+2024-11-26 23:40:52,866 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 23:40:54,025 - Fetched peer list: [(1, 'localhost', 46281)]
+2024-11-26 23:40:54,025 - Initiating download file name: Assignment 2 (2).pdf, file size: 2922842 bytes, number of pieces: 6
+2024-11-26 23:40:54,025 - Piece assignments: [((1, 'localhost', 46281), 0), ((1, 'localhost', 46281), 1), ((1, 'localhost', 46281), 2), ((1, 'localhost', 46281), 3), ((1, 'localhost', 46281), 4), ((1, 'localhost', 46281), 5)]
+2024-11-26 23:40:54,025 - Requesting piece 0 from localhost:46281
+2024-11-26 23:40:54,025 - Requesting piece 1 from localhost:46281
+2024-11-26 23:40:54,025 - Successfully downloaded piece 0 from peer_id 1 localhost:46281
+2024-11-26 23:40:54,025 - Successfully downloaded piece 1 from peer_id 1 localhost:46281
+2024-11-26 23:40:54,034 - Requesting piece 2 from localhost:46281
+2024-11-26 23:40:54,034 - Requesting piece 3 from localhost:46281
+2024-11-26 23:40:54,036 - Successfully downloaded piece 2 from peer_id 1 localhost:46281
+2024-11-26 23:40:54,037 - Successfully downloaded piece 3 from peer_id 1 localhost:46281
+2024-11-26 23:40:54,038 - Requesting piece 4 from localhost:46281
+2024-11-26 23:40:54,038 - Requesting piece 5 from localhost:46281
+2024-11-26 23:40:54,040 - Successfully downloaded piece 4 from peer_id 1 localhost:46281
+2024-11-26 23:40:54,040 - Successfully downloaded piece 5 from peer_id 1 localhost:46281
+2024-11-26 23:40:54,041 - File Assignment 2 (2).pdf saved successfully
+2024-11-26 23:42:13,583 - Published file: Assignment 2 (2).pdf, 2922842 bytes, f32270772a7108c568d44f87af0b882b50e730cd
+2024-11-26 23:42:13,583 - Received list of available files from tracker: []
+2024-11-26 23:42:36,990 - Peer activity log ended
+2024-11-26 23:44:12,908 - Connected with tracker server at localhost:5050
+2024-11-26 23:44:12,908 - Peer activity log started
+2024-11-26 23:44:12,908 - Peer initialized with IP: localhost and Port: 30520
+2024-11-26 23:44:13,749 - Listening for peer connections on localhost:30520
+2024-11-26 23:44:13,749 - Received list of available files from tracker: []
+2024-11-26 23:44:29,118 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-26 23:44:30,150 - Fetched peer list: [(1, 'localhost', 49616)]
+2024-11-26 23:44:30,150 - Initiating download file name: Assignment 2 (2).pdf, file size: 2922842 bytes, number of pieces: 6
+2024-11-26 23:44:30,150 - Piece assignments: [((1, 'localhost', 49616), 0), ((1, 'localhost', 49616), 1), ((1, 'localhost', 49616), 2), ((1, 'localhost', 49616), 3), ((1, 'localhost', 49616), 4), ((1, 'localhost', 49616), 5)]
+2024-11-26 23:44:30,150 - Requesting piece 0 from localhost:49616
+2024-11-26 23:44:30,150 - Requesting piece 1 from localhost:49616
+2024-11-26 23:44:30,150 - Successfully downloaded piece 0 from peer_id 1 localhost:49616
+2024-11-26 23:44:30,157 - Successfully downloaded piece 1 from peer_id 1 localhost:49616
+2024-11-26 23:44:30,157 - Requesting piece 2 from localhost:49616
+2024-11-26 23:44:30,157 - Requesting piece 3 from localhost:49616
+2024-11-26 23:44:30,160 - Successfully downloaded piece 2 from peer_id 1 localhost:49616
+2024-11-26 23:44:30,160 - Successfully downloaded piece 3 from peer_id 1 localhost:49616
+2024-11-26 23:44:30,161 - Requesting piece 4 from localhost:49616
+2024-11-26 23:44:30,161 - Requesting piece 5 from localhost:49616
+2024-11-26 23:44:30,163 - Successfully downloaded piece 4 from peer_id 1 localhost:49616
+2024-11-26 23:44:30,163 - Successfully downloaded piece 5 from peer_id 1 localhost:49616
+2024-11-26 23:44:30,167 - File Assignment 2 (2).pdf saved successfully
+2024-11-26 23:44:37,600 - Published file: Assignment 2 (2).pdf, 2922842 bytes, f32270772a7108c568d44f87af0b882b50e730cd
+2024-11-26 23:44:37,600 - Received list of available files from tracker: []
+2024-11-26 23:44:42,129 - New connection from ('127.0.0.1', 55421)
+2024-11-26 23:44:42,129 - Handling connection from ('127.0.0.1', 55421)
+2024-11-26 23:44:42,129 - Received request from ('127.0.0.1', 55421): get_piece
+2024-11-26 23:44:42,129 - New connection from ('127.0.0.1', 55423)
+2024-11-26 23:44:42,129 - Handling connection from ('127.0.0.1', 55423)
+2024-11-26 23:44:42,129 - Received request from ('127.0.0.1', 55423): get_piece
+2024-11-26 23:44:42,129 - Sent piece 1 of D:/K22_KHMT_HCMUT/HK241/ComNet/Assignment1/CO3093_Computer_Network/repo_yuh/Assignment 2 (2).pdf to peer 6
+2024-11-26 23:44:42,129 - Sent piece 3 of D:/K22_KHMT_HCMUT/HK241/ComNet/Assignment1/CO3093_Computer_Network/repo_yuh/Assignment 2 (2).pdf to peer 6
+2024-11-26 23:44:42,140 - New connection from ('127.0.0.1', 55425)
+2024-11-26 23:44:42,140 - Handling connection from ('127.0.0.1', 55425)
+2024-11-26 23:44:42,140 - Received request from ('127.0.0.1', 55425): get_piece
+2024-11-26 23:44:42,141 - Sent piece 5 of D:/K22_KHMT_HCMUT/HK241/ComNet/Assignment1/CO3093_Computer_Network/repo_yuh/Assignment 2 (2).pdf to peer 6
+2024-11-26 23:45:53,215 - New connection from ('127.0.0.1', 55449)
+2024-11-26 23:45:53,215 - Handling connection from ('127.0.0.1', 55449)
+2024-11-26 23:45:53,215 - Received request from ('127.0.0.1', 55449): get_piece
+2024-11-26 23:45:53,225 - Sent piece 1 of D:/K22_KHMT_HCMUT/HK241/ComNet/Assignment1/CO3093_Computer_Network/repo_yuh/Assignment 2 (2).pdf to peer 5
+2024-11-26 23:45:53,225 - New connection from ('127.0.0.1', 55452)
+2024-11-26 23:45:53,225 - Handling connection from ('127.0.0.1', 55452)
+2024-11-26 23:45:53,225 - Received request from ('127.0.0.1', 55452): get_piece
+2024-11-26 23:45:53,225 - Sent piece 4 of D:/K22_KHMT_HCMUT/HK241/ComNet/Assignment1/CO3093_Computer_Network/repo_yuh/Assignment 2 (2).pdf to peer 5
+2024-11-26 23:46:31,597 - New connection from ('127.0.0.1', 55460)
+2024-11-26 23:46:31,600 - Handling connection from ('127.0.0.1', 55460)
+2024-11-26 23:46:31,600 - Received request from ('127.0.0.1', 55460): get_piece
+2024-11-26 23:46:31,602 - Sent piece 1 of D:/K22_KHMT_HCMUT/HK241/ComNet/Assignment1/CO3093_Computer_Network/repo_yuh/Assignment 2 (2).pdf to peer 3
+2024-11-26 23:46:31,602 - New connection from ('127.0.0.1', 55464)
+2024-11-26 23:46:31,603 - Handling connection from ('127.0.0.1', 55464)
+2024-11-26 23:46:31,603 - Received request from ('127.0.0.1', 55464): get_piece
+2024-11-26 23:46:31,604 - Sent piece 5 of D:/K22_KHMT_HCMUT/HK241/ComNet/Assignment1/CO3093_Computer_Network/repo_yuh/Assignment 2 (2).pdf to peer 3
+2024-11-26 23:48:49,929 - Received list of available files from tracker: [{'filename': 'Report (3).pdf', 'size': 6299773, 'info_hash': '22be793f9efce603b2b9faae5112ff0e8bdf20ea'}]
+2024-11-26 23:48:51,032 - Fetched peer list: [(1, 'localhost', 49616), (3, 'localhost', 54039), (5, 'localhost', 54828), (6, 'localhost', 10381)]
+2024-11-26 23:48:51,032 - Initiating download file name: Report (3).pdf, file size: 6299773 bytes, number of pieces: 13
+2024-11-26 23:48:51,032 - Ranked peers based on uploaded contributions: [(1, 'localhost', 49616), (3, 'localhost', 54039), (5, 'localhost', 54828), (6, 'localhost', 10381)]
+2024-11-26 23:48:51,032 - Piece assignments: [((1, 'localhost', 49616), 0), ((3, 'localhost', 54039), 1), ((5, 'localhost', 54828), 2), ((6, 'localhost', 10381), 3), ((1, 'localhost', 49616), 4), ((3, 'localhost', 54039), 5), ((5, 'localhost', 54828), 6), ((6, 'localhost', 10381), 7), ((1, 'localhost', 49616), 8), ((3, 'localhost', 54039), 9), ((5, 'localhost', 54828), 10), ((6, 'localhost', 10381), 11), ((1, 'localhost', 49616), 12)]
+2024-11-26 23:48:51,047 - Requesting piece 0 from localhost:49616
+2024-11-26 23:48:51,047 - Requesting piece 1 from localhost:54039
+2024-11-26 23:48:51,047 - Requesting piece 2 from localhost:54828
+2024-11-26 23:48:51,047 - Requesting piece 3 from localhost:10381
+2024-11-26 23:48:51,047 - Requesting piece 4 from localhost:49616
+2024-11-26 23:48:51,050 - Requesting piece 5 from localhost:54039
+2024-11-26 23:48:51,051 - Requesting piece 6 from localhost:54828
+2024-11-26 23:48:51,051 - Successfully downloaded piece 0 from peer_id 1 localhost:49616
+2024-11-26 23:48:51,052 - Requesting piece 7 from localhost:10381
+2024-11-26 23:48:51,052 - Successfully downloaded piece 2 from peer_id 5 localhost:54828
+2024-11-26 23:48:51,053 - Successfully downloaded piece 3 from peer_id 6 localhost:10381
+2024-11-26 23:48:51,053 - Successfully downloaded piece 4 from peer_id 1 localhost:49616
+2024-11-26 23:48:51,054 - Successfully downloaded piece 1 from peer_id 3 localhost:54039
+2024-11-26 23:48:51,054 - Successfully downloaded piece 5 from peer_id 3 localhost:54039
+2024-11-26 23:48:51,054 - Successfully downloaded piece 6 from peer_id 5 localhost:54828
+2024-11-26 23:48:51,054 - Successfully downloaded piece 7 from peer_id 6 localhost:10381
+2024-11-26 23:48:51,056 - Requesting piece 8 from localhost:49616
+2024-11-26 23:48:51,057 - Requesting piece 9 from localhost:54039
+2024-11-26 23:48:51,057 - Requesting piece 10 from localhost:54828
+2024-11-26 23:48:51,057 - Requesting piece 11 from localhost:10381
+2024-11-26 23:48:51,057 - Requesting piece 12 from localhost:49616
+2024-11-26 23:48:51,057 - Successfully downloaded piece 8 from peer_id 1 localhost:49616
+2024-11-26 23:48:51,057 - Successfully downloaded piece 9 from peer_id 3 localhost:54039
+2024-11-26 23:48:51,057 - Successfully downloaded piece 10 from peer_id 5 localhost:54828
+2024-11-26 23:48:51,057 - Successfully downloaded piece 12 from peer_id 1 localhost:49616
+2024-11-26 23:48:51,057 - Successfully downloaded piece 11 from peer_id 6 localhost:10381
+2024-11-26 23:48:51,057 - File Report (3).pdf saved successfully
+2024-11-26 23:49:42,369 - Published file: Report (3).pdf, 6299773 bytes, 22be793f9efce603b2b9faae5112ff0e8bdf20ea
+2024-11-26 23:49:42,377 - Received list of available files from tracker: [{'filename': 'TN01_EventManagement.pdf', 'size': 459127, 'info_hash': 'c524bc84d35ba9084ade230c8aabb9ea8dfd2f04'}]
+2024-11-26 23:49:44,745 - Fetched peer list: [(1, 'localhost', 49616)]
+2024-11-26 23:49:44,745 - Initiating download file name: TN01_EventManagement.pdf, file size: 459127 bytes, number of pieces: 1
+2024-11-26 23:49:44,745 - Ranked peers based on uploaded contributions: [(1, 'localhost', 49616)]
+2024-11-26 23:49:44,745 - Piece assignments: [((1, 'localhost', 49616), 0)]
+2024-11-26 23:49:44,745 - Requesting piece 0 from localhost:49616
+2024-11-26 23:49:44,745 - Successfully downloaded piece 0 from peer_id 1 localhost:49616
+2024-11-26 23:49:44,755 - File TN01_EventManagement.pdf saved successfully
+2024-11-26 23:51:02,883 - Peer activity log ended

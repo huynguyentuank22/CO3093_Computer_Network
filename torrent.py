@@ -33,6 +33,11 @@ class Torrent:
                     break
                 sha1.update(data)
         return sha1.hexdigest()
+    def print_torrent(self):
+        print(f"File Name: {self.file_name}")
+        print(f"File Size: {self.file_size} bytes")
+        print(f"Info Hash: {self.info_hash}")
+        print(f"Number of Pieces: {len(self.pieces)}")
     
     # def equals(self, other_torrent):
     #     """Compare if two torrents are the same file"""

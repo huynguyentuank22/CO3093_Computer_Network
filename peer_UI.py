@@ -157,8 +157,10 @@ class PeerUI:
             for root, _, files in os.walk(repo_path):
                 for file in files:
                     file_path = os.path.join(root, file)
-                    file_size = os.path.getsize(file_path)  # Get the file size
-                    published_files.append({"filename": file, "size": file_size})
+                    file_name = os.path.basename(file_path)
+                    if (file_name != 'peer_activity.log' and file_name != 'peer_scores.json'):
+                        file_size = os.path.getsize(file_path)  # Get the file size
+                        published_files.append({"filename": file, "size": file_size})
         
         return published_files
 
@@ -216,13 +218,27 @@ class PeerUI:
         if file_paths:
             for file_path in file_paths:
                 self.peer.publish_file(file_path)
+                 # Store the file in the user's repository
+                repo_path = os.path.join(f"repo_{self.peer.username}", os.path.basename(file_path))
+                if os.path.exists(repo_path):
+                    continue  # Skip if file already exists
+                shutil.copy(file_path, repo_path) 
             messagebox.showinfo("Success", f"Published {len(file_paths)} file(s).")
 
     def fetch_file(self):
         selected = self.available_files_listbox.curselection()
         if selected:
+            start_time = time.time()  # Start time
             index = selected[0]
             self.peer.fetch_file(index)
+            end_time = time.time()  # End time
+            logging.basicConfig(
+                        filename='repo_'+str(self.peer.username)+'/peer_activity.log',
+                        level=logging.INFO,
+                        format='%(asctime)s - %(message)s',
+                        filemode='a'
+                    )
+            logging.info(f"Download completed in {end_time - start_time:.2f} seconds")
         else:
             messagebox.showwarning("Warning", "Please select a file to fetch")
             
@@ -237,7 +253,6 @@ class PeerUI:
         # print(selected_indices)
         # Start a thread for each file download
         # print(selected_indices)
-        multiple_download_thread = []
         for index in selected_indices:
             # print(index)
             # print(self.peer.available_files[index])
@@ -269,7 +284,7 @@ class PeerUI:
         """Update both listboxes with available files"""
         self.published_files_listbox.delete(0, tk.END)  # Clear current lists
         self.available_files_listbox.delete(0, tk.END)
-
+    
         for file in published_files:
             size_mb = file['size'] / 1024  # Convert to MB
             file_entry = f"{file['filename']} ({size_mb:.2f} KB)"

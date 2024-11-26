@@ -182,7 +182,7 @@ class Tracker:
                 peer_info = self.getIpandPortByPeerID(peer_id)
                 if peer_info:  # Only add if we got valid connection info
                     ip, port = peer_info
-                    online_peers.append((ip, port))
+                    online_peers.append((peer_id,ip, port))
 
         if online_peers:
             send_msg(client_socket, {
