@@ -1,0 +1,28 @@
+2024-11-27 22:29:14,516 - tracker - INFO - Tracker is running on localhost:5050
+2024-11-27 22:29:47,777 - tracker - INFO - New connection from ('127.0.0.1', 61671)
+2024-11-27 22:29:56,427 - tracker - INFO - Received data from ('127.0.0.1', 61671): login
+2024-11-27 22:29:57,354 - tracker - INFO - Received data from ('127.0.0.1', 61671): get_files
+2024-11-27 22:30:04,094 - tracker - INFO - Received data from ('127.0.0.1', 61671): publish
+2024-11-27 22:30:05,013 - tracker - INFO - Received data from ('127.0.0.1', 61671): get_files
+2024-11-27 22:30:23,326 - tracker - INFO - New connection from ('127.0.0.1', 61678)
+2024-11-27 22:30:29,880 - tracker - INFO - Received data from ('127.0.0.1', 61678): login
+2024-11-27 22:30:30,924 - tracker - INFO - Received data from ('127.0.0.1', 61678): get_files
+2024-11-27 22:30:38,016 - tracker - INFO - Received data from ('127.0.0.1', 61678): fetch
+2024-11-27 22:31:30,702 - tracker - ERROR - Error handling peer ('127.0.0.1', 61678): [WinError 10054] An existing connection was forcibly closed by the remote host
+2024-11-27 22:31:47,057 - tracker - INFO - New connection from ('127.0.0.1', 61700)
+2024-11-27 22:32:01,232 - tracker - INFO - Received data from ('127.0.0.1', 61700): login
+2024-11-27 22:32:02,094 - tracker - INFO - Received data from ('127.0.0.1', 61700): get_files
+2024-11-27 22:32:03,828 - tracker - INFO - Received data from ('127.0.0.1', 61700): fetch
+2024-11-27 22:32:44,049 - tracker - INFO - Client ('127.0.0.1', 61700) disconnected
+2024-11-27 22:32:44,876 - tracker - INFO - Client ('127.0.0.1', 61671) disconnected
+2024-11-27 22:33:29,160 - tracker - INFO - New connection from ('127.0.0.1', 61725)
+2024-11-27 22:33:40,848 - tracker - INFO - New connection from ('127.0.0.1', 61728)
+2024-11-27 22:33:50,748 - tracker - INFO - Received data from ('127.0.0.1', 61725): login
+2024-11-27 22:33:52,093 - tracker - INFO - Received data from ('127.0.0.1', 61725): get_files
+2024-11-27 22:33:58,076 - tracker - INFO - Received data from ('127.0.0.1', 61725): publish
+2024-11-27 22:33:59,718 - tracker - INFO - Received data from ('127.0.0.1', 61725): get_files
+2024-11-27 22:34:07,582 - tracker - INFO - Received data from ('127.0.0.1', 61728): login
+2024-11-27 22:34:08,898 - tracker - INFO - Received data from ('127.0.0.1', 61728): get_files
+2024-11-27 22:34:11,844 - tracker - INFO - Received data from ('127.0.0.1', 61728): fetch
+2024-11-27 22:34:20,593 - tracker - INFO - Client ('127.0.0.1', 61728) disconnected
+2024-11-27 22:34:21,643 - tracker - INFO - Client ('127.0.0.1', 61725) disconnected

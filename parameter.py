@@ -8,44 +8,57 @@ import hashlib
 import struct
 import time
 import random
-from typing import Set, Dict
+from typing import Set, Dict, DefaultDict
+from collections import defaultdict
 import tkinter as tk
 from tkinter import messagebox, ttk
 from tkinter import filedialog
 import logging
 import json
 import shutil
-PORT_PEER = 5500
 
-PIECE_SIZE = 512 * 1024
-FORMAT = 'utf-8'
+# Network Constants
+PIECE_SIZE = 512 * 1024  # 512KB per piece
+BLOCK_SIZE = 16384       # 16KB per block
+MAX_CONNECTIONS = 5
+MAX_PENDING_REQUESTS = 10
+KEEP_ALIVE_INTERVAL = 120  # 2 minutes
 
+# Message Types - Authentication
 REGISTER = 'register'
 REGISTER_SUCCESS = 'register_success'
 REGISTER_FAIL = 'register_fail'
-
 LOGIN = 'login'
 LOGIN_SUCCESS = 'login_success'
 LOGIN_FAIL = 'login_fail'
-LOGIN_WRONG_PASSWORD = 'login_wrong_password'
-LOGIN_NOT_FOUND = 'login_not_found'
-
 LOGOUT = 'logout'
-LOGOUT_SUCCESS = 'logout_success'
 
+# Message Types - File Operations
 PUBLISH = 'publish'
 PUBLISH_SUCCESS = 'publish_success'
-PUBLISH_FAIL = 'publish_fail'
-
 FETCH = 'fetch'
 FETCH_SUCCESS = 'fetch_success'
-FETCH_FAIL = 'fetch_fail'
-
 GET_FILES = 'get_files'
 GET_FILES_SUCCESS = 'get_files_success'
-GET_FILES_FAIL = 'get_files_fail'
 
-GET_PIECE = 'get_piece'
-GET_PIECE_SUCCESS = 'get_piece_success'
-GET_PIECE_FAIL = 'get_piece_fail'
+# Message Types - Piece Transfer
+HANDSHAKE = 'handshake'
+BITFIELD = 'bitfield'
+REQUEST = 'request'
+PIECE = 'piece'
+HAVE = 'have'
+INTERESTED = 'interested'
+NOT_INTERESTED = 'not_interested'
+CHOKE = 'choke'
+UNCHOKE = 'unchoke'
+CANCEL = 'cancel'
 
+# Message Types - Piece Status
+UPDATE_BITFIELD = 'update_bitfield'
+PIECE_STATUS = 'piece_status'
+
+# Transfer States
+DOWNLOADING = 'downloading'
+UPLOADING = 'uploading'
+COMPLETED = 'completed'
+FAILED = 'failed'

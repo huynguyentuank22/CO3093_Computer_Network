@@ -89,3 +89,58 @@
 2024-11-26 23:48:51,057 - Received request from ('127.0.0.1', 55533): get_piece
 2024-11-26 23:48:51,057 - Sent piece 10 of D:/K22_KHMT_HCMUT/HK241/ComNet/Assignment1/CO3093_Computer_Network/repo_edith/Report (3).pdf to peer 2
 2024-11-26 23:51:00,232 - Peer activity log ended
+2024-11-27 09:52:44,074 - Connected with tracker server at localhost:5050
+2024-11-27 09:52:44,074 - Peer activity log started
+2024-11-27 09:52:44,074 - Peer initialized with IP: localhost and Port: 30431
+2024-11-27 09:52:45,604 - Listening for peer connections on localhost:30431
+2024-11-27 09:52:45,612 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-27 09:52:53,517 - Fetched peer list: [(1, 'localhost', 51099), (2, 'localhost', 48950)]
+2024-11-27 09:52:53,517 - Initiating download file name: Assignment 2 (2).pdf, file size: 2922842 bytes, number of pieces: 6
+2024-11-27 09:52:53,517 - Piece assignments: [((1, 'localhost', 51099), 0), ((2, 'localhost', 48950), 1), ((1, 'localhost', 51099), 2), ((2, 'localhost', 48950), 3), ((1, 'localhost', 51099), 4), ((2, 'localhost', 48950), 5)]
+2024-11-27 09:52:53,517 - Requesting piece 0 from localhost:51099
+2024-11-27 09:52:53,517 - Requesting piece 1 from localhost:48950
+2024-11-27 09:52:53,517 - Requesting piece 2 from localhost:51099
+2024-11-27 09:52:53,533 - Requesting piece 3 from localhost:48950
+2024-11-27 09:52:53,535 - Successfully downloaded piece 1 from peer_id 2 localhost:48950
+2024-11-27 09:52:53,536 - Successfully downloaded piece 0 from peer_id 1 localhost:51099
+2024-11-27 09:52:53,537 - Successfully downloaded piece 2 from peer_id 1 localhost:51099
+2024-11-27 09:52:53,537 - Successfully downloaded piece 3 from peer_id 2 localhost:48950
+2024-11-27 09:52:53,539 - Requesting piece 4 from localhost:51099
+2024-11-27 09:52:53,539 - Requesting piece 5 from localhost:48950
+2024-11-27 09:52:53,542 - Successfully downloaded piece 5 from peer_id 2 localhost:48950
+2024-11-27 09:52:53,542 - Successfully downloaded piece 4 from peer_id 1 localhost:51099
+2024-11-27 09:52:53,542 - File Assignment 2 (2).pdf saved successfully
+2024-11-27 10:04:42,025 - Peer activity log ended
+2024-11-27 11:43:24,697 - Connected with tracker server at localhost:5050
+2024-11-27 11:43:24,697 - Peer activity log started
+2024-11-27 11:43:24,697 - Peer initialized with IP: localhost and Port: 27422
+2024-11-27 11:43:25,463 - Listening for peer connections on localhost:27422
+2024-11-27 11:43:25,463 - Received list of available files from tracker: []
+2024-11-27 11:43:54,610 - Received list of available files from tracker: [{'filename': 'yoochoose-clicks.csv', 'size': 1519802169, 'info_hash': '7ea45db917af36bf6dd1a333b3b3255715df7d6c'}]
+2024-11-27 11:43:58,332 - Fetched peer list: [(1, 'localhost', 20719)]
+2024-11-27 11:43:58,332 - Initiating download file name: yoochoose-clicks.csv, file size: 1519802169 bytes, number of pieces: 2899
+2024-11-27 11:44:32,398 - Fetched peer list: [(1, 'localhost', 20719)]
+2024-11-27 11:44:32,398 - Initiating download file name: yoochoose-clicks.csv, file size: 1519802169 bytes, number of pieces: 2899
+2024-11-27 11:44:36,909 - Fetched peer list: [(1, 'localhost', 20719)]
+2024-11-27 11:44:36,909 - Initiating download file name: yoochoose-clicks.csv, file size: 1519802169 bytes, number of pieces: 2899
+2024-11-27 11:44:38,552 - Peer activity log ended
+2024-11-27 12:32:27,349 - Connected with tracker server at localhost:5050
+2024-11-27 12:32:27,349 - Peer activity log started
+2024-11-27 12:32:27,349 - Peer initialized with IP: localhost and Port: 27089
+2024-11-27 12:32:28,329 - Listening for peer connections on localhost:27089
+2024-11-27 12:32:28,331 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}, {'filename': 'peer.py', 'size': 24740, 'info_hash': 'f637a0e344eb17811ce4fd0a568cb179ea72984a'}]
+2024-11-27 12:32:33,630 - Fetched peer list: [(1, 'localhost', 31062), (2, 'localhost', 38586)]
+2024-11-27 12:32:33,630 - Initiating download file name: Assignment 2 (2).pdf, file size: 2922842 bytes, number of pieces: 6
+2024-11-27 12:33:10,005 - Fetched peer list: [(1, 'localhost', 31062), (2, 'localhost', 38586)]
+2024-11-27 12:33:10,005 - Initiating download file name: Assignment 2 (2).pdf, file size: 2922842 bytes, number of pieces: 6
+2024-11-27 12:33:13,363 - Fetched peer list: [(2, 'localhost', 38586)]
+2024-11-27 12:33:13,364 - Initiating download file name: peer.py, file size: 24740 bytes, number of pieces: 1
+2024-11-27 12:55:07,402 - Peer activity log ended
+2024-11-27 12:56:42,777 - Connected with tracker server at localhost:5050
+2024-11-27 12:56:42,777 - Peer activity log started
+2024-11-27 12:56:42,777 - Peer initialized with IP: localhost and Port: 24892
+2024-11-27 12:56:43,733 - Listening for peer connections on localhost:24892
+2024-11-27 12:56:43,735 - Received list of available files from tracker: [{'filename': 'Assignment 2 (2).pdf', 'size': 2922842, 'info_hash': 'f32270772a7108c568d44f87af0b882b50e730cd'}]
+2024-11-27 12:56:45,455 - Fetched peer list: [(1, 'localhost', 57737), (2, 'localhost', 57320)]
+2024-11-27 12:56:45,455 - Initiating download file name: Assignment 2 (2).pdf, file size: 2922842 bytes, number of pieces: 6
+2024-11-27 13:24:08,569 - Peer activity log ended
