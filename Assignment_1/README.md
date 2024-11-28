@@ -1,18 +1,11 @@
 # Assignment 1: P2P like-Torrent File Sharing Application
-This is our implementation of the first assignment of course Computer Network (CO3093) at HCMUT, VNU.
-
-## Team members
-
-- Nguyen Tuan Huy
-- Vo Hoang Huy
-- Nguyen Van Nhat Huy
 
 ## Getting the code
 
 You can download a copy of all the files in this repository by cloning the git repository:
 
     git clone https://github.com/huynguyentuank22/CO3093_Computer_Network
-    cd CO3093_Computer_Network/
+    cd CO3093_Computer_Network/Assignment_1
 
 ## Setup environment
 
@@ -37,8 +30,9 @@ For each peer, you need to open a new terminal and run:
 
 You can test the application with these accounts following:
 
-- Username: `huy`, Password: `1212!@!@`
-- Username: `yuh`, Password: `12!@`
-- Username: `123`, Password: `1234`
-
+| Username     | Password   |
+|:------------:|:----------:|
+| `huy`        | `1212!@!@` |
+| `yuh`        | `12!@`     |
+| `123`        | `1234`     |
 
