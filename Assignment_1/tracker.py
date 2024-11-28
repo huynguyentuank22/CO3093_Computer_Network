@@ -17,7 +17,7 @@ class Tracker:
         self.tracker_socket = None
         self.init_database()
         # info_hash -> {filename, size, peers}
-        self.files_info: Dict[str, Dict] = {} # info_hash -> {filename, size, peers: dict bitfield with peer id as key, num_pieces, pieces_point} }
+        self.files_info: Dict[str, Dict] = {} # info_hash -> {filename, size, peers, piece_info}
 
     def run(self, HOST='localhost', PORT=5050, MAX_CONNECTIONS=100):
         self.tracker_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

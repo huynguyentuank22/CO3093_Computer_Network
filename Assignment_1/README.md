@@ -39,6 +39,6 @@ You can test the application with these accounts following:
 
 - Username: `huy`, Password: `1212!@!@`
 - Username: `yuh`, Password: `12!@`
-- Username: `edith`, Password: `1212!@!@`
+- Username: `123`, Password: `1234`
 
 
