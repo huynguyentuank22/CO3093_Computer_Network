@@ -7,6 +7,6 @@ This is our implementation of the assignment of course Computer Network (CO3093)
 
 | No. | Full name                 | Student ID |
 | :-: | --------------------------| :--------: |
-| 1   | Nguyen Tuan Huy           | 2211298    |
-| 2   | Vo Hoang Huy              | 2211253    |
+| 1   | Nguyen Tuan Huy           | 2211253    |
+| 2   | Vo Hoang Huy              | 2211298    |
 | 3   | Nguyen Van Nhat Huy       | 2211254    |
