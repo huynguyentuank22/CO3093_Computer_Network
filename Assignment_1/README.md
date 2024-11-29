@@ -34,5 +34,5 @@ You can test the application with these accounts following:
 |:------------:|:----------:|
 | `huy`        | `1212!@!@` |
 | `yuh`        | `12!@`     |
-| `123`        | `1234`     |
-
+| `edith`      | `1212!@!@` |
+| `hhh`        | `1212!@!@` |
