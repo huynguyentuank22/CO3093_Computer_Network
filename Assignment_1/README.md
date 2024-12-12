@@ -5,7 +5,7 @@
 You can download a copy of all the files in this repository by cloning the git repository:
 
     git clone https://github.com/huynguyentuank22/CO3093_Computer_Network
-    cd CO3093_Computer_Network/Assignment_1
+    cd CO3093_Computer_Network/Assignment_1/src
 
 ## Setup environment
 
